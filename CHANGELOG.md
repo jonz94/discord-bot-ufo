@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.2.0...v1.3.0) (2024-03-10)
+
+### Features
+
+- add `fx` command for cleaning up Twitter url ([8bf6fdf](https://github.com/jonz94/discord-bot-ufo/commit/8bf6fdf0ab5f44dc19e142a45358abec1b8d8197))
+
+### Bug Fixes
+
+- use same error reply when parse YouTube url failed ([f8c6411](https://github.com/jonz94/discord-bot-ufo/commit/f8c641114f28af3443ce106830b5fb2479db1817))
+
 ## [1.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.1...v1.2.0) (2024-03-10)
 
 ### Features
