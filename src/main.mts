@@ -1,19 +1,22 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
 import { commands } from './commands/index.mjs'
 import { config } from './config.mjs'
+import {
+  Attempt,
+  calculateSortedFightersKey,
+  deleteFight,
+  deleteFightersKey,
+  getFight,
+  hasFight,
+  initializeDatabase,
+  setFight,
+} from './database.mjs'
 import { deployCommands } from './deploy-commands.mjs'
 import { emojis } from './emoji-list.mjs'
 import { servers } from './server-list.mjs'
-import { Attempt, Fight } from './types.mjs'
-import { calculateScore, getSortedKey, isDev, rollDice } from './utils.mjs'
+import { calculateScore, isDev, rollDice } from './utils.mjs'
 
-declare global {
-  var fights: Map<string, Fight>
-  var fightersKey: Set<any>
-}
-
-globalThis.fights = new Map()
-globalThis.fightersKey = new Set()
+initializeDatabase()
 
 const client = new Client({
   intents: [
@@ -55,9 +58,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
   const { commandName } = interaction
 
-  if (commands[commandName as keyof typeof commands]) {
+  if (commands[commandName]) {
     try {
-      await commands[commandName as keyof typeof commands].execute(interaction)
+      await commands[commandName].execute(interaction)
     } catch (error) {
       console.log(`error occurs when execute ${commandName} command`)
       console.log(error)
@@ -68,7 +71,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
   const targetMessageId = reaction.message.id
 
-  if (!globalThis.fights.has(targetMessageId)) {
+  if (!hasFight(targetMessageId)) {
     return
   }
 
@@ -76,7 +79,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     return
   }
 
-  const fight = globalThis.fights.get(targetMessageId)!
+  const fight = getFight(targetMessageId)!
   if (!fight.fighters.has(user.id)) {
     return
   }
@@ -118,7 +121,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
 
   // 其中一人尚未擲骰
   if (fight.author.finalScore === undefined || fight.opponent.finalScore === undefined) {
-    globalThis.fights.set(targetMessageId, fight)
+    setFight(targetMessageId, fight)
 
     return
   }
@@ -135,11 +138,11 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     await reaction.message.channel.send(`${fight.opponent.user} 獲勝`)
   }
 
-  globalThis.fights.delete(targetMessageId)
+  deleteFight(targetMessageId)
 
-  const sortedFightersKey = getSortedKey([fight.author.user.id, fight.opponent.user.id])
+  const sortedFightersKey = calculateSortedFightersKey([fight.author.user.id, fight.opponent.user.id])
 
-  globalThis.fightersKey.delete(sortedFightersKey)
+  deleteFightersKey(sortedFightersKey)
 })
 
 client.login(config.DISCORD_TOKEN)

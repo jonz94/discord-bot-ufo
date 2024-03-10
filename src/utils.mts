@@ -1,13 +1,7 @@
 import { randomInt } from 'node:crypto'
-import { Attempt } from './types.mjs'
+import { Attempt } from './database.mjs'
 
 export const isDev = process.env.NODE_ENV?.toLowerCase() === 'dev'
-
-export function getSortedKey(input: string[]) {
-  const clonedInput = structuredClone(input)
-  clonedInput.sort()
-  return clonedInput.join('+')
-}
 
 export function rollDice() {
   return randomInt(1, 7)

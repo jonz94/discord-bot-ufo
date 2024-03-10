@@ -1,7 +1,6 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
+import { Fight, addFightersKey, calculateSortedFightersKey, hasFightersKey, setFight } from '../database.mjs'
 import { emojis } from '../emoji-list.mjs'
-import { Fight } from '../types.mjs'
-import { getSortedKey } from '../utils.mjs'
 
 export const commandName = '輸贏'
 
@@ -52,9 +51,9 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const sortedFightersKey = getSortedKey(Object.values(Array.from(fighters)))
+  const sortedFightersKey = calculateSortedFightersKey(Object.values(Array.from(fighters)))
 
-  if (globalThis.fightersKey.has(sortedFightersKey)) {
+  if (hasFightersKey(sortedFightersKey)) {
     await interaction.reply({
       content: '上次輸贏還沒結束欸',
       ephemeral: true,
@@ -63,7 +62,7 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  globalThis.fightersKey.add(sortedFightersKey)
+  addFightersKey(sortedFightersKey)
 
   const message = await interaction.channel?.send({
     content: [author, '向', opponent, '下了戰帖', emojis.白眼海豚笑].join(' '),
@@ -78,14 +77,14 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const fights = {
+  const fight = {
     id: message.id,
     fighters,
     author: { user: author, attempts: [] },
     opponent: { user: opponent, attempts: [] },
   } satisfies Fight
 
-  globalThis.fights.set(message.id, fights)
+  setFight(message.id, fight)
 
   await interaction.reply({
     content: ['已經向', opponent, '發出戰帖'].join(' '),
