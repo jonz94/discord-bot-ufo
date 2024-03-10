@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.0...v1.1.1) (2024-03-10)
+
+### Bug Fixes
+
+- resolve score not correct issue ([c27b812](https://github.com/jonz94/discord-bot-ufo/commit/c27b8120a2e553cb37f69d34bc4120dbe26cc177))
+
 ## 1.1.0 (2024-03-10)
 
 ### Features
