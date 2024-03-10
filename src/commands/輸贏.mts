@@ -1,7 +1,7 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
-import { emojis } from '../emoji-list'
-import { Fight } from '../types'
-import { getSortedKey } from '../utils'
+import { emojis } from '../emoji-list.mjs'
+import { Fight } from '../types.mjs'
+import { getSortedKey } from '../utils.mjs'
 
 export const data = new SlashCommandBuilder()
   .setName('輸贏')

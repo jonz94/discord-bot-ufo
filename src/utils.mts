@@ -1,5 +1,5 @@
 import { randomInt } from 'node:crypto'
-import { Attempt } from './types'
+import { Attempt } from './types.mjs'
 
 export function getSortedKey(input: string[]) {
   const clonedInput = structuredClone(input)

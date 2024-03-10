@@ -1,11 +1,11 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
-import { commands } from './commands'
-import { config } from './config'
-import { deployCommands } from './deploy-commands'
-import { emojis } from './emoji-list'
-import { servers } from './server-list'
-import { Attempt, Fight } from './types'
-import { calculateScore, getSortedKey, rollDice } from './utils'
+import { commands } from './commands/index.mjs'
+import { config } from './config.mjs'
+import { deployCommands } from './deploy-commands.mjs'
+import { emojis } from './emoji-list.mjs'
+import { servers } from './server-list.mjs'
+import { Attempt, Fight } from './types.mjs'
+import { calculateScore, getSortedKey, rollDice } from './utils.mjs'
 
 declare global {
   var fights: Map<string, Fight>
