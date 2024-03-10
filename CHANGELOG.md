@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.1...v1.2.0) (2024-03-10)
+
+### Features
+
+- allowing the development bot to be in multiple Discord servers ([c0fac50](https://github.com/jonz94/discord-bot-ufo/commit/c0fac505db96e7a5dcadcb75fb3ea2f5b572980b))
+- show server name and guild id when deploy commands ([1d5fa34](https://github.com/jonz94/discord-bot-ufo/commit/1d5fa3456b28a38f320c524fae5e398a990e4728))
+
+### Bug Fixes
+
+- resolve typescript issue ([e890d40](https://github.com/jonz94/discord-bot-ufo/commit/e890d4087b575b29d77938d0bc8bf8fb32c51a6b))
+
 ## [1.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.0...v1.1.1) (2024-03-10)
 
 ### Bug Fixes
