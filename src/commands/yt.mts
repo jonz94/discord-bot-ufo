@@ -72,7 +72,7 @@ export async function execute(interaction: CommandInteraction) {
 
   if (!videoId) {
     await interaction.reply({
-      content: `無法解析此 YouTube 網址 (${originalUrl})`,
+      content: ['無法解析此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
       ephemeral: true,
     })
 
