@@ -5,7 +5,7 @@ import { deployCommands } from './deploy-commands.mjs'
 import { emojis } from './emoji-list.mjs'
 import { servers } from './server-list.mjs'
 import { Attempt, Fight } from './types.mjs'
-import { calculateScore, getSortedKey, rollDice } from './utils.mjs'
+import { calculateScore, getSortedKey, isDev, rollDice } from './utils.mjs'
 
 declare global {
   var fights: Map<string, Fight>
@@ -29,8 +29,6 @@ const client = new Client({
 
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
-
-  const isDev = process.env.NODE_ENV === 'dev'
 
   // 開發環境下，只在「幽浮小屋」伺服器進行測試
   if (isDev) {

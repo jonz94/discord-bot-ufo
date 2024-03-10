@@ -1,6 +1,8 @@
 import { randomInt } from 'node:crypto'
 import { Attempt } from './types.mjs'
 
+export const isDev = process.env.NODE_ENV?.toLowerCase() === 'dev'
+
 export function getSortedKey(input: string[]) {
   const clonedInput = structuredClone(input)
   clonedInput.sort()

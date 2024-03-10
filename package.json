@@ -12,9 +12,10 @@
     "build": "pnpm run clean && tsup src/main.mts --minify",
     "build-copy": "pnpm run build && cpy .env dist/",
     "clean": "rimraf dist",
-    "dev": "cross-env NODE_ENV=dev tsx watch src/main.mts",
+    "dev": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
     "fmt": "prettier --write .",
-    "start": "node dist/main.cjs"
+    "start": "node dist/main.cjs",
+    "start:dev": "cross-env NODE_ENV=DEV node dist/main.cjs"
   },
   "dependencies": {
     "discord.js": "^14.14.1",
