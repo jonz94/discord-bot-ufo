@@ -35,13 +35,17 @@ client.once(Events.ClientReady, async (readyClient) => {
 
   // 開發環境下，只在「幽浮小屋」伺服器進行測試
   if (isDev) {
-    await deployCommands({ guildId: servers.幽浮小屋 })
+    servers
+      .filter((server) => server.name === '幽浮小屋')
+      .forEach(async (server) => {
+        await deployCommands(server)
+      })
 
     return
   }
 
-  Object.values(servers).forEach(async (guildId) => {
-    await deployCommands({ guildId })
+  servers.forEach(async (server) => {
+    await deployCommands(server)
   })
 })
 
