@@ -13,6 +13,7 @@
     "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
     "fmt": "prettier --write .",
+    "release": "commit-and-tag-version",
     "start": "node dist/main.cjs",
     "start:dev": "cross-env NODE_ENV=DEV node dist/main.cjs"
   },
@@ -21,6 +22,7 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
+    "commit-and-tag-version": "^12.2.0",
     "cross-env": "^7.0.3",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
