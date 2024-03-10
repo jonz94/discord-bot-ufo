@@ -3,8 +3,10 @@ import { emojis } from '../emoji-list.mjs'
 import { Fight } from '../types.mjs'
 import { getSortedKey } from '../utils.mjs'
 
+export const commandName = '輸贏'
+
 export const data = new SlashCommandBuilder()
-  .setName('輸贏')
+  .setName(commandName)
   .setDescription('找人輸贏')
   .addUserOption((option) => option.setName('對手').setDescription('找誰輸贏').setRequired(true))
 

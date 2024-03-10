@@ -1,7 +1,6 @@
+import * as fight from './fight.mjs'
 import * as yt from './yt.mjs'
-import * as 輸贏 from './輸贏.mjs'
 
-export const commands = {
-  yt,
-  輸贏,
-}
+const commandsEntries = [fight, yt].map((command) => [command.commandName, command])
+
+export const commands = Object.fromEntries(commandsEntries)

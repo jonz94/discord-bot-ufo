@@ -1,7 +1,9 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder, codeBlock } from 'discord.js'
 
+export const commandName = 'yt'
+
 export const data = new SlashCommandBuilder()
-  .setName('yt')
+  .setName(commandName)
   .setDescription('YouTube 網址格式小幫手')
   .addStringOption((option) => option.setName('網址').setDescription('YouTube 網址').setRequired(true))
   .addStringOption((option) =>
