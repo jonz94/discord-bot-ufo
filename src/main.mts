@@ -33,10 +33,10 @@ const client = new Client({
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
 
-  // 開發環境下，只在「幽浮小屋」伺服器進行測試
+  // 開發環境下，允許 allowDev 為 true 的伺服器進行測試
   if (isDev) {
     servers
-      .filter((server) => server.name === '幽浮小屋')
+      .filter((server) => server.allowDev)
       .forEach(async (server) => {
         await deployCommands(server)
       })
