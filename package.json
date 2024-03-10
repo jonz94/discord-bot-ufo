@@ -11,7 +11,7 @@
     "build": "pnpm run clean && tsup src/main.ts --minify",
     "build-copy": "pnpm run build && cpy .env dist/",
     "clean": "rimraf dist",
-    "dev": "tsx watch src/main.ts",
+    "dev": "cross-env NODE_ENV=dev tsx watch src/main.ts",
     "fmt": "prettier --write .",
     "start": "node dist/main.js"
   },
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "cpy-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.4.12",

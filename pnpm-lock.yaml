@@ -16,6 +16,9 @@ devDependencies:
   cpy-cli:
     specifier: ^5.0.0
     version: 5.0.0
+  cross-env:
+    specifier: ^7.0.3
+    version: 7.0.3
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -695,6 +698,14 @@ packages:
       nested-error-stacks: 2.1.1
       p-filter: 3.0.0
       p-map: 6.0.0
+    dev: true
+
+  /cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn@7.0.3:

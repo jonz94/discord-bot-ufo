@@ -30,6 +30,15 @@ const client = new Client({
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
 
+  const isDev = process.env.NODE_ENV === 'dev'
+
+  // 開發環境下，只在「幽浮小屋」伺服器進行測試
+  if (isDev) {
+    await deployCommands({ guildId: servers.幽浮小屋 })
+
+    return
+  }
+
   Object.values(servers).forEach(async (guildId) => {
     await deployCommands({ guildId })
   })
