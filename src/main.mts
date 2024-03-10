@@ -109,7 +109,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
   } else if (score === 3) {
     await reaction.message.channel.send(`${user} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`)
   } else if (score >= 100) {
-    await reaction.message.channel.send(`${user} 得分是 ${score}，豹子 ${emojis.貓咪wow}`)
+    await reaction.message.channel.send(`${user} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`)
   } else {
     await reaction.message.channel.send(`${user} 得分是 ${score}`)
   }
