@@ -64,9 +64,18 @@ export async function execute(interaction: CommandInteraction) {
 
   addFightersKey(sortedFightersKey)
 
-  const message = await interaction.channel?.send({
-    content: [author, '向', opponent, '下了戰帖', emojis.白眼海豚笑].join(' '),
-  })
+  // 發送戰帖訊息
+  const message = await (async function sendMessage() {
+    try {
+      return await interaction.channel?.send({
+        content: [author, '向', opponent, '下了戰帖', emojis.白眼海豚笑].join(' '),
+      })
+    } catch (error) {
+      console.log(error)
+
+      return null
+    }
+  })()
 
   if (!message) {
     await interaction.reply({
@@ -91,5 +100,6 @@ export async function execute(interaction: CommandInteraction) {
     ephemeral: true,
   })
 
-  await message?.react(emojis.貓咪拿槍)
+  // 對戰帖訊息按反應
+  await message.react(emojis.貓咪拿槍)
 }

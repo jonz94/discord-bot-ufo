@@ -1,4 +1,4 @@
-import { ChannelType, CommandInteraction, SlashCommandBuilder, codeBlock } from 'discord.js'
+import { CommandInteraction, SlashCommandBuilder, codeBlock } from 'discord.js'
 
 export const commandName = 'fx'
 
@@ -8,16 +8,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption((option) => option.setName('網址').setDescription('Twitter/X 網址').setRequired(true))
 
 export async function execute(interaction: CommandInteraction) {
-  if (interaction.channel?.type === ChannelType.GuildVoice) {
-    await interaction.reply({
-      content: '無法在語音頻道運作，請轉移陣地到一般的文字頻道，拍謝QQ',
-      ephemeral: true,
-    })
-
-    return
-  }
-
-  const originalUrl = ((interaction.options as any)?.getString('網址') ?? '') as string
+  const originalUrl = String(interaction.options.get('網址')?.value ?? '')
 
   if (!originalUrl) {
     await interaction.reply({
