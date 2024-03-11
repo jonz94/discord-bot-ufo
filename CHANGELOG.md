@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.0...v1.5.1) (2024-03-11)
+
+### Bug Fixes
+
+-   correct docker tag name ([44988c6](https://github.com/jonz94/discord-bot-ufo/commit/44988c6e0a4bdcb0668e1e171f359a2d27f74f4b))
+
 ## [1.5.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.4.0...v1.5.0) (2024-03-11)
 
 ### Features
