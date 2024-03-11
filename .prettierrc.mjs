@@ -5,6 +5,15 @@ const config = {
   printWidth: 120,
 
   plugins: ['prettier-plugin-packagejson', 'prettier-plugin-organize-imports'],
+
+  overrides: [
+    {
+      files: 'tsconfig.json',
+      options: {
+        parser: 'jsonc',
+      },
+    },
+  ],
 }
 
 export default config
