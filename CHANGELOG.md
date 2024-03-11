@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.3.0...v1.3.1) (2024-03-11)
+
 ## [1.3.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.2.0...v1.3.0) (2024-03-10)
 
 ### Features
