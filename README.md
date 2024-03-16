@@ -29,14 +29,10 @@ Install all dependencies:
 pnpm i
 ```
 
-Setup `.env` and `.env.dev`:
+Edit `.env` and `.env.dev` environment files respectively
 
-```shell
-cp .env.example .env
-cp .env.example .env.dev
-
-# then config these two environment files respectively
-```
+- `.env` is for production environment
+- `.env.dev` is for development environment
 
 Launch the development BOT locally (using `.env.dev` configuration):
 

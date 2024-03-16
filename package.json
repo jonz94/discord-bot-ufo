@@ -13,6 +13,7 @@
     "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
     "fmt": "prettier --write .",
+    "postinstall": "tsx scripts/initialize-env-files.mts",
     "release": "commit-and-tag-version",
     "start": "node dist/main.cjs",
     "start:dev": "cross-env NODE_ENV=DEV node dist/main.cjs",
