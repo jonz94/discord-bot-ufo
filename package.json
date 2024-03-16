@@ -11,6 +11,10 @@
   "scripts": {
     "build": "pnpm run clean && tsup src/main.mts --minify",
     "clean": "rimraf dist",
+    "db": "drizzle-kit",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:migrate": "tsx migrate.mts",
+    "db:studio": "drizzle-kit studio",
     "dev": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
     "fmt": "prettier --write .",
     "postinstall": "tsx scripts/initialize-env-files.mts",
@@ -20,12 +24,16 @@
     "test": "vitest"
   },
   "dependencies": {
+    "better-sqlite3": "^9.4.3",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.2"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
     "commit-and-tag-version": "^12.2.0",
     "cross-env": "^7.0.3",
+    "drizzle-kit": "^0.20.14",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.4.12",
