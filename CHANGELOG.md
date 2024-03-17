@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.1...v1.6.2) (2024-03-17)
+
+### Bug Fixes
+
+-   make docker image work ([bc4f152](https://github.com/jonz94/discord-bot-ufo/commit/bc4f152fe15eb142335f69ada254a4b2bb963ace))
+
 ## [1.6.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.0...v1.6.1) (2024-03-17)
 
 ### Bug Fixes
