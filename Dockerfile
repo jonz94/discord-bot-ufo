@@ -8,7 +8,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN pnpm i
+# `--ignore-scripts` is for ignoring the postinstall scripts
+RUN pnpm i --ignore-scripts
+
 RUN pnpm run build
 
 FROM node:20.11.1-alpine3.19
@@ -23,6 +25,7 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json .
 COPY --from=builder /app/pnpm-lock.yaml .
 
-RUN pnpm i --prod
+# `--ignore-scripts` is for ignoring the postinstall scripts
+RUN pnpm i --prod --ignore-scripts
 
 CMD ["pnpm", "start"]
