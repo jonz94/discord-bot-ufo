@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.1...v1.6.0) (2024-03-17)
+
+### Features
+
+-   put server list data into database ([7ea0c77](https://github.com/jonz94/discord-bot-ufo/commit/7ea0c7790f6c1cbd93520f805f25aa49bbcc9f73))
+-   setup `drizzle-orm` and `drizzle-kit` ([acc818d](https://github.com/jonz94/discord-bot-ufo/commit/acc818d5c4e696f344530cb7f3379643e7f99516))
+-   programmatically setup environment files ([77b34e1](https://github.com/jonz94/discord-bot-ufo/commit/77b34e1b8c8efb726b6b736811db46556f54bd23))
+
 ## [1.5.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.0...v1.5.1) (2024-03-11)
 
 ### Bug Fixes
