@@ -1,24 +1,12 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
 import { eq } from 'drizzle-orm'
 import { db } from '../db/db.mjs'
-import { servers } from '../db/schema.mjs'
+import { attempts, games, servers } from '../db/schema.mjs'
 import { commands } from './commands/index.mjs'
 import { config } from './config.mjs'
-import {
-  Attempt,
-  calculateSortedFightersKey,
-  deleteFight,
-  deleteFightersKey,
-  getFight,
-  hasFight,
-  initializeDatabase,
-  setFight,
-} from './database.mjs'
 import { deployCommands } from './deploy-commands.mjs'
 import { emojis } from './emoji-list.mjs'
 import { calculateScore, isDev, rollDice } from './utils.mjs'
-
-initializeDatabase()
 
 const client = new Client({
   intents: [
@@ -75,7 +63,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
   const targetMessageId = reaction.message.id
 
-  if (!hasFight(targetMessageId)) {
+  const game = await db.query.games.findFirst({ where: eq(games.messageId, targetMessageId) })
+
+  if (!game) {
     return
   }
 
@@ -83,33 +73,47 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     return
   }
 
-  const fight = getFight(targetMessageId)!
-  if (!fight.fighters.has(user.id)) {
+  if (![game.authorId, game.opponentId].includes(user.id)) {
     return
   }
 
-  const key = (function getFighterKey() {
-    if (fight.author.user.id === user.id) {
-      return 'author' as const
+  const key = (function getGameKey() {
+    if (game.authorId === user.id) {
+      return 'authorScore' as const
     }
-    return 'opponent' as const
+    return 'opponentScore' as const
   })()
 
-  if (fight[key].finalScore) {
-    // 已經骰出分數了，不做任何事
+  // 已經骰出分數了，不做任何事
+  if (game[key] !== null) {
+    console.log({ gameId: game.id }, '已經骰出分數了，不做任何事')
     return
   }
 
   // 沒點數則重骰，最多骰三次
   let score = 0
+  let round = 0
   do {
-    const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] satisfies Attempt
+    const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
 
     await reaction.message.channel.send(`${user} 骰出了 ${attempt.join(', ')}`)
     score = calculateScore(attempt)
 
-    fight[key].attempts.push(attempt)
-  } while (score <= 0 && fight[key].attempts.length <= 2)
+    score = 0
+
+    await db.insert(attempts).values({
+      userId: user.id,
+      gameId: game.id,
+      dice1: attempt[0],
+      dice2: attempt[1],
+      dice3: attempt[2],
+      dice4: attempt[3],
+      round,
+      score,
+    })
+
+    round = round + 1
+  } while (score <= 0 && round <= 2)
 
   if (score === 0) {
     await reaction.message.channel.send(`${user} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`)
@@ -121,32 +125,49 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     await reaction.message.channel.send(`${user} 得分是 ${score}`)
   }
 
-  fight[key].finalScore = score
+  const updatedGames = await (async function updateGame() {
+    try {
+      return await db
+        .update(games)
+        .set({ [key]: score })
+        .where(eq(games.messageId, targetMessageId))
+        .returning()
+    } catch (error) {
+      console.log({ gameId: game.id }, '資料庫更新 game 資料時發生錯誤')
+      console.log(error)
+      return null
+    }
+  })()
 
   // 其中一人尚未擲骰
-  if (fight.author.finalScore === undefined || fight.opponent.finalScore === undefined) {
-    setFight(targetMessageId, fight)
-
+  if (
+    updatedGames === null ||
+    updatedGames.filter((game) => game.authorScore === null || game.opponentScore === null).length >= 1
+  ) {
+    console.log({ gameId: game.id }, '其中一人尚未擲骰')
     return
   }
 
-  await reaction.message.channel.send(
-    `分出勝負，${fight.author.user} 骰出了 ${fight.author.finalScore}，${fight.opponent.user} 骰出了 ${fight.opponent.finalScore}`,
-  )
+  const finalGame = updatedGames.at(0)
 
-  if (fight.author.finalScore === fight.opponent.finalScore) {
-    await reaction.message.channel.send('雙方平手')
-  } else if (fight.author.finalScore > fight.opponent.finalScore) {
-    await reaction.message.channel.send(`${fight.author.user} 獲勝`)
-  } else {
-    await reaction.message.channel.send(`${fight.opponent.user} 獲勝`)
+  if (!finalGame || !finalGame.authorScore || !finalGame.opponentScore) {
+    console.log({ gameId: game.id }, '其中一人尚未擲骰')
+    return
   }
 
-  deleteFight(targetMessageId)
+  const author = await client.users.fetch(finalGame.authorId)
+  const opponent = await client.users.fetch(finalGame.opponentId)
+  const { authorScore, opponentScore } = finalGame
 
-  const sortedFightersKey = calculateSortedFightersKey([fight.author.user.id, fight.opponent.user.id])
+  await reaction.message.channel.send(`分出勝負，${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`)
 
-  deleteFightersKey(sortedFightersKey)
+  if (authorScore === opponentScore) {
+    await reaction.message.channel.send('雙方平手')
+  } else if (authorScore > opponentScore) {
+    await reaction.message.channel.send(`${author} 獲勝`)
+  } else {
+    await reaction.message.channel.send(`${opponent} 獲勝`)
+  }
 })
 
 client.login(config.DISCORD_TOKEN)

@@ -1,5 +1,4 @@
 import { randomInt } from 'node:crypto'
-import { Attempt } from './database.mjs'
 
 export const isDev = process.env.NODE_ENV?.toLowerCase() === 'dev'
 
@@ -7,7 +6,7 @@ export function rollDice() {
   return randomInt(1, 7)
 }
 
-export function calculateScore(input: Attempt) {
+export function calculateScore(input: readonly [number, number, number, number]) {
   const numberOfUniqueElement = new Set(input).size
 
   switch (numberOfUniqueElement) {

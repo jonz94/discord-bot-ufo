@@ -1,5 +1,7 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
-import { Fight, addFightersKey, calculateSortedFightersKey, hasFightersKey, setFight } from '../database.mjs'
+import { and, eq, isNull, or } from 'drizzle-orm'
+import { db } from '../../db/db.mjs'
+import { games } from '../../db/schema.mjs'
 import { emojis } from '../emoji-list.mjs'
 
 export const commandName = '輸贏'
@@ -10,6 +12,16 @@ export const data = new SlashCommandBuilder()
   .addUserOption((option) => option.setName('對手').setDescription('找誰輸贏').setRequired(true))
 
 export async function execute(interaction: CommandInteraction) {
+  const guildId = interaction.guildId
+  if (!guildId) {
+    await interaction.reply({
+      content: '發生異常，無法取得 Discord 伺服器的相關資訊',
+      ephemeral: true,
+    })
+
+    return
+  }
+
   if (interaction.channel?.type === ChannelType.GuildVoice) {
     await interaction.reply({
       content: '無法在語音頻道與人輸贏，請轉移陣地到一般的文字頻道，拍謝QQ',
@@ -40,9 +52,8 @@ export async function execute(interaction: CommandInteraction) {
   }
 
   const author = interaction.user
-  const fighters = new Set([author.id, opponent.id])
 
-  if (fighters.size <= 1) {
+  if (author.id === opponent.id) {
     await interaction.reply({
       content: '你是要跟自己輸贏嗎？笑死',
       ephemeral: true,
@@ -51,9 +62,20 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const sortedFightersKey = calculateSortedFightersKey(Object.values(Array.from(fighters)))
+  const game = await db.query.games.findFirst({
+    where: and(
+      eq(games.guildId, guildId),
+      or(
+        eq(games.authorId, author.id),
+        eq(games.authorId, opponent.id),
+        eq(games.opponentId, author.id),
+        eq(games.opponentId, opponent.id),
+      ),
+      or(isNull(games.authorScore), isNull(games.opponentScore)),
+    ),
+  })
 
-  if (hasFightersKey(sortedFightersKey)) {
+  if (game) {
     await interaction.reply({
       content: '上次輸贏還沒結束欸',
       ephemeral: true,
@@ -61,8 +83,6 @@ export async function execute(interaction: CommandInteraction) {
 
     return
   }
-
-  addFightersKey(sortedFightersKey)
 
   // 發送戰帖訊息
   const message = await (async function sendMessage() {
@@ -86,14 +106,17 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const fight = {
-    id: message.id,
-    fighters,
-    author: { user: author, attempts: [] },
-    opponent: { user: opponent, attempts: [] },
-  } satisfies Fight
-
-  setFight(message.id, fight)
+  try {
+    await db.insert(games).values({
+      guildId,
+      messageId: message.id,
+      authorId: author.id,
+      opponentId: opponent.id,
+    })
+  } catch (error) {
+    console.log({ messageId: message.id }, '資料庫新增 game 時發生錯誤')
+    console.log(error)
+  }
 
   await interaction.reply({
     content: ['已經向', opponent, '發出戰帖'].join(' '),
