@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "pnpm run clean && tsup src/main.mts --minify",
+    "build": "tsup",
     "clean": "rimraf dist",
     "db": "drizzle-kit",
     "db:generate": "drizzle-kit generate:sqlite",
@@ -19,8 +19,8 @@
     "fmt": "prettier --write .",
     "postinstall": "tsx scripts/initialize-env-files.mts",
     "release": "commit-and-tag-version",
-    "start": "node dist/main.cjs",
-    "start:dev": "cross-env NODE_ENV=DEV node dist/main.cjs",
+    "start": "node dist/main.js",
+    "start:dev": "cross-env NODE_ENV=DEV node dist/main.js",
     "test": "vitest"
   },
   "dependencies": {
