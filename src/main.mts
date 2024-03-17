@@ -99,8 +99,6 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     await reaction.message.channel.send(`${user} 骰出了 ${attempt.join(', ')}`)
     score = calculateScore(attempt)
 
-    score = 0
-
     await db.insert(attempts).values({
       userId: user.id,
       gameId: game.id,
