@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.0.0...v2.1.0) (2024-03-17)
+
+### Features
+
+-   改善對戰結果顯示方式 ([d136d0f](https://github.com/jonz94/discord-bot-ufo/commit/d136d0f2a77565d5050b6a02ee53f5beafe2a194))
+-   增加對戰提示訊息 ([277026f](https://github.com/jonz94/discord-bot-ufo/commit/277026f2fa86fc38e285e183b79cb4faf250ab4f))
+
 ## [2.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.2...v2.0.0) (2024-03-17)
 
 ### Bug Fixes
