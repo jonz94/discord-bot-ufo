@@ -66,6 +66,18 @@ pnpm run release
 git push --follow-tags
 ```
 
+## Production
+
+Using the following `docker run` command:
+
+```shell
+docker run --name="discord-bot-ufo" -d \
+  --restart=unless-stopped \
+  -v "$(pwd)/.env:/app/.env" \
+  -v "$(pwd)/database.sqlite:/app/database.sqlite" \
+  jonz94/discord-bot-ufo
+```
+
 ## License
 
 See [LICENSE](https://github.com/jonz94/discord-bot-ufo/blob/main/LICENSE).
