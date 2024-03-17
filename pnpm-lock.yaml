@@ -40,9 +40,6 @@ devDependencies:
   prettier-plugin-packagejson:
     specifier: ^2.4.12
     version: 2.4.12(prettier@3.2.5)
-  rimraf:
-    specifier: ^5.0.5
-    version: 5.0.5
   tsup:
     specifier: ^8.0.2
     version: 8.0.2(typescript@5.4.2)
@@ -3336,14 +3333,6 @@ packages:
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
-    dev: true
-
-  /rimraf@5.0.5:
-    resolution: {integrity: sha512-CqDakW+hMe/Bz202FPEymy68P+G50RfMQK+Qo5YUqc9SPipvbGjCGKd0RSKEelbsfQuw3g5NZDSrlZZAJurH1A==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dependencies:
-      glob: 10.3.10
     dev: true
 
   /rollup@4.13.0:
