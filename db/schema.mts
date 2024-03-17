@@ -6,3 +6,5 @@ export const servers = sqliteTable('servers', {
   guildId: text('guild_id').notNull(),
   allowDev: integer('allow_dev', { mode: 'boolean' }).notNull(),
 })
+
+export type SelectServer = typeof servers.$inferSelect

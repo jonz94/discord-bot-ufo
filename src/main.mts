@@ -1,4 +1,7 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
+import { eq } from 'drizzle-orm'
+import { db } from '../db/db.mjs'
+import { servers } from '../db/schema.mjs'
 import { commands } from './commands/index.mjs'
 import { config } from './config.mjs'
 import {
@@ -13,7 +16,6 @@ import {
 } from './database.mjs'
 import { deployCommands } from './deploy-commands.mjs'
 import { emojis } from './emoji-list.mjs'
-import { servers } from './server-list.mjs'
 import { calculateScore, isDev, rollDice } from './utils.mjs'
 
 initializeDatabase()
@@ -35,16 +37,14 @@ client.once(Events.ClientReady, async (readyClient) => {
 
   // 開發環境下，允許 allowDev 為 true 的伺服器進行測試
   if (isDev) {
-    servers
-      .filter((server) => server.allowDev)
-      .forEach(async (server) => {
-        await deployCommands(server)
-      })
+    ;(await db.select().from(servers).where(eq(servers.allowDev, true))).forEach(async (server) => {
+      await deployCommands(server)
+    })
 
     return
   }
 
-  servers.forEach(async (server) => {
+  ;(await db.select().from(servers)).forEach(async (server) => {
     await deployCommands(server)
   })
 })
