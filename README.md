@@ -29,7 +29,13 @@ Install all dependencies:
 pnpm i
 ```
 
-Edit `.env` and `.env.dev` environment files respectively
+Setup `.env` and `.env.dev`:
+
+```shell
+pnpm run setup
+```
+
+Then, edit `.env` and `.env.dev` environment files respectively
 
 - `.env` is for production environment
 - `.env.dev` is for development environment
