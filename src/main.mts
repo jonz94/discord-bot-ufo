@@ -164,15 +164,21 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
   const opponent = await client.users.fetch(finalGame.opponentId)
   const { authorScore, opponentScore } = finalGame
 
-  await reaction.message.channel.send(`分出勝負，${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`)
+  const finalMessage = (function getFinalMessage() {
+    let message = `分出勝負，${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
 
-  if (authorScore === opponentScore) {
-    await reaction.message.channel.send('雙方平手')
-  } else if (authorScore > opponentScore) {
-    await reaction.message.channel.send(`${author} 獲勝`)
-  } else {
-    await reaction.message.channel.send(`${opponent} 獲勝`)
-  }
+    if (authorScore === opponentScore) {
+      message = message + '\n' + '雙方平手'
+    } else if (authorScore > opponentScore) {
+      message = message + '\n' + `${author} 獲勝`
+    } else {
+      message = message + '\n' + `${opponent} 獲勝`
+    }
+
+    return message
+  })()
+
+  await reaction.message.channel.send(finalMessage)
 })
 
 client.login(config.DISCORD_TOKEN)
