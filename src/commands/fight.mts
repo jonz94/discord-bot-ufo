@@ -88,7 +88,16 @@ export async function execute(interaction: CommandInteraction) {
   const message = await (async function sendMessage() {
     try {
       return await interaction.channel?.send({
-        content: [author, '向', opponent, '下了戰帖', emojis.白眼海豚笑].join(' '),
+        content: [
+          author,
+          '向',
+          opponent,
+          '下了戰帖',
+          emojis.白眼海豚笑,
+          '（點擊訊息的',
+          emojis.貓咪拿槍,
+          '表情符號，即可開始對戰）',
+        ].join(' '),
       })
     } catch (error) {
       console.log(error)
