@@ -1,21 +1,19 @@
 import { sql } from 'drizzle-orm'
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export const servers = sqliteTable('servers', {
-  id: integer('id').primaryKey(),
+export const guilds = sqliteTable('guilds', {
+  id: text('id').notNull().primaryKey(),
   name: text('name').notNull(),
-  guildId: text('guild_id').notNull(),
   allowDev: integer('allow_dev', { mode: 'boolean' }).notNull(),
 })
 
-export type SelectServer = typeof servers.$inferSelect
+export type SelectGuild = typeof guilds.$inferSelect
 
 export const games = sqliteTable('games', {
-  id: integer('id').primaryKey(),
+  id: text('id').primaryKey(),
   guildId: text('guild_id')
-    .references(() => servers.guildId)
+    .references(() => guilds.id)
     .notNull(),
-  messageId: text('message_id').unique(),
   authorId: text('author_id').notNull(),
   opponentId: text('opponent_id').notNull(),
   authorScore: integer('author_score'),
@@ -25,7 +23,7 @@ export const games = sqliteTable('games', {
 
 export const attempts = sqliteTable('attempts', {
   id: integer('id').primaryKey(),
-  gameId: integer('game_id')
+  gameId: text('game_id')
     .references(() => games.id)
     .notNull(),
   userId: text('user_id').notNull(),

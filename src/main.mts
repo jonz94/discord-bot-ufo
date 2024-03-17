@@ -1,7 +1,7 @@
-import { Client, Events, GatewayIntentBits } from 'discord.js'
+import { Client, Events, GatewayIntentBits, Partials } from 'discord.js'
 import { eq } from 'drizzle-orm'
 import { db } from '../db/db.mjs'
-import { attempts, games, servers } from '../db/schema.mjs'
+import { attempts, games, guilds } from '../db/schema.mjs'
 import { commands } from './commands/index.mjs'
 import { config } from './config.mjs'
 import { deployCommands } from './deploy-commands.mjs'
@@ -18,23 +18,19 @@ const client = new Client({
     // for reactions
     GatewayIntentBits.GuildMessageReactions,
   ],
+
+  partials: [Partials.Message, Partials.Channel, Partials.Reaction],
 })
 
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
 
   // 開發環境下，允許 allowDev 為 true 的伺服器進行測試
-  if (isDev) {
-    ;(await db.select().from(servers).where(eq(servers.allowDev, true))).forEach(async (server) => {
-      await deployCommands(server)
-    })
-
-    return
-  }
-
-  ;(await db.select().from(servers)).forEach(async (server) => {
-    await deployCommands(server)
+  const targetGuilds = await db.query.guilds.findMany({
+    where: isDev ? eq(guilds.allowDev, true) : undefined,
   })
+
+  targetGuilds.forEach(async (guild) => await deployCommands(guild))
 })
 
 client.on(Events.MessageCreate, (message) => {
@@ -61,9 +57,20 @@ client.on(Events.InteractionCreate, async (interaction) => {
 })
 
 client.on(Events.MessageReactionAdd, async (reaction, user) => {
+  if (reaction.partial) {
+    try {
+      await reaction.fetch()
+    } catch (error) {
+      console.error('Something went wrong when fetching the message:')
+      console.error(error)
+
+      return
+    }
+  }
+
   const targetMessageId = reaction.message.id
 
-  const game = await db.query.games.findFirst({ where: eq(games.messageId, targetMessageId) })
+  const game = await db.query.games.findFirst({ where: eq(games.id, targetMessageId) })
 
   if (!game) {
     return
@@ -128,7 +135,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
       return await db
         .update(games)
         .set({ [key]: score })
-        .where(eq(games.messageId, targetMessageId))
+        .where(eq(games.id, targetMessageId))
         .returning()
     } catch (error) {
       console.log({ gameId: game.id }, '資料庫更新 game 資料時發生錯誤')

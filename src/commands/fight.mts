@@ -108,8 +108,8 @@ export async function execute(interaction: CommandInteraction) {
 
   try {
     await db.insert(games).values({
+      id: message.id,
       guildId,
-      messageId: message.id,
       authorId: author.id,
       opponentId: opponent.id,
     })
