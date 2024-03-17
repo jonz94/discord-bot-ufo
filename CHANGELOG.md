@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.2...v2.0.0) (2024-03-17)
+
+### Bug Fixes
+
+-   remove testing code ([5262104](https://github.com/jonz94/discord-bot-ufo/commit/52621048d3b3abea3b6abf778c50f683cba89b0e))
+
 ## [1.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.1...v1.6.2) (2024-03-17)
 
 ### Bug Fixes
