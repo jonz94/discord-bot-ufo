@@ -149,13 +149,15 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     updatedGames === null ||
     updatedGames.filter((game) => game.authorScore === null || game.opponentScore === null).length >= 1
   ) {
+    console.log('updatedGames is null')
     console.log({ gameId: game.id }, '其中一人尚未擲骰')
     return
   }
 
   const finalGame = updatedGames.at(0)
 
-  if (!finalGame || !finalGame.authorScore || !finalGame.opponentScore) {
+  if (!finalGame || finalGame.authorScore === null || finalGame.opponentScore === null) {
+    console.log('finalGame or score is null')
     console.log({ gameId: game.id }, '其中一人尚未擲骰')
     return
   }

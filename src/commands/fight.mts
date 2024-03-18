@@ -1,8 +1,9 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { and, eq, isNull, or } from 'drizzle-orm'
 import { db } from '../../db/db.mjs'
-import { games } from '../../db/schema.mjs'
+import { attempts, games } from '../../db/schema.mjs'
 import { emojis } from '../emoji-list.mjs'
+import { calculateScore, rollDice } from '../utils.mjs'
 
 export const commandName = '輸贏'
 
@@ -85,9 +86,8 @@ export async function execute(interaction: CommandInteraction) {
 
     await interaction.reply({
       content: [
-        '上次輸贏還沒結束欸',
-        `戰場座標 ${link} `,
-        `（戰場資訊：由 ${author} 向 ${opponent} 發起挑戰，${timeout / 1000} 秒後會自動判定為不戰而勝）`,
+        `上次輸贏還沒結束欸，戰場座標 ${link} ${emojis.貓咪拿槍}`,
+        `戰場資訊：由 ${author} 向 ${opponent} 發起的輸贏，${timeout / 1000} 秒後會自動判定為不戰而勝 ${emojis.白眼海豚笑}`,
       ].join('\n'),
     })
 
@@ -217,4 +217,83 @@ export async function execute(interaction: CommandInteraction) {
 
   // 對戰帖訊息按反應
   await message.react(emojis.貓咪拿槍)
+
+  // 沒點數則重骰，最多骰三次
+  let score = 0
+  let round = 0
+  do {
+    const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
+
+    await interaction.channel?.send(`${author} 骰出了 ${attempt.join(', ')}`)
+    score = calculateScore(attempt)
+
+    await db.insert(attempts).values({
+      userId: author.id,
+      gameId: message.id,
+      dice1: attempt[0],
+      dice2: attempt[1],
+      dice3: attempt[2],
+      dice4: attempt[3],
+      round,
+      score,
+    })
+
+    round = round + 1
+  } while (score <= 0 && round <= 2)
+
+  if (score === 0) {
+    await interaction.channel?.send(`${author} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`)
+  } else if (score === 3) {
+    await interaction.channel?.send(`${author} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`)
+  } else if (score >= 100) {
+    await interaction.channel?.send(`${author} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`)
+  } else {
+    await interaction.channel?.send(`${author} 得分是 ${score}`)
+  }
+
+  const updatedGames = await (async function updateGame() {
+    try {
+      return await db.update(games).set({ authorScore: score }).where(eq(games.id, message.id)).returning()
+    } catch (error) {
+      console.log({ gameId: message.id }, '資料庫更新 game 資料時發生錯誤')
+      console.log(error)
+      return null
+    }
+  })()
+
+  // 其中一人尚未擲骰
+  if (
+    updatedGames === null ||
+    updatedGames.filter((game) => game.authorScore === null || game.opponentScore === null).length >= 1
+  ) {
+    console.log('updatedGames is null')
+    console.log({ gameId: message.id }, '其中一人尚未擲骰')
+    return
+  }
+
+  const finalGame = updatedGames.at(0)
+
+  if (!finalGame || finalGame.authorScore === null || finalGame.opponentScore === null) {
+    console.log('finalGame or score is null')
+    console.log({ gameId: message.id }, '其中一人尚未擲骰')
+    return
+  }
+
+  const { authorScore, opponentScore } = finalGame
+
+  const finalMessage = (function getFinalMessage() {
+    let message = `分出勝負，${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
+
+    if (authorScore === opponentScore) {
+      message = message + '\n' + '雙方平手'
+    } else if (authorScore > opponentScore) {
+      message = message + '\n' + `${author} 獲勝`
+    } else {
+      message = message + '\n' + `${opponent} 獲勝`
+    }
+
+    return message
+  })()
+
+  await interaction.channel?.send(finalMessage)
 }
