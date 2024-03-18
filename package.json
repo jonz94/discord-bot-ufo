@@ -14,12 +14,13 @@
     "db:generate": "drizzle-kit generate:sqlite",
     "db:migrate": "tsx migrate.mts",
     "db:studio": "drizzle-kit studio",
-    "dev": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
     "fmt": "prettier --write .",
+    "preview": "node dist/main.js",
+    "preview:dev": "cross-env NODE_ENV=DEV node dist/main.js",
     "release": "commit-and-tag-version",
     "setup": "tsx scripts/initialize-env-files.mts",
-    "start": "node dist/main.js",
-    "start:dev": "cross-env NODE_ENV=DEV node dist/main.js",
+    "start": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
+    "start:production": "cross-env NODE_ENV=PRODUCTION tsx watch src/main.mts",
     "test": "vitest"
   },
   "dependencies": {

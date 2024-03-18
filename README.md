@@ -43,7 +43,7 @@ Then, edit `.env` and `.env.dev` environment files respectively
 Launch the development BOT locally (using `.env.dev` configuration):
 
 ```shell
-pnpm run dev
+pnpm start
 ```
 
 Run test:
@@ -56,7 +56,7 @@ Build and launch the production BOT locally (using `.env` configuration):
 
 ```shell
 pnpm run build
-pnpm start
+pnpm run preview
 ```
 
 Release new version:
