@@ -15,6 +15,7 @@ CREATE TABLE `attempts` (
 CREATE TABLE `games` (
 	`id` text PRIMARY KEY NOT NULL,
 	`guild_id` text NOT NULL,
+	`channel_id` text NOT NULL,
 	`author_id` text NOT NULL,
 	`opponent_id` text NOT NULL,
 	`author_score` integer,

@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "d3a62fb3-3a21-4fe4-8abc-dc9761c2be6a",
+  "id": "79cf5add-71ca-4a87-9adc-8dd9101c3400",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "attempts": {
@@ -110,6 +110,13 @@
         },
         "guild_id": {
           "name": "guild_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "channel_id": {
+          "name": "channel_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true,

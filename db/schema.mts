@@ -14,6 +14,7 @@ export const games = sqliteTable('games', {
   guildId: text('guild_id')
     .references(() => guilds.id)
     .notNull(),
+  channelId: text('channel_id').notNull(),
   authorId: text('author_id').notNull(),
   opponentId: text('opponent_id').notNull(),
   authorScore: integer('author_score'),

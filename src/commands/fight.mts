@@ -119,6 +119,7 @@ export async function execute(interaction: CommandInteraction) {
     await db.insert(games).values({
       id: message.id,
       guildId,
+      channelId: message.channelId,
       authorId: author.id,
       opponentId: opponent.id,
     })
