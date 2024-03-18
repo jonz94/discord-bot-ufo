@@ -107,10 +107,13 @@ export async function execute(interaction: CommandInteraction) {
 
       if (!gameMaybeUnfinished) {
         // 已經分出勝負，不做任何事
+        console.log({ gameId: game.id }, '已經分出勝負，不做任何事')
+
         return
       }
 
       if (gameMaybeUnfinished.authorScore === null && gameMaybeUnfinished.opponentScore === null) {
+        // TODO: 因為現在發起輸贏後，系統會自動幫 author 擲骰，因此應該是不會遇到這個情況，理論上應該是可以刪除掉這一段邏輯
         // 雙方都沒有骰
         await db
           .update(games)
@@ -127,10 +130,14 @@ export async function execute(interaction: CommandInteraction) {
             '雙方平手',
           ].join('\n'),
         })
+
+        console.log({ gameId: game.id }, '雙方都沒有骰')
+
         return
       }
 
       if (gameMaybeUnfinished.authorScore === null && gameMaybeUnfinished.opponentScore !== null) {
+        // TODO: 因為現在發起輸贏後，系統會自動幫 author 擲骰，因此應該是不會遇到這個情況，理論上應該是可以刪除掉這一段邏輯
         // author 沒有骰
         await db
           .update(games)
@@ -142,6 +149,8 @@ export async function execute(interaction: CommandInteraction) {
         await interaction.channel?.send({
           content: [`懦夫 ${author} 選擇了認輸 ${emojis.白眼海豚笑}`, `${opponent} 獲勝`].join('\n'),
         })
+
+        console.log({ gameId: game.id }, 'author 沒有骰')
 
         return
       }
@@ -158,6 +167,8 @@ export async function execute(interaction: CommandInteraction) {
         await interaction.channel?.send({
           content: [`懦夫 ${opponent} 選擇了認輸 ${emojis.白眼海豚笑}`, `${author} 獲勝`].join('\n'),
         })
+
+        console.log({ gameId: game.id }, 'opponent 沒有骰')
 
         return
       }
