@@ -25,4 +25,4 @@ COPY --from=builder /app/pnpm-lock.yaml .
 
 RUN pnpm i --prod
 
-CMD ["pnpm", "start"]
+CMD ["pnpm", "run", "preview"]
