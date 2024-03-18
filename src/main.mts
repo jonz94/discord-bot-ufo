@@ -61,7 +61,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
     try {
       await reaction.fetch()
     } catch (error) {
-      console.error('Something went wrong when fetching the message:')
+      console.error('點擊表情符號後、觸發 reaction.fetch() 時發生錯誤')
       console.error(error)
 
       return
