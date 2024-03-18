@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.0...v3.0.1) (2024-03-18)
+
+### Bug Fixes
+
+-   correct docker image's running command ([584a10c](https://github.com/jonz94/discord-bot-ufo/commit/584a10c15768a5f3bc16c784b9affd7da71bdb68))
+
 ## [3.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.1.0...v3.0.0) (2024-03-18)
 
 ### ⚠ BREAKING CHANGES
