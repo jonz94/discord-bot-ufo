@@ -76,10 +76,92 @@ export async function execute(interaction: CommandInteraction) {
   })
 
   if (game) {
+    const author = await interaction.client.users.fetch(game.authorId)
+    const opponent = await interaction.client.users.fetch(game.opponentId)
+    const link = `https://discord.com/channels/${game.guildId}/${game.channelId}/${game.id}`
+
+    // 30 seconds
+    const timeout = 30 * 1_000
+
     await interaction.reply({
-      content: '上次輸贏還沒結束欸',
-      ephemeral: true,
+      content: [
+        '上次輸贏還沒結束欸',
+        `戰場座標 ${link} `,
+        `（戰場資訊：由 ${author} 向 ${opponent} 發起挑戰，${timeout / 1000} 秒後會自動判定為不戰而勝）`,
+      ].join('\n'),
     })
+
+    setTimeout(async () => {
+      const gameMaybeUnfinished = await db.query.games.findFirst({
+        where: and(
+          eq(games.guildId, guildId),
+          or(
+            eq(games.authorId, author.id),
+            eq(games.authorId, opponent.id),
+            eq(games.opponentId, author.id),
+            eq(games.opponentId, opponent.id),
+          ),
+          or(isNull(games.authorScore), isNull(games.opponentScore)),
+        ),
+      })
+
+      if (!gameMaybeUnfinished) {
+        // 已經分出勝負，不做任何事
+        return
+      }
+
+      if (gameMaybeUnfinished.authorScore === null && gameMaybeUnfinished.opponentScore === null) {
+        // 雙方都沒有骰
+        await db
+          .update(games)
+          .set({
+            authorScore: -1,
+            opponentScore: -1,
+          })
+          .where(eq(games.id, gameMaybeUnfinished.id))
+
+        await interaction.channel?.send({
+          content: [
+            `懦夫 ${author} 選擇了認輸 ${emojis.白眼海豚笑}`,
+            `懦夫 ${opponent} 也不遑多讓 ${emojis.白眼海豚笑}`,
+            '雙方平手',
+          ].join('\n'),
+        })
+        return
+      }
+
+      if (gameMaybeUnfinished.authorScore === null && gameMaybeUnfinished.opponentScore !== null) {
+        // author 沒有骰
+        await db
+          .update(games)
+          .set({
+            authorScore: -1,
+          })
+          .where(eq(games.id, gameMaybeUnfinished.id))
+
+        await interaction.channel?.send({
+          content: [`懦夫 ${author} 選擇了認輸 ${emojis.白眼海豚笑}`, `${opponent} 獲勝`].join('\n'),
+        })
+
+        return
+      }
+
+      if (gameMaybeUnfinished.authorScore !== null && gameMaybeUnfinished.opponentScore === null) {
+        // opponent 沒有骰
+        await db
+          .update(games)
+          .set({
+            opponentScore: -1,
+          })
+          .where(eq(games.id, gameMaybeUnfinished.id))
+
+        await interaction.channel?.send({
+          content: [`懦夫 ${opponent} 選擇了認輸 ${emojis.白眼海豚笑}`, `${author} 獲勝`].join('\n'),
+        })
+
+        return
+      }
+    }, timeout)
 
     return
   }
