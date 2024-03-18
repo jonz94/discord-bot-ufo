@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.1.0...v3.0.0) (2024-03-18)
+
+### ⚠ BREAKING CHANGES
+
+-   record channel id database into database
+
+### Features
+
+-   add more log messages ([246a612](https://github.com/jonz94/discord-bot-ufo/commit/246a612cfbe8c291c5a4ecc7aaddfc80325ed657))
+-   automatically roll dice after sending fight ([51ea32b](https://github.com/jonz94/discord-bot-ufo/commit/51ea32bb1ff4cb3f442e4689b4a956ab680a4649))
+-   add 30 seconds timeout for every game ([4a94391](https://github.com/jonz94/discord-bot-ufo/commit/4a94391c1118af6f24f5c73a94f1f04ebdc8f782))
+-   improve error message ([07943c6](https://github.com/jonz94/discord-bot-ufo/commit/07943c6d0778b9687b2811b0af8bef36cee0bdea))
+-   record channel id database into database ([506ebfc](https://github.com/jonz94/discord-bot-ufo/commit/506ebfc1bc6f3ffc0b53166db541b7ea0c41de55))
+
 ## [2.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.0.0...v2.1.0) (2024-03-17)
 
 ### Features
