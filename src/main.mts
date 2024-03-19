@@ -33,9 +33,9 @@ client.once(Events.ClientReady, async (readyClient) => {
   targetGuilds.forEach(async (guild) => await deployCommands(guild))
 })
 
-client.on(Events.MessageCreate, (message) => {
-  if (message.content === 'ping' || message.content === 'Ping') {
-    message.channel.send({ content: 'Pong' })
+client.on(Events.MessageCreate, async (message) => {
+  if (message.content === '場子不乾淨') {
+    await message.channel.send({ content: `怪我囉 ${emojis.白眼海豚笑}` })
   }
 })
 
