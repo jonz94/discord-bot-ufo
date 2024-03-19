@@ -86,8 +86,8 @@ export async function execute(interaction: CommandInteraction) {
 
     await interaction.reply({
       content: [
-        `上次輸贏還沒結束欸，戰場座標 ${link} ${emojis.貓咪拿槍}`,
-        `戰場資訊：由 ${author} 向 ${opponent} 發起的輸贏，${timeout / 1000} 秒後會自動判定為不戰而勝 ${emojis.白眼海豚笑}`,
+        `【${author.displayName} vs ${opponent.displayName}】戰場座標 ${link} ${emojis.貓咪拿槍}`,
+        ` 上次的輸贏還沒結束欸，${timeout / 1000} 秒後將會自動判定 ${opponent} 投降認輸 ${emojis.白眼海豚笑}`,
       ].join('\n'),
     })
 
@@ -187,9 +187,9 @@ export async function execute(interaction: CommandInteraction) {
           opponent,
           '下了戰帖',
           emojis.白眼海豚笑,
-          '（點擊訊息的',
+          '【點擊訊息的',
           emojis.貓咪拿槍,
-          '表情符號，即可開始對戰）',
+          '表情符號，即可開始對戰】',
         ].join(' '),
       })
     } catch (error) {
@@ -235,7 +235,9 @@ export async function execute(interaction: CommandInteraction) {
   do {
     const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
 
-    await interaction.channel?.send(`${author} 骰出了 ${attempt.join(', ')}`)
+    await interaction.channel?.send(
+      `【${author.displayName} vs ${opponent.displayName}】 ${author} 骰出了 ${attempt.join(', ')}`,
+    )
     score = calculateScore(attempt)
 
     await db.insert(attempts).values({
@@ -253,13 +255,19 @@ export async function execute(interaction: CommandInteraction) {
   } while (score <= 0 && round <= 2)
 
   if (score === 0) {
-    await interaction.channel?.send(`${author} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`)
+    await interaction.channel?.send(
+      `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`,
+    )
   } else if (score === 3) {
-    await interaction.channel?.send(`${author} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`)
+    await interaction.channel?.send(
+      `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`,
+    )
   } else if (score >= 100) {
-    await interaction.channel?.send(`${author} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`)
+    await interaction.channel?.send(
+      `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`,
+    )
   } else {
-    await interaction.channel?.send(`${author} 得分是 ${score}`)
+    await interaction.channel?.send(`【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}`)
   }
 
   const updatedGames = await (async function updateGame() {
@@ -293,15 +301,17 @@ export async function execute(interaction: CommandInteraction) {
   const { authorScore, opponentScore } = finalGame
 
   const finalMessage = (function getFinalMessage() {
-    let message = `分出勝負，${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
+    let message = ''
 
     if (authorScore === opponentScore) {
-      message = message + '\n' + '雙方平手'
+      message = '【雙方平手】'
     } else if (authorScore > opponentScore) {
-      message = message + '\n' + `${author} 獲勝`
+      message = `【${author} 獲勝】`
     } else {
-      message = message + '\n' + `${opponent} 獲勝`
+      message = `【${opponent} 獲勝】`
     }
+
+    message = message + `${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
 
     return message
   })()
