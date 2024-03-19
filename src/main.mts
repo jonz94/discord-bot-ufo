@@ -7,6 +7,7 @@ import { commands } from './commands/index.mjs'
 import { config } from './config.mjs'
 import { deployCommands } from './deploy-commands.mjs'
 import { emojis } from './emoji-list.mjs'
+import { handleBrawlRollDiceReaction, handleJoinBrawlReaction } from './handlers/handle-brawl-reaction.mjs'
 import { handleFightReaction } from './handlers/handle-fight-reaction.mjs'
 import { isDev } from './utils.mjs'
 
@@ -59,6 +60,9 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
   const targetMessageId = reaction.message.id
 
   handleFightReaction(reaction, user, targetMessageId)
+
+  handleJoinBrawlReaction(reaction, user, targetMessageId)
+  handleBrawlRollDiceReaction(reaction, user, targetMessageId)
 })
 
 client.login(config.DISCORD_TOKEN)
