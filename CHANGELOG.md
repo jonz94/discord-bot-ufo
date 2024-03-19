@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.1...v3.1.0) (2024-03-19)
+
+### Features
+
+-   improve text message ([0c56872](https://github.com/jonz94/discord-bot-ufo/commit/0c56872a95954a16b987f4a9fe7df2167981f726))
+-   add response message ([1ed4007](https://github.com/jonz94/discord-bot-ufo/commit/1ed40071e59eadcbd7ca4fabb0b2d7e9af60fb9d))
+
 ## [3.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.0...v3.0.1) (2024-03-18)
 
 ### Bug Fixes
