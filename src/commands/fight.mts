@@ -82,7 +82,7 @@ export async function execute(interaction: CommandInteraction) {
     const link = `https://discord.com/channels/${game.guildId}/${game.channelId}/${game.id}`
 
     // 30 seconds
-    const timeout = 30 * 1_000
+    const timeout = 30 * 1000
 
     await interaction.reply({
       content: [
