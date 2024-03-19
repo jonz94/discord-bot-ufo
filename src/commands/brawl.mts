@@ -179,7 +179,9 @@ export async function execute(interaction: CommandInteraction) {
         )
 
         await interaction.channel?.send({
-          content: noScoreUsers.map((user) => `【大亂鬥】懦夫 ${user} 選擇了認輸 ${emojis.白眼海豚笑}`).join('\n'),
+          content: noScoreUsers
+            .map((user) => `【大亂鬥】${user} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`)
+            .join('\n'),
         })
       }
 

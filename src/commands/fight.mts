@@ -125,9 +125,9 @@ export async function execute(interaction: CommandInteraction) {
 
         await interaction.channel?.send({
           content: [
-            `懦夫 ${author} 選擇了認輸 ${emojis.白眼海豚笑}`,
-            `懦夫 ${opponent} 也不遑多讓 ${emojis.白眼海豚笑}`,
-            '雙方平手',
+            `【${author.displayName} vs ${opponent.displayName}】 ${author} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
+            `【${author.displayName} vs ${opponent.displayName}】 ${opponent} 也沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
+            `【雙方平手】`,
           ].join('\n'),
         })
 
@@ -147,7 +147,10 @@ export async function execute(interaction: CommandInteraction) {
           .where(eq(games.id, gameMaybeUnfinished.id))
 
         await interaction.channel?.send({
-          content: [`懦夫 ${author} 選擇了認輸 ${emojis.白眼海豚笑}`, `${opponent} 獲勝`].join('\n'),
+          content: [
+            `【${author.displayName} vs ${opponent.displayName}】 ${author} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
+            `【${opponent} 獲勝】`,
+          ].join('\n'),
         })
 
         console.log({ gameId: game.id }, 'author 沒有骰')
@@ -165,7 +168,10 @@ export async function execute(interaction: CommandInteraction) {
           .where(eq(games.id, gameMaybeUnfinished.id))
 
         await interaction.channel?.send({
-          content: [`懦夫 ${opponent} 選擇了認輸 ${emojis.白眼海豚笑}`, `${author} 獲勝`].join('\n'),
+          content: [
+            `【${author.displayName} vs ${opponent.displayName}】 ${opponent} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
+            `【${author} 獲勝】`,
+          ].join('\n'),
         })
 
         console.log({ gameId: game.id }, 'opponent 沒有骰')
