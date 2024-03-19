@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.1.0...v3.2.0) (2024-03-19)
+
+### Features
+
+-   add brawl command ([e5333b8](https://github.com/jonz94/discord-bot-ufo/commit/e5333b8fca747a949cfa1221c7569177b3cac87c))
+
 ## [3.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.1...v3.1.0) (2024-03-19)
 
 ### Features
