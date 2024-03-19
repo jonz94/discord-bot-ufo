@@ -32,24 +32,19 @@ export async function handleJoinBrawlReaction(
     return
   }
 
-  const alreadyParicipant = await db.query.brawlParticipants.findFirst({
+  const alreadyParticipant = await db.query.brawlParticipants.findFirst({
     where: and(eq(brawlParticipants.brawlId, targetMessageId), eq(brawlParticipants.userId, user.id)),
   })
 
-  if (alreadyParicipant) {
+  if (alreadyParticipant) {
     return
   }
 
   try {
-    const brawlParticipant = await db
-      .insert(brawlParticipants)
-      .values({
-        brawlId: targetMessageId,
-        userId: user.id,
-      })
-      .returning()
-
-    console.log({ brawlParticipant })
+    await db.insert(brawlParticipants).values({
+      brawlId: targetMessageId,
+      userId: user.id,
+    })
   } catch (error) {
     console.log({
       brawlId: targetMessageId,
@@ -84,8 +79,6 @@ export async function handleBrawlRollDiceReaction(
 
     return
   }
-
-  console.log(participant)
 
   if (participant.score !== null) {
     // 已經骰出分數了，不做任何事
