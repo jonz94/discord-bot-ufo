@@ -1,4 +1,4 @@
-import { Events } from 'discord.js'
+import { Events, PermissionsBitField } from 'discord.js'
 import { eq } from 'drizzle-orm'
 import { db } from '../db/db.mjs'
 import { guilds } from '../db/schema.mjs'
@@ -33,6 +33,12 @@ client.on(Events.MessageCreate, async (message) => {
 
   if (message.content === '場子不乾淨') {
     await message.channel.send({ content: `怪我囉 ${emojis.白眼海豚笑}` })
+  }
+
+  const isAdmin = message.member.permissionsIn(message.channel).has(PermissionsBitField.Flags.Administrator)
+
+  if (isAdmin) {
+    console.log('is admin')
   }
 })
 
