@@ -23,6 +23,14 @@ client.once(Events.ClientReady, async (readyClient) => {
 })
 
 client.on(Events.MessageCreate, async (message) => {
+  if (!message.inGuild()) {
+    return
+  }
+
+  if (!message.member) {
+    return
+  }
+
   if (message.content === '場子不乾淨') {
     await message.channel.send({ content: `怪我囉 ${emojis.白眼海豚笑}` })
   }
