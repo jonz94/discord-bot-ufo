@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.2](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.1...v3.2.2) (2024-03-23)
+
+### Bug Fixes
+
+-   correct unfinished game checking logic ([aacf05c](https://github.com/jonz94/discord-bot-ufo/commit/aacf05c92c717f56b68b7cdc9e5c38b4579b8825))
+
 ## [3.2.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.0...v3.2.1) (2024-03-19)
 
 ### Bug Fixes
