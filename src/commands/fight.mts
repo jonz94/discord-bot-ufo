@@ -67,10 +67,8 @@ export async function execute(interaction: CommandInteraction) {
     where: and(
       eq(games.guildId, guildId),
       or(
-        eq(games.authorId, author.id),
-        eq(games.authorId, opponent.id),
-        eq(games.opponentId, author.id),
-        eq(games.opponentId, opponent.id),
+        and(eq(games.authorId, author.id), eq(games.opponentId, opponent.id)),
+        and(eq(games.authorId, opponent.id), eq(games.opponentId, author.id)),
       ),
       or(isNull(games.authorScore), isNull(games.opponentScore)),
     ),
@@ -96,10 +94,8 @@ export async function execute(interaction: CommandInteraction) {
         where: and(
           eq(games.guildId, guildId),
           or(
-            eq(games.authorId, author.id),
-            eq(games.authorId, opponent.id),
-            eq(games.opponentId, author.id),
-            eq(games.opponentId, opponent.id),
+            and(eq(games.authorId, author.id), eq(games.opponentId, opponent.id)),
+            and(eq(games.authorId, opponent.id), eq(games.opponentId, author.id)),
           ),
           or(isNull(games.authorScore), isNull(games.opponentScore)),
         ),
