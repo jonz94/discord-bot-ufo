@@ -28,7 +28,7 @@
     "@libsql/client": "^0.6.0",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.30.4"
+    "drizzle-orm": "^0.30.6"
   },
   "devDependencies": {
     "commit-and-tag-version": "^12.2.0",
