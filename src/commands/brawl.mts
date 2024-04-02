@@ -29,7 +29,7 @@ export async function execute(interaction: CommandInteraction) {
   }
 
   const unstartedBrawl = await db.query.brawls.findFirst({
-    where: isNull(brawls.startedAt),
+    where: and(eq(brawls.guildId, guild.id), isNull(brawls.startedAt)),
   })
 
   if (unstartedBrawl) {
@@ -47,7 +47,7 @@ export async function execute(interaction: CommandInteraction) {
   }
 
   const unfinishedBrawl = await db.query.brawls.findFirst({
-    where: isNull(brawls.endedAt),
+    where: and(eq(brawls.guildId, guild.id), isNull(brawls.endedAt)),
   })
 
   if (unfinishedBrawl) {
@@ -57,6 +57,7 @@ export async function execute(interaction: CommandInteraction) {
       content: [`【大亂鬥】戰場座標 ${link} ${emojis.貓咪拿槍}`, `上次的大亂鬥還沒結束欸 ${emojis.白眼海豚笑}`].join(
         '\n',
       ),
+      ephemeral: true,
     })
 
     return
