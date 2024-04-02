@@ -1,7 +1,8 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { and, eq, isNull, or } from 'drizzle-orm'
 import { db } from '../../db/db.mjs'
-import { attempts, games } from '../../db/schema.mjs'
+import { attempts, games, guilds } from '../../db/schema.mjs'
+import { client } from '../client.mjs'
 import { emojis } from '../emoji-list.mjs'
 import { calculateScore, rollDice } from '../utils.mjs'
 
@@ -17,6 +18,19 @@ export async function execute(interaction: CommandInteraction) {
   if (!guildId) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
+      ephemeral: true,
+    })
+
+    return
+  }
+
+  const guild = await db.query.guilds.findFirst({
+    where: eq(guilds.id, guildId),
+  })
+
+  if (!guild) {
+    await interaction.reply({
+      content: `此 Discord 伺服器不在 ${client.user} 的白名單內，因此無法使用指令`,
       ephemeral: true,
     })
 
@@ -65,7 +79,7 @@ export async function execute(interaction: CommandInteraction) {
 
   const game = await db.query.games.findFirst({
     where: and(
-      eq(games.guildId, guildId),
+      eq(games.guildId, guild.id),
       or(
         and(eq(games.authorId, author.id), eq(games.opponentId, opponent.id)),
         and(eq(games.authorId, opponent.id), eq(games.opponentId, author.id)),
@@ -92,7 +106,7 @@ export async function execute(interaction: CommandInteraction) {
     setTimeout(async () => {
       const gameMaybeUnfinished = await db.query.games.findFirst({
         where: and(
-          eq(games.guildId, guildId),
+          eq(games.guildId, guild.id),
           or(
             and(eq(games.authorId, author.id), eq(games.opponentId, opponent.id)),
             and(eq(games.authorId, opponent.id), eq(games.opponentId, author.id)),
@@ -213,7 +227,7 @@ export async function execute(interaction: CommandInteraction) {
   try {
     await db.insert(games).values({
       id: message.id,
-      guildId,
+      guildId: guild.id,
       channelId: message.channelId,
       authorId: author.id,
       opponentId: opponent.id,

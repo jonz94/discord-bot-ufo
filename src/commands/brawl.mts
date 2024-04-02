@@ -1,7 +1,8 @@
 import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { db } from '../../db/db.mjs'
-import { brawlParticipants, brawls } from '../../db/schema.mjs'
+import { brawlParticipants, brawls, guilds } from '../../db/schema.mjs'
+import { client } from '../client.mjs'
 import { emojis } from '../emoji-list.mjs'
 
 export const commandName = '大亂鬥'
@@ -13,6 +14,19 @@ export async function execute(interaction: CommandInteraction) {
   if (!guildId) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
+      ephemeral: true,
+    })
+
+    return
+  }
+
+  const guild = await db.query.guilds.findFirst({
+    where: eq(guilds.id, guildId),
+  })
+
+  if (!guild) {
+    await interaction.reply({
+      content: `此 Discord 伺服器不在 ${client.user} 的白名單內，因此無法使用指令`,
       ephemeral: true,
     })
 
@@ -103,7 +117,7 @@ export async function execute(interaction: CommandInteraction) {
     .insert(brawls)
     .values({
       id: joinBrawlMessage.id,
-      guildId,
+      guildId: guild.id,
       channelId: interaction.channelId,
     })
     .returning()
