@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.3](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.2...v3.2.3) (2024-04-02)
+
+### Bug Fixes
+
+-   ensure guild is in the whitelist ([12ad8b4](https://github.com/jonz94/discord-bot-ufo/commit/12ad8b4270dcb1a68499ac6ff718ffad3288d9af))
+-   allow different guilds to start brawls simultaneously ([dc3d942](https://github.com/jonz94/discord-bot-ufo/commit/dc3d942ecfb0eb5632b98da9f9614dc10b4f8b59))
+
 ## [3.2.2](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.1...v3.2.2) (2024-03-23)
 
 ### Bug Fixes
