@@ -6,13 +6,20 @@ import { isDev } from './utils.mjs'
 const path = isDev ? `.env.dev` : '.env'
 dotenv.config({ path })
 
-const { DISCORD_TOKEN, DISCORD_CLIENT_ID } = process.env
+const { DISCORD_TOKEN, DISCORD_CLIENT_ID, DATABASE_URL, DATABASE_AUTH_TOKEN } = process.env
 
-if (!DISCORD_TOKEN || !DISCORD_CLIENT_ID) {
+if (
+  DISCORD_TOKEN === undefined ||
+  DISCORD_CLIENT_ID === undefined ||
+  DATABASE_URL === undefined ||
+  DATABASE_AUTH_TOKEN === undefined
+) {
   throw new Error('Missing environment variables')
 }
 
 export const config = {
   DISCORD_TOKEN,
   DISCORD_CLIENT_ID,
+  DATABASE_URL,
+  DATABASE_AUTH_TOKEN,
 }
