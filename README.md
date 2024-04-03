@@ -73,7 +73,6 @@ Using the following `docker run` command:
 docker run --name="discord-bot-ufo" -d \
   --restart=unless-stopped \
   -v "$(pwd)/.env:/app/.env" \
-  -v "$(pwd)/database.sqlite:/app/database.sqlite" \
   jonz94/discord-bot-ufo
 ```
 
