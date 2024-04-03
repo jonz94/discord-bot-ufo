@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.0.0...v4.1.0) (2024-04-03)
+
+### Features
+
+-   add api endpoint ([ec828f1](https://github.com/jonz94/discord-bot-ufo/commit/ec828f1a3d6a935226d3b97f9c3977f3dcb2c1c0))
+
 ## [4.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.3...v4.0.0) (2024-04-03)
 
 ### ⚠ BREAKING CHANGES
