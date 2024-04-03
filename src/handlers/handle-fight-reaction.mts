@@ -1,10 +1,10 @@
-import { MessageReaction, PartialMessageReaction, PartialUser, User } from 'discord.js'
+import { MessageReaction, User, type PartialMessageReaction, type PartialUser } from 'discord.js'
 import { eq } from 'drizzle-orm'
-import { db } from '../../db/db.mjs'
-import { attempts, games } from '../../db/schema.mjs'
-import { client } from '../client.mjs'
-import { emojis } from '../emoji-list.mjs'
-import { calculateScore, rollDice } from '../utils.mjs'
+import { db } from '../../db/db.mts'
+import { attempts, games } from '../../db/schema.mts'
+import { client } from '../client.mts'
+import { emojis } from '../emoji-list.mts'
+import { calculateScore, rollDice } from '../utils.mts'
 
 export async function handleFightReaction(
   reaction: MessageReaction | PartialMessageReaction,

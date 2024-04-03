@@ -1,4 +1,4 @@
-import { CommandInteraction, SlashCommandBuilder, codeBlock } from 'discord.js'
+import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
 
 export const commandName = 'yt'
 

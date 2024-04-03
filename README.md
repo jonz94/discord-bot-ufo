@@ -6,8 +6,7 @@ A Discord BOT named `機器幽浮` maintained by [jonz94](https://github.com/jon
 
 ### Prerequisites
 
-- Install [Node.js](https://nodejs.org)
-- Install [pnpm](https://pnpm.io)
+- Install [Bun](https://bun.sh)
 
 ### Getting Started
 
@@ -26,13 +25,13 @@ cd discord-bot-ufo
 Install all dependencies:
 
 ```shell
-pnpm i
+bun i
 ```
 
 Setup `.env` and `.env.dev`:
 
 ```shell
-pnpm run setup
+bun run setup
 ```
 
 Then, edit `.env` and `.env.dev` environment files respectively
@@ -43,26 +42,26 @@ Then, edit `.env` and `.env.dev` environment files respectively
 Launch the development BOT locally (using `.env.dev` configuration):
 
 ```shell
-pnpm start
+bun start
 ```
 
 Run test:
 
 ```shell
-pnpm test
+bun run test
 ```
 
 Build and launch the production BOT locally (using `.env` configuration):
 
 ```shell
-pnpm run build
-pnpm run preview
+bun run build
+bun run preview
 ```
 
 Release new version:
 
 ```shell
-pnpm run release
+bun run release
 git push --follow-tags
 ```
 

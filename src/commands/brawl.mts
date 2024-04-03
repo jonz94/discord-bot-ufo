@@ -1,9 +1,9 @@
-import { ChannelType, CommandInteraction, SlashCommandBuilder } from 'discord.js'
+import { ChannelType, SlashCommandBuilder, type CommandInteraction } from 'discord.js'
 import { and, eq, isNull, sql } from 'drizzle-orm'
-import { db } from '../../db/db.mjs'
-import { brawlParticipants, brawls, guilds } from '../../db/schema.mjs'
-import { client } from '../client.mjs'
-import { emojis } from '../emoji-list.mjs'
+import { db } from '../../db/db.mts'
+import { brawlParticipants, brawls, guilds } from '../../db/schema.mts'
+import { client } from '../client.mts'
+import { emojis } from '../emoji-list.mts'
 
 export const commandName = '大亂鬥'
 

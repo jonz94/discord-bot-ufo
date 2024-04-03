@@ -1,7 +1,7 @@
-import * as brawl from './brawl.mjs'
-import * as fight from './fight.mjs'
-import * as fx from './fx.mjs'
-import * as yt from './yt.mjs'
+import * as brawl from './brawl.mts'
+import * as fight from './fight.mts'
+import * as fx from './fx.mts'
+import * as yt from './yt.mts'
 
 const commandsEntries = [brawl, fight, fx, yt].map((command) => [command.commandName, command] as const)
 

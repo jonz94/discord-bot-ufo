@@ -1,5 +1,5 @@
-import { expect, test } from 'vitest'
-import { calculateScore } from './utils.mjs'
+import { expect, test } from 'bun:test'
+import { calculateScore } from './utils.mts'
 
 test('calculate score is correct', () => {
   // [a, b, c, d]

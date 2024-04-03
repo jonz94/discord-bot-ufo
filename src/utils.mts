@@ -1,6 +1,7 @@
 import { randomInt } from 'node:crypto'
+import { config } from './config.mts'
 
-export const isDev = process.env.NODE_ENV?.toLowerCase() === 'dev'
+export const isDev = config.APP_ENV.toLowerCase() === 'dev'
 
 export function rollDice() {
   return randomInt(1, 7)

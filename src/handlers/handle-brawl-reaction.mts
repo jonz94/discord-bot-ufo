@@ -1,9 +1,9 @@
-import { MessageReaction, PartialMessageReaction, PartialUser, User } from 'discord.js'
+import { MessageReaction, User, type PartialMessageReaction, type PartialUser } from 'discord.js'
 import { and, eq, isNotNull } from 'drizzle-orm'
-import { db } from '../../db/db.mjs'
-import { brawlAttempts, brawlParticipants, brawls } from '../../db/schema.mjs'
-import { emojis } from '../emoji-list.mjs'
-import { calculateScore, rollDice } from '../utils.mjs'
+import { db } from '../../db/db.mts'
+import { brawlAttempts, brawlParticipants, brawls } from '../../db/schema.mts'
+import { emojis } from '../emoji-list.mts'
+import { calculateScore, rollDice } from '../utils.mts'
 
 export async function handleJoinBrawlReaction(
   reaction: MessageReaction | PartialMessageReaction,

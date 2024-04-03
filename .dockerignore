@@ -1,7 +1,6 @@
 *
 !db/
 !src/
+!bun.lockb
 !package.json
-!pnpm-lock.yaml
 !tsconfig.json
-!tsup.config.ts

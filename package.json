@@ -9,41 +9,37 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsup",
+    "build": "bun build ./src/main.mts --target bun --outdir ./dist",
     "db": "drizzle-kit",
     "db:generate": "drizzle-kit generate:sqlite",
-    "db:migrate": "tsx migrate.mts",
-    "db:migrate:dev": "cross-env NODE_ENV=DEV tsx migrate.mts",
+    "db:migrate": "bun migrate.mts",
+    "db:migrate:dev": "bun --env-file=.env.dev migrate.mts",
     "db:studio": "drizzle-kit studio",
     "fmt": "prettier --write .",
-    "preview": "node dist/main.js",
-    "preview:dev": "cross-env NODE_ENV=DEV node dist/main.js",
+    "preview": "bun dist/main.js",
+    "preview:dev": "bun --env-file=.env.dev dist/main.js",
     "release": "commit-and-tag-version",
-    "setup": "tsx scripts/initialize-env-files.mts",
-    "start": "cross-env NODE_ENV=DEV tsx watch src/main.mts",
-    "start:production": "cross-env NODE_ENV=PRODUCTION tsx watch src/main.mts",
-    "test": "vitest"
+    "setup": "bun scripts/initialize-env-files.mts",
+    "start": "bun --env-file=.env.dev --watch src/main.mts",
+    "start:production": "NODE_ENV=PRODUCTION bun --watch src/main.mts",
+    "test": "bun test"
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.6"
   },
   "devDependencies": {
+    "@types/bun": "^1.0.12",
     "commit-and-tag-version": "^12.2.0",
-    "cross-env": "^7.0.3",
     "drizzle-kit": "^0.20.14",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.4.14",
-    "tsup": "^8.0.2",
-    "tsx": "^4.7.1",
-    "typescript": "~5.4.3",
-    "vitest": "^1.4.0"
+    "typescript": "~5.4.3"
   },
-  "engines": {
-    "node": ">=20.12.0",
-    "pnpm": ">=8.15"
-  }
+  "trustedDependencies": [
+    "es5-ext",
+    "esbuild"
+  ]
 }
