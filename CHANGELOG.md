@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.3...v4.0.0) (2024-04-03)
+
+### ⚠ BREAKING CHANGES
+
+-   change runtime to `bun`
+-   change database client to `@libsql/client`
+
+### Features
+
+-   change runtime to `bun` ([ba289af](https://github.com/jonz94/discord-bot-ufo/commit/ba289aff9575bf4720587cbf0f66d6c05c83aab7))
+-   change database client to `@libsql/client` ([2469882](https://github.com/jonz94/discord-bot-ufo/commit/246988270b8dd992284533db6058a8c7d2d832ec))
+
 ## [3.2.3](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.2...v3.2.3) (2024-04-02)
 
 ### Bug Fixes
