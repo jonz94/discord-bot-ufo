@@ -94,7 +94,9 @@ export async function execute(interaction: CommandInteraction) {
           '\n【點擊訊息的',
           emojis.貓咪拿一堆槍,
           '表情符號即可參與】',
-          `\n【${timeout / 1000} 秒後將開始對戰，記得點 ${emojis.貓咪拿槍} 擲骰，不然會被系統判定為自動認輸投降 ${emojis.白眼海豚笑}】`,
+          `\n【${timeout / 1000} 秒後將開始對戰，記得點 ${emojis.貓咪拿槍} 擲骰，不然會被系統判定為自動認輸投降 ${
+            emojis.白眼海豚笑
+          }】`,
         ].join(' '),
       })
     } catch (error) {
@@ -200,16 +202,13 @@ export async function execute(interaction: CommandInteraction) {
         })
       }
 
-      await db
-        .update(brawls)
-        .set({ endedAt: sql`CURRENT_TIMESTAMP` })
-        .where(eq(brawls.id, joinBrawlMessage.id))
+      await db.update(brawls).set({ endedAt: sql`CURRENT_TIMESTAMP` }).where(eq(brawls.id, joinBrawlMessage.id))
 
       const usersData = await db.query.brawlParticipants.findMany({
         where: eq(brawlParticipants.brawlId, joinBrawlMessage.id),
       })
 
-      const maxScore = Math.max(...usersData.map((userData) => userData.score!))
+      const maxScore = Math.max(...usersData.map((userData) => userData.score ?? -1))
 
       const winnersData = usersData.filter((userData) => userData.score === maxScore)
 

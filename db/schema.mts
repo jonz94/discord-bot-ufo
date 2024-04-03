@@ -44,9 +44,7 @@ export const brawls = sqliteTable('brawls', {
     .notNull(),
   channelId: text('channel_id').notNull(),
   messageId: text('message_id'),
-  createdAt: text('created_at')
-    .notNull()
-    .default(sql`CURRENT_TIMESTAMP`),
+  createdAt: text('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
   startedAt: text('started_at'),
   endedAt: text('ended_at'),
 })

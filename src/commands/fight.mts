@@ -137,7 +137,7 @@ export async function execute(interaction: CommandInteraction) {
           content: [
             `【${author.displayName} vs ${opponent.displayName}】 ${author} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
             `【${author.displayName} vs ${opponent.displayName}】 ${opponent} 也沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
-            `【雙方平手】`,
+            '【雙方平手】',
           ].join('\n'),
         })
 
@@ -327,7 +327,7 @@ export async function execute(interaction: CommandInteraction) {
       message = `【${opponent} 獲勝】`
     }
 
-    message = message + `${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
+    message = `${message}${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
 
     return message
   })()
