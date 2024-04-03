@@ -1,6 +1,7 @@
 declare module 'bun' {
   interface Env {
     APP_ENV: string
+    APP_PORT: string
     DISCORD_TOKEN: string
     DISCORD_CLIENT_ID: string
     DATABASE_URL: string
@@ -8,10 +9,11 @@ declare module 'bun' {
   }
 }
 
-const { APP_ENV, DISCORD_TOKEN, DISCORD_CLIENT_ID, DATABASE_URL, DATABASE_AUTH_TOKEN } = Bun.env
+const { APP_ENV, APP_PORT, DISCORD_TOKEN, DISCORD_CLIENT_ID, DATABASE_URL, DATABASE_AUTH_TOKEN } = Bun.env
 
 const config = {
   APP_ENV,
+  APP_PORT,
   DISCORD_TOKEN,
   DISCORD_CLIENT_ID,
   DATABASE_URL,

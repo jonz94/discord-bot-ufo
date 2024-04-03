@@ -1,5 +1,6 @@
 import { Events } from 'discord.js'
 import { eq } from 'drizzle-orm'
+import { Hono } from 'hono'
 import { db } from '../db/db.mts'
 import { guilds } from '../db/schema.mts'
 import { client } from './client.mts'
@@ -74,3 +75,20 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
 })
 
 client.login(config.DISCORD_TOKEN)
+
+const app = new Hono()
+
+app.get('/', (c) => {
+  console.log('path / hitted!')
+
+  return c.text(`Hello from ${client.user?.displayName}!`)
+})
+
+app.get('/healthz', (c) => {
+  return c.text('OK')
+})
+
+export default {
+  port: config.APP_PORT,
+  fetch: app.fetch,
+}
