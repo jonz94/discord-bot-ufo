@@ -2,23 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0..v4.1.1) 2024-04-03
+## [unreleased]
 
 ### ⚙️ Miscellaneous Tasks
 
 - Replace `prettier` with `biome` ([7817bd0](https://github.com/jonz94/discord-bot-ufo/commit/7817bd0da07f6a908438434f38b6bb8e22e5d262))
 
-## [4.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.0.0..v4.1.0) 2024-04-03
+## [4.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.0.0..v4.1.0) (2024-04-03)
 
 ### 🚀 Features
 
 - Add api endpoint ([ec828f1](https://github.com/jonz94/discord-bot-ufo/commit/ec828f1a3d6a935226d3b97f9c3977f3dcb2c1c0))
 
-### ⚙️ Miscellaneous Tasks
-
-- *(deps)* Update `drizzle-orm` to 0.30.7 ([45a20c7](https://github.com/jonz94/discord-bot-ufo/commit/45a20c746b0c45f32de76cb0680dba3a370a6094))
-
-## [4.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.3..v4.0.0) 2024-04-03
+## [4.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.3..v4.0.0) (2024-04-03)
 
 ### 🚀 Features
 
@@ -27,12 +23,11 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
-- *(deps)* Update `drizzle-orm` to 0.30.6 ([dd7d2c8](https://github.com/jonz94/discord-bot-ufo/commit/dd7d2c81e39a22a3e05207140ba2030fe38dd6f9))
 - *(dev-deps)* Update `typescript` to 5.4.3 ([4eda423](https://github.com/jonz94/discord-bot-ufo/commit/4eda4238e0752db1d020416ed4ab7910e28c2db0))
 - *(dev-deps)* Update `prettier-plugin-packagejson` to 2.4.14 ([93ad72b](https://github.com/jonz94/discord-bot-ufo/commit/93ad72b0852255aa8e1fe5b7994d9865c0e3bcf0))
 - Remove sqlite related settings ([484780b](https://github.com/jonz94/discord-bot-ufo/commit/484780b2ec8762eb36a4193c3d1700f33b9b3efd))
 
-## [3.2.3](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.2..v3.2.3) 2024-04-02
+## [3.2.3](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.2..v3.2.3) (2024-04-02)
 
 ### 🐛 Bug Fixes
 
@@ -44,7 +39,7 @@ All notable changes to this project will be documented in this file.
 - Update `node.js` to 20.12.0 ([e74f4a3](https://github.com/jonz94/discord-bot-ufo/commit/e74f4a31a4091b6bd9f247657e8efd4251ef84d8))
 - Ensure that correct version of `node.js` and `pnpm` is installed ([78bdb9a](https://github.com/jonz94/discord-bot-ufo/commit/78bdb9a6b6c276525f66bdf0c7caea73ab7a534e))
 
-## [3.2.2](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.1..v3.2.2) 2024-03-23
+## [3.2.2](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.1..v3.2.2) (2024-03-23)
 
 ### 🐛 Bug Fixes
 
@@ -54,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 - Ignore unimportant message ([cd474a7](https://github.com/jonz94/discord-bot-ufo/commit/cd474a7afeb23b4f4c2a6031337e113d1f09d78b))
 
-## [3.2.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.0..v3.2.1) 2024-03-19
+## [3.2.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.2.0..v3.2.1) (2024-03-19)
 
 ### 🐛 Bug Fixes
 
@@ -62,11 +57,10 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
-- *(deps)* Update `drizzle-orm` to 0.30.4 ([1c70215](https://github.com/jonz94/discord-bot-ufo/commit/1c70215c864df62a82870c0a7410b152b9851062))
 - *(dev-deps)* Fix `typescript` version ([ce83b74](https://github.com/jonz94/discord-bot-ufo/commit/ce83b74f85daa63340242a08af13780c1e6a121d))
 - Remove log messages for debugging ([ba2c5ca](https://github.com/jonz94/discord-bot-ufo/commit/ba2c5ca0ad5959b0d27ef6113b70c718a2bd1af2))
 
-## [3.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.1.0..v3.2.0) 2024-03-19
+## [3.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.1.0..v3.2.0) (2024-03-19)
 
 ### 🚀 Features
 
@@ -76,14 +70,14 @@ All notable changes to this project will be documented in this file.
 
 - Extract reaction handling logic ([3003a4f](https://github.com/jonz94/discord-bot-ufo/commit/3003a4fd5270fb9956c7e12d88107bb9aa7db7e6))
 
-## [3.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.1..v3.1.0) 2024-03-19
+## [3.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.1..v3.1.0) (2024-03-19)
 
 ### 🚀 Features
 
 - Improve text message ([0c56872](https://github.com/jonz94/discord-bot-ufo/commit/0c56872a95954a16b987f4a9fe7df2167981f726))
 - Add response message ([1ed4007](https://github.com/jonz94/discord-bot-ufo/commit/1ed40071e59eadcbd7ca4fabb0b2d7e9af60fb9d))
 
-## [3.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.0..v3.0.1) 2024-03-18
+## [3.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v3.0.0..v3.0.1) (2024-03-18)
 
 ### 🐛 Bug Fixes
 
@@ -93,7 +87,7 @@ All notable changes to this project will be documented in this file.
 
 - Simplify configuration files reading mechanism ([9126459](https://github.com/jonz94/discord-bot-ufo/commit/912645905a1f7ce59350b5cae04bfd9944752947))
 
-## [3.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.1.0..v3.0.0) 2024-03-18
+## [3.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.1.0..v3.0.0) (2024-03-18)
 
 ### 🚀 Features
 
@@ -112,20 +106,20 @@ All notable changes to this project will be documented in this file.
 - Adjust settings related to database ([7f9b594](https://github.com/jonz94/discord-bot-ufo/commit/7f9b594fae732b6dc86fa86952b595f03ef47479))
 - Update npm scripts ([ba0d1c7](https://github.com/jonz94/discord-bot-ufo/commit/ba0d1c79a327079b5243d05e2704c11c50ac8f9b))
 
-## [2.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.0.0..v2.1.0) 2024-03-17
+## [2.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v2.0.0..v2.1.0) (2024-03-17)
 
 ### 🚀 Features
 
 - 改善對戰結果顯示方式 ([d136d0f](https://github.com/jonz94/discord-bot-ufo/commit/d136d0f2a77565d5050b6a02ee53f5beafe2a194))
 - 增加對戰提示訊息 ([277026f](https://github.com/jonz94/discord-bot-ufo/commit/277026f2fa86fc38e285e183b79cb4faf250ab4f))
 
-## [2.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.2..v2.0.0) 2024-03-17
+## [2.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.2..v2.0.0) (2024-03-17)
 
 ### 🐛 Bug Fixes
 
 - Remove testing code ([5262104](https://github.com/jonz94/discord-bot-ufo/commit/52621048d3b3abea3b6abf778c50f683cba89b0e))
 
-## [1.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.1..v1.6.2) 2024-03-17
+## [1.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.1..v1.6.2) (2024-03-17)
 
 ### 🐛 Bug Fixes
 
@@ -135,7 +129,7 @@ All notable changes to this project will be documented in this file.
 
 - *(scripts)* Catch error when running setup script ([5450773](https://github.com/jonz94/discord-bot-ufo/commit/54507733288a222ef8c3e81a6797a3a5e64e49cd))
 
-## [1.6.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.0..v1.6.1) 2024-03-17
+## [1.6.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.6.0..v1.6.1) (2024-03-17)
 
 ### 🐛 Bug Fixes
 
@@ -146,7 +140,7 @@ All notable changes to this project will be documented in this file.
 - Remove unused `rimraf` package ([a24a93e](https://github.com/jonz94/discord-bot-ufo/commit/a24a93e4854c1303fa3786116cc2a0db4c2a59f0))
 - Use `tsup.config.ts` to config `tsup` ([6f8324f](https://github.com/jonz94/discord-bot-ufo/commit/6f8324f8afa818eef1191f557defe39e3705a632))
 
-## [1.6.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.1..v1.6.0) 2024-03-17
+## [1.6.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.1..v1.6.0) (2024-03-17)
 
 ### 🚀 Features
 
@@ -162,13 +156,13 @@ All notable changes to this project will be documented in this file.
 
 - *(dev-deps)* Update `vitest` to 1.4.0 ([28e78e5](https://github.com/jonz94/discord-bot-ufo/commit/28e78e5fbe81cdba15196f1cf88a81f13db4f556))
 
-## [1.5.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.0..v1.5.1) 2024-03-11
+## [1.5.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.5.0..v1.5.1) (2024-03-11)
 
 ### 🐛 Bug Fixes
 
 - Correct docker tag name ([44988c6](https://github.com/jonz94/discord-bot-ufo/commit/44988c6e0a4bdcb0668e1e171f359a2d27f74f4b))
 
-## [1.5.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.4.0..v1.5.0) 2024-03-11
+## [1.5.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.4.0..v1.5.0) (2024-03-11)
 
 ### 🚀 Features
 
@@ -178,13 +172,13 @@ All notable changes to this project will be documented in this file.
 
 - Add `README.md` ([e924e32](https://github.com/jonz94/discord-bot-ufo/commit/e924e32b26cbfd78b679f526f231f67cd715b06f))
 
-## [1.4.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.3.1..v1.4.0) 2024-03-11
+## [1.4.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.3.1..v1.4.0) (2024-03-11)
 
 ### 🚀 Features
 
 - Add ci to build and push docker image ([e7c2362](https://github.com/jonz94/discord-bot-ufo/commit/e7c2362b2156d83ee50081d3e5467fccf7c6f562))
 
-## [1.3.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.3.0..v1.3.1) 2024-03-11
+## [1.3.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.3.0..v1.3.1) (2024-03-11)
 
 ### 🚜 Refactor
 
@@ -207,7 +201,7 @@ All notable changes to this project will be documented in this file.
 - Setup `vitest` ([1b99246](https://github.com/jonz94/discord-bot-ufo/commit/1b992461dc72344d4cd5ec82e280d02ca0dacadd))
 - Update `prettier` settings ([8246c81](https://github.com/jonz94/discord-bot-ufo/commit/8246c817bd920b97bff04ab1f6bba15807c405ad))
 
-## [1.3.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.2.0..v1.3.0) 2024-03-10
+## [1.3.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.2.0..v1.3.0) (2024-03-10)
 
 ### 🚀 Features
 
@@ -217,7 +211,7 @@ All notable changes to this project will be documented in this file.
 
 - Use same error reply when parse YouTube url failed ([f8c6411](https://github.com/jonz94/discord-bot-ufo/commit/f8c641114f28af3443ce106830b5fb2479db1817))
 
-## [1.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.1..v1.2.0) 2024-03-10
+## [1.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.1..v1.2.0) (2024-03-10)
 
 ### 🚀 Features
 
@@ -228,7 +222,7 @@ All notable changes to this project will be documented in this file.
 
 - Resolve typescript issue ([e890d40](https://github.com/jonz94/discord-bot-ufo/commit/e890d4087b575b29d77938d0bc8bf8fb32c51a6b))
 
-## [1.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.0..v1.1.1) 2024-03-10
+## [1.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v1.1.0..v1.1.1) (2024-03-10)
 
 ### 🐛 Bug Fixes
 
@@ -239,7 +233,7 @@ All notable changes to this project will be documented in this file.
 - Extract database related function ([264281d](https://github.com/jonz94/discord-bot-ufo/commit/264281dbcde7e7b248a34da1ce8f717b86f51f3e))
 - Reuse command name ([03019f4](https://github.com/jonz94/discord-bot-ufo/commit/03019f444d419e0b628ad3f76a01a9ae27574fd9))
 
-## [1.1.0] 2024-03-10
+## [1.1.0] (2024-03-10)
 
 ### 🚀 Features
 
