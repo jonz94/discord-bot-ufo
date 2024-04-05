@@ -36,7 +36,7 @@ body = """
           ({{ self::remote_url() }}/compare/{{ previous.version }}...{{ version }}) \
           ({{ timestamp | date(format="%Y-%m-%d") }})
     {% else %}\
-        ## [{{ version | trim_start_matches(pat="v") }}] \
+        ## {{ version | trim_start_matches(pat="v") }} \
         ({{ timestamp | date(format="%Y-%m-%d") }})
     {% endif %}\
 {% else %}\
