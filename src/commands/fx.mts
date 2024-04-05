@@ -1,4 +1,5 @@
 import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
+import { parseTwitterUrl } from '../utils/parse-twitter-url.mts'
 
 export const commandName = 'fx'
 
@@ -19,15 +20,9 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const parsedUrl = (function parseUrl() {
-    try {
-      return new URL(originalUrl)
-    } catch (error) {
-      return null
-    }
-  })()
+  const { userId, statusId } = parseTwitterUrl(originalUrl)
 
-  if (!parsedUrl) {
+  if (!userId || !statusId) {
     await interaction.reply({
       content: ['無法解析此 Twitter/X 網址', codeBlock(originalUrl)].join('\n'),
       ephemeral: true,
@@ -36,19 +31,8 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const statusId = parsedUrl.pathname.split('/').at(3) ?? null
-
-  if (!statusId) {
-    await interaction.reply({
-      content: ['無法解析此 Twitter/X 網址', codeBlock(originalUrl)].join('\n'),
-      ephemeral: true,
-    })
-
-    return
-  }
-
-  const twitterUrl = new URL(`/status/${statusId}`, 'https://twitter.com')
-  const fxTwitterUrl = new URL(`/status/${statusId}`, 'https://fxtwitter.com')
+  const twitterUrl = new URL(`/${userId}/status/${statusId}`, 'https://twitter.com')
+  const fxTwitterUrl = new URL(`/${userId}/status/${statusId}`, 'https://fxtwitter.com')
 
   await interaction.reply({
     content: [

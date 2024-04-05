@@ -4,7 +4,7 @@ import { db } from '../../db/db.mts'
 import { attempts, games, guilds } from '../../db/schema.mts'
 import { client } from '../client.mts'
 import { emojis } from '../emoji-list.mts'
-import { calculateScore, rollDice } from '../utils.mts'
+import { calculateScore, rollDice } from '../utils/roll-dice.mts'
 
 export const commandName = '輸贏'
 

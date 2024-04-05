@@ -10,7 +10,7 @@ import { deployCommands } from './deploy-commands.mts'
 import { emojis } from './emoji-list.mts'
 import { handleBrawlRollDiceReaction, handleJoinBrawlReaction } from './handlers/handle-brawl-reaction.mts'
 import { handleFightReaction } from './handlers/handle-fight-reaction.mts'
-import { isDev } from './utils.mts'
+import { isDev } from './utils/is-dev.mts'
 
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)

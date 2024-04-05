@@ -3,7 +3,7 @@ import { and, eq, isNotNull } from 'drizzle-orm'
 import { db } from '../../db/db.mts'
 import { brawlAttempts, brawlParticipants, brawls } from '../../db/schema.mts'
 import { emojis } from '../emoji-list.mts'
-import { calculateScore, rollDice } from '../utils.mts'
+import { calculateScore, rollDice } from '../utils/roll-dice.mts'
 
 export async function handleJoinBrawlReaction(
   reaction: MessageReaction | PartialMessageReaction,
