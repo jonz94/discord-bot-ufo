@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
+
+### 🐛 Bug Fixes
+
+- Fix `/fx` command ([63661be](https://github.com/jonz94/discord-bot-ufo/commit/63661be63c308f8fcc7b94a175603a2a1fceeb52))
+
+### 🚜 Refactor
+
+- Add typescript path mapping ([ed6b628](https://github.com/jonz94/discord-bot-ufo/commit/ed6b628f7cd6a043a3c6aff1ebd390067dd0ad9d))
+- Improve implementation details ([e3dae93](https://github.com/jonz94/discord-bot-ufo/commit/e3dae936c1a8bac4b034a93a0c50b32f743ba538))
+
+### 🧪 Testing
+
+- Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
+
 ## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
