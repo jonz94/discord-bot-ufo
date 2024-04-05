@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
-import { parseTwitterUrl } from '../utils/parse-twitter-url.mts'
+import { parseTwitterUrl } from '~/src/utils/parse-twitter-url.mts'
 
 export const commandName = 'fx'
 

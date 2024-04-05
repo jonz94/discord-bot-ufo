@@ -1,5 +1,5 @@
 import { REST, Routes } from 'discord.js'
-import { type SelectGuild } from '../db/schema.mts'
+import { type SelectGuild } from '~/db/schema.mts'
 import { commands } from './commands/index.mts'
 import { config } from './config.mts'
 

@@ -1,10 +1,10 @@
 import { ChannelType, SlashCommandBuilder, type CommandInteraction } from 'discord.js'
 import { and, eq, isNull, or } from 'drizzle-orm'
-import { db } from '../../db/db.mts'
-import { attempts, games, guilds } from '../../db/schema.mts'
-import { client } from '../client.mts'
-import { emojis } from '../emoji-list.mts'
-import { calculateScore, rollDice } from '../utils/roll-dice.mts'
+import { db } from '~/db/db.mts'
+import { attempts, games, guilds } from '~/db/schema.mts'
+import { client } from '~/src/client.mts'
+import { emojis } from '~/src/emoji-list.mts'
+import { calculateScore, rollDice } from '~/src/utils/roll-dice.mts'
 
 export const commandName = '輸贏'
 
