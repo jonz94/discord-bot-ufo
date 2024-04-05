@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
+
+### ⚙️ Miscellaneous Tasks
+
+- Replace `commit-and-tag-version` with `git-cliff` ([a67eaeb](https://github.com/jonz94/discord-bot-ufo/commit/a67eaeb690326c999441b0f38f0f76b81e3f2059))
+- Add `.gitattributes` for bun's lockfile ([b1f90a4](https://github.com/jonz94/discord-bot-ufo/commit/b1f90a4c7014c83940c2b05fc40e049fb97cb6b7))
+
 ## [4.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.0.0...v4.1.0) (2024-04-03)
 
 ### 🚀 Features
