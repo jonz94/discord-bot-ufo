@@ -17,7 +17,7 @@
     "db:studio": "drizzle-kit studio",
     "fmt": "bun run fmt:biome && bun run fmt:sort-package-json",
     "fmt:biome": "bunx @biomejs/biome format --write .",
-    "fmt:sort-package-json": "bunx sort-package-json",
+    "fmt:sort-package-json": "bunx sort-package-json && bunx @biomejs/biome format --write package.json",
     "preview": "bun dist/main.js",
     "preview:dev": "bun --env-file=.env.dev dist/main.js",
     "release": "commit-and-tag-version",
@@ -33,16 +33,12 @@
     "hono": "^4.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.6.4",
+    "@biomejs/biome": "^1.6.4",
     "@types/bun": "^1.0.12",
     "commit-and-tag-version": "^12.2.0",
     "drizzle-kit": "^0.20.14",
     "sort-package-json": "^2.10.0",
     "typescript": "~5.4.3"
   },
-  "trustedDependencies": [
-    "@biomejs/biome",
-    "es5-ext",
-    "esbuild"
-  ]
+  "trustedDependencies": ["@biomejs/biome", "es5-ext", "esbuild"]
 }
