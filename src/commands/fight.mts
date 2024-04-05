@@ -327,7 +327,7 @@ export async function execute(interaction: CommandInteraction) {
       message = `【${opponent} 獲勝】`
     }
 
-    message = message + `${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
+    message = `${message}${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
 
     return message
   })()

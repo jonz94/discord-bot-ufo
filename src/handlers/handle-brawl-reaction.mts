@@ -1,4 +1,4 @@
-import { MessageReaction, User, type PartialMessageReaction, type PartialUser } from 'discord.js'
+import { type MessageReaction, type PartialMessageReaction, type PartialUser, type User } from 'discord.js'
 import { and, eq, isNotNull } from 'drizzle-orm'
 import { db } from '../../db/db.mts'
 import { brawlAttempts, brawlParticipants, brawls } from '../../db/schema.mts'

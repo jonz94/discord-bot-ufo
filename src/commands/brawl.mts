@@ -209,7 +209,7 @@ export async function execute(interaction: CommandInteraction) {
         where: eq(brawlParticipants.brawlId, joinBrawlMessage.id),
       })
 
-      const maxScore = Math.max(...usersData.map((userData) => userData.score!))
+      const maxScore = Math.max(...usersData.map((userData) => userData.score ?? -1))
 
       const winnersData = usersData.filter((userData) => userData.score === maxScore)
 

@@ -20,7 +20,7 @@ client.once(Events.ClientReady, async (readyClient) => {
     where: isDev ? eq(guilds.allowDev, true) : undefined,
   })
 
-  targetGuilds.forEach(async (guild) => await deployCommands(guild))
+  targetGuilds.forEach((guild) => deployCommands(guild))
 })
 
 client.on(Events.MessageCreate, async (message) => {

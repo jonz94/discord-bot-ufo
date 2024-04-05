@@ -8,7 +8,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption((option) => option.setName('網址').setDescription('Twitter/X 網址').setRequired(true))
 
 export async function execute(interaction: CommandInteraction) {
-  const originalUrl = String(interaction.options.get('網址')?.value ?? '')
+  const originalUrl = interaction.options.get('網址')?.value?.toString() ?? ''
 
   if (!originalUrl) {
     await interaction.reply({

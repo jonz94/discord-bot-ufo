@@ -76,7 +76,7 @@ export async function execute(interaction: CommandInteraction) {
     url.searchParams.append('v', videoId)
 
     const timestampInOriginalUrl = parsedUrl.searchParams.get('t') ?? ''
-    const inputTimestamp = ((interaction.options as any)?.getString('開始於') ?? '') as string
+    const inputTimestamp = interaction.options.get('開始於')?.value?.toString()
 
     if (timestampInOriginalUrl && !inputTimestamp) {
       url.searchParams.append('t', timestampInOriginalUrl)

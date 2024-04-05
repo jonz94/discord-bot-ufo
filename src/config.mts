@@ -20,10 +20,10 @@ const config = {
   DATABASE_AUTH_TOKEN,
 }
 
-Object.entries(config).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(config)) {
   if (value === undefined) {
     throw new Error(`Missing environment variables ${key}`)
   }
-})
+}
 
 export { config }

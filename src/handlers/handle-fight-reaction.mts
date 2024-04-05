@@ -1,4 +1,4 @@
-import { MessageReaction, User, type PartialMessageReaction, type PartialUser } from 'discord.js'
+import { type MessageReaction, type PartialMessageReaction, type PartialUser, type User } from 'discord.js'
 import { eq } from 'drizzle-orm'
 import { db } from '../../db/db.mts'
 import { attempts, games } from '../../db/schema.mts'
@@ -127,7 +127,7 @@ export async function handleFightReaction(
       message = `【${opponent} 獲勝】`
     }
 
-    message = message + `${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
+    message = `${message}${author} 骰出了 ${authorScore}，${opponent} 骰出了 ${opponentScore}`
 
     return message
   })()
