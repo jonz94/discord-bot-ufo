@@ -18,7 +18,7 @@
     "fmt": "prettier --write .",
     "preview": "bun dist/main.js",
     "preview:dev": "bun --env-file=.env.dev dist/main.js",
-    "release": "commit-and-tag-version",
+    "release": "bun scripts/bump-version-and-git-tag.mts",
     "setup": "bun scripts/initialize-env-files.mts",
     "start": "bun --env-file=.env.dev --watch src/main.mts",
     "start:production": "NODE_ENV=PRODUCTION bun --watch src/main.mts",
@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@types/bun": "^1.0.12",
-    "commit-and-tag-version": "^12.2.0",
     "drizzle-kit": "^0.20.14",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",

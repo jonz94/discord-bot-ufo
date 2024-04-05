@@ -58,12 +58,27 @@ bun run build
 bun run preview
 ```
 
-Release new version:
+## Release
+
+### Prerequisites
+
+- Install [git-cliff](https://git-cliff.org/)
+
+### Instructions
+
+1. Bump version
 
 ```shell
 bun run release
+```
+
+2. Push commits with tags
+
+```shell
 git push --follow-tags
 ```
+
+3. [GitHub Actions](https://github.com/jonz94/discord-bot-ufo/actions/workflows/build.yml) will be triggered and it will build the [Docker Image](https://hub.docker.com/r/jonz94/discord-bot-ufo) for us
 
 ## Production
 
