@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- Add config for bun ([954116d](https://github.com/jonz94/discord-bot-ufo/commit/954116de48de51766f1ae7f00b8f515263883e91))
 - Replace `prettier` with `biome` ([7817bd0](https://github.com/jonz94/discord-bot-ufo/commit/7817bd0da07f6a908438434f38b6bb8e22e5d262))
 
 ## [4.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.0.0..v4.1.0) (2024-04-03)
