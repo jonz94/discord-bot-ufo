@@ -2,7 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
+## [4.1.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.2...v4.1.3) (2024-04-06)
+
+### 🐛 Bug Fixes
+
+- Fix `/yt` command ([75b8723](https://github.com/jonz94/discord-bot-ufo/commit/75b872385d300f3e89cf10eec521c30b8ad628c2))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(runtime)* Update `bun` to 1.1.2 ([db4757c](https://github.com/jonz94/discord-bot-ufo/commit/db4757c6657678b9dfa16f9c5d6c47b1849f6895))
+- *(scripts)* Make bun's autocomplete happy ([4d54662](https://github.com/jonz94/discord-bot-ufo/commit/4d546625c5623e4424b38d71abe5c8bb8f05ac75))
+- Tweaks `cliff` settings ([9fc15ff](https://github.com/jonz94/discord-bot-ufo/commit/9fc15ffe1336388ea3d021aadeeaa522fe306d52))
+
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.2) (2024-04-05)
 
 ### 🐛 Bug Fixes
 
@@ -16,8 +28,6 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
-
-## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -255,7 +265,7 @@ All notable changes to this project will be documented in this file.
 - Extract database related function ([264281d](https://github.com/jonz94/discord-bot-ufo/commit/264281dbcde7e7b248a34da1ce8f717b86f51f3e))
 - Reuse command name ([03019f4](https://github.com/jonz94/discord-bot-ufo/commit/03019f444d419e0b628ad3f76a01a9ae27574fd9))
 
-## [1.1.0] (2024-03-10)
+## 1.1.0 (2024-03-10)
 
 ### 🚀 Features
 
