@@ -1,4 +1,5 @@
 import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
+import { generateYoutubeUrl, parseYoutubeUrl } from '~/src/utils/youtube-url.mts'
 
 export const commandName = 'yt'
 
@@ -9,7 +10,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption((option) =>
     option
       .setName('開始於')
-      .setDescription('從幾小時幾分幾秒開始播放 (e.g. 1:23:45 表示從 1 小時 23 分 45 秒處開始播放)'),
+      .setDescription('從幾小時幾分幾秒開始播放 (e.g. 1.23.45 表示從 1 小時 23 分 45 秒處開始播放)'),
   )
 
 export async function execute(interaction: CommandInteraction) {
@@ -24,42 +25,7 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const parsedUrl = (function parseUrl() {
-    try {
-      return new URL(originalUrl)
-    } catch (error) {
-      return null
-    }
-  })()
-
-  if (!parsedUrl) {
-    await interaction.reply({
-      content: ['無法解析此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
-      ephemeral: true,
-    })
-
-    return
-  }
-
-  const videoId = (function getVideoId() {
-    if (parsedUrl.hostname === 'youtu.be') {
-      return parsedUrl.pathname.substring(1)
-    }
-
-    if (parsedUrl.pathname.startsWith('/watch')) {
-      return parsedUrl.searchParams.get('v') ?? ''
-    }
-
-    if (parsedUrl.pathname.startsWith('/live/')) {
-      return parsedUrl.pathname.substring('/live/'.length)
-    }
-
-    if (parsedUrl.pathname.startsWith('/shorts/')) {
-      return parsedUrl.pathname.substring('/shorts/'.length)
-    }
-
-    return null
-  })()
+  const { videoId, timestamp } = parseYoutubeUrl(originalUrl)
 
   if (!videoId) {
     await interaction.reply({
@@ -70,27 +36,18 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const result = (function generateUrl() {
-    const url = new URL('https://www.youtube.com')
-    url.pathname = '/watch'
-    url.searchParams.append('v', videoId)
+  const inputTimestamp = interaction.options.get('開始於')?.value?.toString()
 
-    const timestampInOriginalUrl = parsedUrl.searchParams.get('t') ?? ''
-    const inputTimestamp = interaction.options.get('開始於')?.value?.toString()
+  const result = generateYoutubeUrl({ videoId, timestamp }, inputTimestamp)
 
-    if (timestampInOriginalUrl && !inputTimestamp) {
-      url.searchParams.append('t', timestampInOriginalUrl)
-    } else if (inputTimestamp) {
-      const seconds = inputTimestamp
-        .split(/[:;：]/)
-        .map((value) => Number(value))
-        .reduce((previousValue, currentValue) => previousValue * 60 + currentValue, 0)
+  if (!result) {
+    await interaction.reply({
+      content: ['無法格式化此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
+      ephemeral: true,
+    })
 
-      url.searchParams.append('t', String(seconds))
-    }
-
-    return url
-  })()
+    return
+  }
 
   await interaction.reply({
     content: ['原始網址', codeBlock(originalUrl), '整理後網址', codeBlock(result.toString()), result].join('\n'),
