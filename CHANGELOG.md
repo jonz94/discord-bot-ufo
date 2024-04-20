@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.4...v4.2.0) (2024-04-20)
+
+### 🚀 Features
+
+- Add extra `s` for generated youtube url's timestamp ([cbe38e7](https://github.com/jonz94/discord-bot-ufo/commit/cbe38e780b8adc8851490b0df775e7885b6c6775))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.2.5 ([060b855](https://github.com/jonz94/discord-bot-ufo/commit/060b8554bc9ed90bef4ec1b700fb772b503c4891))
+- *(deps)* Update `drizzle-orm` to 0.30.8 ([cbba6e8](https://github.com/jonz94/discord-bot-ufo/commit/cbba6e84f34ddeaf4d867728dd8b6447167278e0))
+- *(dev-deps)* Update `drizzle-kit` to 0.20.16 ([223d7c0](https://github.com/jonz94/discord-bot-ufo/commit/223d7c0467de7fb1d1a3ddac48f674639bc98b7b))
+- *(dev-deps)* Update `@types/bun` to 1.1.0 ([663b57d](https://github.com/jonz94/discord-bot-ufo/commit/663b57dfa0c63b38f1223b90976cf77de99f2be6))
+- *(dev-deps)* Update `typescript` to 5.4.5 ([356a985](https://github.com/jonz94/discord-bot-ufo/commit/356a985a305264770e4e58d20bdc8ba78aac6267))
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.0 ([c636b77](https://github.com/jonz94/discord-bot-ufo/commit/c636b77c9a5e8fc9a596dc7e5803e99028d59fa4))
+- *(runtime)* Update `bun` to 1.1.4 ([f9b6639](https://github.com/jonz94/discord-bot-ufo/commit/f9b6639fba00712d8bdce02eba1011ab5db858e2))
+
 ## [4.1.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.3...v4.1.4) (2024-04-09)
 
 ### ⚙️ Miscellaneous Tasks
