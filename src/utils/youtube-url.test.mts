@@ -1,5 +1,10 @@
 import { expect, test } from 'bun:test'
-import { EMPTY_PARSED_YOUTUBE_URL_DATA, parseInputTimestampIntoSeconds, parseYoutubeUrl } from './youtube-url.mts'
+import {
+  EMPTY_PARSED_YOUTUBE_URL_DATA,
+  generateYoutubeUrl,
+  parseInputTimestampIntoSeconds,
+  parseYoutubeUrl,
+} from './youtube-url.mts'
 
 test('parse YouTube url correctly', () => {
   expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc')).toEqual({ videoId: 'abc', timestamp: null })
@@ -23,6 +28,19 @@ test('handle invalid youtube url correctly', () => {
   expect(parseYoutubeUrl('a')).toEqual(EMPTY_PARSED_YOUTUBE_URL_DATA)
 
   expect(parseYoutubeUrl('https://youtube.com/watch?t=123')).toEqual(EMPTY_PARSED_YOUTUBE_URL_DATA)
+})
+
+test('generate youtube url correctly', () => {
+  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: null })).toEqual('https://www.youtube.com/watch?v=abc')
+  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: '123' })).toEqual('https://www.youtube.com/watch?v=abc&t=123s')
+
+  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: '123' }, '456')).toEqual(
+    'https://www.youtube.com/watch?v=abc&t=456s',
+  )
+
+  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: null }, '456')).toEqual(
+    'https://www.youtube.com/watch?v=abc&t=456s',
+  )
 })
 
 test('parse input timestamp correctly', () => {

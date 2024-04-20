@@ -61,16 +61,16 @@ export function generateYoutubeUrl({ videoId, timestamp }: ParsedYoutubeUrlData,
   url.searchParams.append('v', videoId)
 
   if (timestamp && !inputTimestamp) {
-    url.searchParams.append('t', timestamp)
+    url.searchParams.append('t', `${timestamp}s`)
   } else if (inputTimestamp) {
     const seconds = parseInputTimestampIntoSeconds(inputTimestamp)
 
     if ((seconds ?? -1) >= 0) {
-      url.searchParams.append('t', String(seconds))
+      url.searchParams.append('t', `${seconds}s`)
     }
   }
 
-  return url
+  return url.toString()
 }
 
 export function parseInputTimestampIntoSeconds(inputTimestamp: string) {

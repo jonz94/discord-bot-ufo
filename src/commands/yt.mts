@@ -50,7 +50,7 @@ export async function execute(interaction: CommandInteraction) {
   }
 
   await interaction.reply({
-    content: ['原始網址', codeBlock(originalUrl), '整理後網址', codeBlock(result.toString()), result].join('\n'),
+    content: ['原始網址', codeBlock(originalUrl), '整理後網址', codeBlock(result), result].join('\n'),
     ephemeral: true,
   })
 }
