@@ -31,7 +31,7 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const twitterUrl = new URL(`/${userId}/status/${statusId}`, 'https://twitter.com')
+  const twitterUrl = new URL(`/${userId}/status/${statusId}`, 'https://x.com')
   const fxTwitterUrl = new URL(`/${userId}/status/${statusId}`, 'https://fxtwitter.com')
 
   await interaction.reply({

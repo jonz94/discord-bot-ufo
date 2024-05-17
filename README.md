@@ -97,8 +97,8 @@ See [LICENSE](https://github.com/jonz94/discord-bot-ufo/blob/main/LICENSE).
 
 ## Credits
 
-- [楔六葉](https://twitter.com/sixleafs)
-    - https://twitter.com/sixleafs/status/1766456561504023025
+- [楔六葉](https://x.com/sixleafs)
+    - https://x.com/sixleafs/status/1766456561504023025
     - https://hackmd.io/@3Q1PwoaDQXSlvMLWWzaBww/S1pEto_ap#Render-%E4%BD%88%E7%BD%B2-Discord-Bot
 
 - [Fellipe Utaka](https://github.com/fellipeutaka)
