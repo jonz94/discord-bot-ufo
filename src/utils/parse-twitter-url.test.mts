@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test'
-import { parseTwitterUrl, EMPTY_PARSED_TWITTER_URL_DATA } from './parse-twitter-url.mts'
+import { EMPTY_PARSED_TWITTER_URL_DATA, parseTwitterUrl } from './parse-twitter-url.mts'
 
 test('parse twitter url correctly', () => {
   expect(parseTwitterUrl('https://twitter.com/abc/status/123')).toEqual({ userId: 'abc', statusId: '123' })
