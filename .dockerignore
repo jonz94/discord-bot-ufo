@@ -1,5 +1,7 @@
 *
+!.git/
 !db/
+!scripts/
 !src/
 !bun.lockb
 !package.json

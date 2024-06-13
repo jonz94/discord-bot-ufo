@@ -9,7 +9,6 @@
   },
   "type": "module",
   "scripts": {
-    "prebuild": "bun run generate-version-file",
     "build": "bun build ./src/main.mts --target bun --outdir ./dist",
     "db": "drizzle-kit",
     "db-generate": "drizzle-kit generate:sqlite",

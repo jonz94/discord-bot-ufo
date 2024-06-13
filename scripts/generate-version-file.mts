@@ -1,4 +1,9 @@
 import { $ } from 'bun'
+import { exit } from 'node:process'
+
+if (Bun.env.NODE_ENV === 'production') {
+  exit()
+}
 
 // get version number from `package.json`
 const version = (await Bun.file('package.json').json()).version
