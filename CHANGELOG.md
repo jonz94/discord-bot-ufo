@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.3.3...v4.4.0) (2024-06-13)
+
+### 🚀 Features
+
+- Add `/version` command ([1808eb0](https://github.com/jonz94/discord-bot-ufo/commit/1808eb019b9c8acc72d0041b5fd6526471f4574c))
+
 ## [4.3.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.3.2...v4.3.3) (2024-06-13)
 
 ### ⚙️ Miscellaneous Tasks
