@@ -2,3 +2,6 @@ dist/
 node_modules/
 .env*
 !.env.example
+
+# auto generate version file
+src/version.mts

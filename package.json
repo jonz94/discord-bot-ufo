@@ -9,6 +9,7 @@
   },
   "type": "module",
   "scripts": {
+    "prebuild": "bun run generate-version-file",
     "build": "bun build ./src/main.mts --target bun --outdir ./dist",
     "db": "drizzle-kit",
     "db-generate": "drizzle-kit generate:sqlite",
@@ -16,6 +17,8 @@
     "db-migrate-dev": "bun --env-file=.env.dev migrate.mts",
     "db-studio": "drizzle-kit studio",
     "fmt": "prettier --write .",
+    "generate-version-file": "bun scripts/generate-version-file.mts",
+    "postinstall": "bun run generate-version-file",
     "preview": "bun dist/main.js",
     "preview-dev": "bun --env-file=.env.dev dist/main.js",
     "release": "bun scripts/bump-version-and-git-tag.mts",
