@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.0...v4.4.1) (2024-06-13)
+
+### 🐛 Bug Fixes
+
+- Resolve docker build issues ([1e0c40e](https://github.com/jonz94/discord-bot-ufo/commit/1e0c40eebea2d5c303380b6b05ddf75769d466d7))
+
 ## [4.4.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.3.3...v4.4.0) (2024-06-13)
 
 ### 🚀 Features
