@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.1...v4.4.2) (2024-06-29)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `@libsql/client` to 0.7.0 ([26b057d](https://github.com/jonz94/discord-bot-ufo/commit/26b057d8999557ece389ecd6b6c39e2b1448d252))
+- *(deps)* Update `hono` to 4.4.9 ([3e3b817](https://github.com/jonz94/discord-bot-ufo/commit/3e3b817064a4d2e098b8ac60c2b21c9a24a271b7))
+- *(deps)* Update `hono` to 4.4.7 ([e2b76e7](https://github.com/jonz94/discord-bot-ufo/commit/e2b76e7af53953e2dcad280072e5ee8ad421e034))
+- *(dev-deps)* Update `typescript` to 5.5.2 ([92c1e93](https://github.com/jonz94/discord-bot-ufo/commit/92c1e93197d14d91cc5b645fd5d0cae6f4fced88))
+- *(dev-deps)* Update `@types/bun` to 1.1.6 ([299e77b](https://github.com/jonz94/discord-bot-ufo/commit/299e77bf55a9e23f532e5eb7d0fa47e1bbb4be08))
+- *(runtime)* Update `bun` to 1.1.17 ([956c905](https://github.com/jonz94/discord-bot-ufo/commit/956c905aecee54e7e1813dd0d4d45b138d939190))
+
 ## [4.4.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.0...v4.4.1) (2024-06-13)
 
 ### 🐛 Bug Fixes
@@ -114,7 +125,7 @@ All notable changes to this project will be documented in this file.
 - *(scripts)* Make bun's autocomplete happy ([4d54662](https://github.com/jonz94/discord-bot-ufo/commit/4d546625c5623e4424b38d71abe5c8bb8f05ac75))
 - Tweaks `cliff` settings ([9fc15ff](https://github.com/jonz94/discord-bot-ufo/commit/9fc15ffe1336388ea3d021aadeeaa522fe306d52))
 
-## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.2) (2024-04-05)
 
 ### 🐛 Bug Fixes
 
@@ -128,8 +139,6 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
-
-## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
 
