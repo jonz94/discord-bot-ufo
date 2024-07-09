@@ -1,10 +1,13 @@
-import type { Config } from 'drizzle-kit'
+import { defineConfig } from 'drizzle-kit'
+import { config } from '~/src/config.mjs'
 
-export default {
+export default defineConfig({
   schema: './db/schema.mts',
   out: './drizzle',
-  driver: 'better-sqlite',
+  dialect: 'sqlite',
+  driver: 'turso',
   dbCredentials: {
-    url: './database.sqlite',
+    url: config.DATABASE_URL,
+    authToken: config.DATABASE_AUTH_TOKEN,
   },
-} satisfies Config
+})
