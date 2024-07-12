@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.3...v4.4.4) (2024-07-12)
+
+### 🚜 Refactor
+
+- Use new `defineConfig()` syntax for `drizzle` config file ([7f136ce](https://github.com/jonz94/discord-bot-ufo/commit/7f136cea4ee1ee8ca37fbeec03099d3baf525256))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.4.13 ([44c2cba](https://github.com/jonz94/discord-bot-ufo/commit/44c2cbaf940f25c9e66c92dc4b28ee18c4c2b70b))
+- *(deps)* Update `drizzle-orm` to 0.32.0 ([e1aebc4](https://github.com/jonz94/discord-bot-ufo/commit/e1aebc48998c60a586a69fcc80020acf4ac15551))
+- *(deps)* Update `drizzle-orm` to 0.31.4 ([d7bb177](https://github.com/jonz94/discord-bot-ufo/commit/d7bb177cfbbd024a3fb4e8eabbda618e8f31ae06))
+- *(dev-deps)* Update `drizzle-kit` to 0.23.0 ([8da5907](https://github.com/jonz94/discord-bot-ufo/commit/8da590798bd6a07e35fcda679936852584dc2c80))
+- *(runtime)* Update `bun` to 1.1.19 ([a87f6a7](https://github.com/jonz94/discord-bot-ufo/commit/a87f6a7ca9699dc6e2eedf6bfc483e9dea3a47ae))
+
 ## [4.4.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.2...v4.4.3) (2024-07-08)
 
 ### ⚙️ Miscellaneous Tasks
