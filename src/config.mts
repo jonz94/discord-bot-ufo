@@ -18,7 +18,7 @@ const config = {
   DISCORD_CLIENT_ID,
   DATABASE_URL,
   DATABASE_AUTH_TOKEN,
-}
+} as const
 
 for (const [key, value] of Object.entries(config)) {
   if (value === undefined) {

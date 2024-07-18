@@ -5,4 +5,4 @@ export const emojis = {
   貓咪挖屋: '<:nekocatwoah:1216480975114993825>',
   白眼海豚笑: '<:dolphinlaugh:1216478860661493850>',
   皇冠: ':crown:',
-} as const
+} as const satisfies Record<string, string>
