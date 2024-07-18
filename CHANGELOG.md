@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.4.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.4...v4.4.5) (2024-07-18)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.5.0 ([1c8a61d](https://github.com/jonz94/discord-bot-ufo/commit/1c8a61d5f5801890954dce1c389f4c55acefc4c8))
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.1 ([4d15f42](https://github.com/jonz94/discord-bot-ufo/commit/4d15f4215e621cb8b80459166ffe9c7339f5a931))
+- *(dev-deps)* Update `prettier` to 3.3.3 ([21bedf0](https://github.com/jonz94/discord-bot-ufo/commit/21bedf0227bb6eb55a4852daa3f4f8176245540c))
+- *(runtime)* Update `bun` to 1.1.20 ([2651fd7](https://github.com/jonz94/discord-bot-ufo/commit/2651fd7c75322304aa6351eb554aff2cecbff44a))
+
 ## [4.4.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.3...v4.4.4) (2024-07-12)
 
 ### 🚜 Refactor
@@ -148,7 +157,7 @@ All notable changes to this project will be documented in this file.
 - *(scripts)* Make bun's autocomplete happy ([4d54662](https://github.com/jonz94/discord-bot-ufo/commit/4d546625c5623e4424b38d71abe5c8bb8f05ac75))
 - Tweaks `cliff` settings ([9fc15ff](https://github.com/jonz94/discord-bot-ufo/commit/9fc15ffe1336388ea3d021aadeeaa522fe306d52))
 
-## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.2) (2024-04-05)
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
 
 ### 🐛 Bug Fixes
 
@@ -162,6 +171,8 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
+
+## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
 
