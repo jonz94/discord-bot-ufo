@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.5...v4.5.0) (2024-07-31)
+
+### 🚀 Features
+
+- Add support for YouTube clip ([6a4a762](https://github.com/jonz94/discord-bot-ufo/commit/6a4a762e7e7c329cdcfd31fb9d3a94faac824c38))
+
+### 🚜 Refactor
+
+- Minor refactor ([fa8c2b2](https://github.com/jonz94/discord-bot-ufo/commit/fa8c2b22cd8d3659f351354e593d6cd6dea88ef8))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.5.3 ([3573ea1](https://github.com/jonz94/discord-bot-ufo/commit/3573ea1384f144be26489d92481d3714782b2a2c))
+- *(deps)* Update `drizzle-orm` to 0.32.1 ([3578953](https://github.com/jonz94/discord-bot-ufo/commit/3578953764a3ae72d22188303805c782c04ad3d8))
+- *(deps)* Update `@libsql/client` to 0.8.0 ([894a256](https://github.com/jonz94/discord-bot-ufo/commit/894a256dd4a7aea8df5f7b1b436a8a9abb45dcf8))
+- *(dev-deps)* Update `typescript` to 5.5.4 ([e246acc](https://github.com/jonz94/discord-bot-ufo/commit/e246acceb08b14992d53d589402be9003a266c3e))
+- *(dev-deps)* Update `drizzle-kit` to 0.23.1 ([c4472fb](https://github.com/jonz94/discord-bot-ufo/commit/c4472fb13c4d5c6edb0a02b1286d811a0c9167ba))
+- *(runtime)* Update `bun` to 1.1.21 ([111f68a](https://github.com/jonz94/discord-bot-ufo/commit/111f68a7cf3fe96354fa68cb6a02a9c1624b8f2f))
+
 ## [4.4.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.4...v4.4.5) (2024-07-18)
 
 ### ⚙️ Miscellaneous Tasks
@@ -157,7 +176,7 @@ All notable changes to this project will be documented in this file.
 - *(scripts)* Make bun's autocomplete happy ([4d54662](https://github.com/jonz94/discord-bot-ufo/commit/4d546625c5623e4424b38d71abe5c8bb8f05ac75))
 - Tweaks `cliff` settings ([9fc15ff](https://github.com/jonz94/discord-bot-ufo/commit/9fc15ffe1336388ea3d021aadeeaa522fe306d52))
 
-## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.2) (2024-04-05)
 
 ### 🐛 Bug Fixes
 
@@ -171,8 +190,6 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
-
-## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
 
