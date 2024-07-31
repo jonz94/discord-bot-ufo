@@ -25,9 +25,9 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  const { videoId, timestamp } = parseYoutubeUrl(originalUrl)
+  const { type, id, timestamp } = parseYoutubeUrl(originalUrl)
 
-  if (!videoId) {
+  if (!id) {
     await interaction.reply({
       content: ['無法解析此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
       ephemeral: true,
@@ -38,7 +38,7 @@ export async function execute(interaction: CommandInteraction) {
 
   const inputTimestamp = interaction.options.get('開始於')?.value?.toString()
 
-  const result = generateYoutubeUrl({ videoId, timestamp }, inputTimestamp)
+  const result = generateYoutubeUrl({ type, id, timestamp }, inputTimestamp)
 
   if (!result) {
     await interaction.reply({

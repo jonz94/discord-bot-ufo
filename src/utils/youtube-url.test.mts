@@ -7,19 +7,37 @@ import {
 } from './youtube-url.mts'
 
 test('parse YouTube url correctly', () => {
-  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc')).toEqual({ videoId: 'abc', timestamp: null })
-  expect(parseYoutubeUrl('https://m.youtube.com/watch?v=abc')).toEqual({ videoId: 'abc', timestamp: null })
-  expect(parseYoutubeUrl('https://youtube.com/watch?v=abc')).toEqual({ videoId: 'abc', timestamp: null })
-  expect(parseYoutubeUrl('https://youtu.be/abc')).toEqual({ videoId: 'abc', timestamp: null })
+  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc')).toEqual({ type: 'video', id: 'abc', timestamp: null })
+  expect(parseYoutubeUrl('https://m.youtube.com/watch?v=abc')).toEqual({ type: 'video', id: 'abc', timestamp: null })
+  expect(parseYoutubeUrl('https://youtube.com/watch?v=abc')).toEqual({ type: 'video', id: 'abc', timestamp: null })
+  expect(parseYoutubeUrl('https://youtu.be/abc')).toEqual({ type: 'video', id: 'abc', timestamp: null })
 
-  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&t=123')).toEqual({ videoId: 'abc', timestamp: '123' })
-  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&t=123s')).toEqual({ videoId: 'abc', timestamp: '123' })
-  expect(parseYoutubeUrl('https://www.youtube.com/live/abc?si=def')).toEqual({ videoId: 'abc', timestamp: null })
-  expect(parseYoutubeUrl('https://youtu.be/abc?si=def&t=123')).toEqual({ videoId: 'abc', timestamp: '123' })
-  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&list=ghi&start_radio=1')).toEqual({
-    videoId: 'abc',
+  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&t=123')).toEqual({
+    type: 'video',
+    id: 'abc',
+    timestamp: '123',
+  })
+  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&t=123s')).toEqual({
+    type: 'video',
+    id: 'abc',
+    timestamp: '123',
+  })
+  expect(parseYoutubeUrl('https://www.youtube.com/live/abc?si=def')).toEqual({
+    type: 'video',
+    id: 'abc',
     timestamp: null,
   })
+  expect(parseYoutubeUrl('https://youtu.be/abc?si=def&t=123')).toEqual({ type: 'video', id: 'abc', timestamp: '123' })
+  expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc&list=ghi&start_radio=1')).toEqual({
+    type: 'video',
+    id: 'abc',
+    timestamp: null,
+  })
+})
+
+test('parse YouTube clip url correctly', () => {
+  expect(parseYoutubeUrl('https://youtube.com/clip/abc')).toEqual({ type: 'clip', id: 'abc', timestamp: null })
+  expect(parseYoutubeUrl('https://youtube.com/clip/abc?si=def')).toEqual({ type: 'clip', id: 'abc', timestamp: null })
 })
 
 test('handle invalid youtube url correctly', () => {
@@ -30,16 +48,31 @@ test('handle invalid youtube url correctly', () => {
   expect(parseYoutubeUrl('https://youtube.com/watch?t=123')).toEqual(EMPTY_PARSED_YOUTUBE_URL_DATA)
 })
 
-test('generate youtube url correctly', () => {
-  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: null })).toEqual('https://www.youtube.com/watch?v=abc')
-  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: '123' })).toEqual('https://www.youtube.com/watch?v=abc&t=123s')
+test('generate YouTube url correctly', () => {
+  expect(generateYoutubeUrl({ type: 'video', id: 'abc', timestamp: null })).toEqual(
+    'https://www.youtube.com/watch?v=abc',
+  )
+  expect(generateYoutubeUrl({ type: 'video', id: 'abc', timestamp: '123' })).toEqual(
+    'https://www.youtube.com/watch?v=abc&t=123s',
+  )
 
-  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: '123' }, '456')).toEqual(
+  expect(generateYoutubeUrl({ type: 'video', id: 'abc', timestamp: '123' }, '456')).toEqual(
     'https://www.youtube.com/watch?v=abc&t=456s',
   )
 
-  expect(generateYoutubeUrl({ videoId: 'abc', timestamp: null }, '456')).toEqual(
+  expect(generateYoutubeUrl({ type: 'video', id: 'abc', timestamp: null }, '456')).toEqual(
     'https://www.youtube.com/watch?v=abc&t=456s',
+  )
+})
+
+test('generate YouTube clip url correctly', () => {
+  expect(generateYoutubeUrl({ type: 'clip', id: 'abc', timestamp: null })).toEqual('https://www.youtube.com/clip/abc')
+  expect(generateYoutubeUrl({ type: 'clip', id: 'abc', timestamp: '123' })).toEqual('https://www.youtube.com/clip/abc')
+  expect(generateYoutubeUrl({ type: 'clip', id: 'abc', timestamp: null }, '456')).toEqual(
+    'https://www.youtube.com/clip/abc',
+  )
+  expect(generateYoutubeUrl({ type: 'clip', id: 'abc', timestamp: '123' }, '456')).toEqual(
+    'https://www.youtube.com/clip/abc',
   )
 })
 
