@@ -29,7 +29,7 @@
   "dependencies": {
     "@libsql/client": "^0.8.0",
     "discord.js": "^14.15.3",
-    "drizzle-orm": "^0.32.0",
+    "drizzle-orm": "^0.32.1",
     "hono": "^4.5.0"
   },
   "devDependencies": {
