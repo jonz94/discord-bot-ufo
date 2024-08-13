@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.5.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.5.0...v4.5.1) (2024-08-13)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.5.5 ([de70b98](https://github.com/jonz94/discord-bot-ufo/commit/de70b98806d4e0dcd8fd300eb1d8afef06f19951))
+- *(deps)* Update `drizzle-orm` to 0.33.0 ([1338640](https://github.com/jonz94/discord-bot-ufo/commit/13386402c074de6cbf075fa83f6aa16ba7fcf593))
+- *(deps)* Update `@libsql/client` to 0.9.0 ([dcaf1a0](https://github.com/jonz94/discord-bot-ufo/commit/dcaf1a0d1a557d1d9b2c386e28677989e84e3e77))
+- *(dev-deps)* Update `drizzle-kit` to 0.24.0 ([ec03896](https://github.com/jonz94/discord-bot-ufo/commit/ec038969102e99e77d309d548321a351f48df631))
+
 ## [4.5.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.4.5...v4.5.0) (2024-07-31)
 
 ### 🚀 Features
@@ -176,7 +185,7 @@ All notable changes to this project will be documented in this file.
 - *(scripts)* Make bun's autocomplete happy ([4d54662](https://github.com/jonz94/discord-bot-ufo/commit/4d546625c5623e4424b38d71abe5c8bb8f05ac75))
 - Tweaks `cliff` settings ([9fc15ff](https://github.com/jonz94/discord-bot-ufo/commit/9fc15ffe1336388ea3d021aadeeaa522fe306d52))
 
-## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.2) (2024-04-05)
+## [4.1.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.1...v4.1.2) (2024-04-05)
 
 ### 🐛 Bug Fixes
 
@@ -190,6 +199,8 @@ All notable changes to this project will be documented in this file.
 ### 🧪 Testing
 
 - Test can be run without setup environment files ([83e38c3](https://github.com/jonz94/discord-bot-ufo/commit/83e38c3b7b0f67e7396ae9a202d4b23b1a00aa79))
+
+## [4.1.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.1.0...v4.1.1) (2024-04-05)
 
 ### ⚙️ Miscellaneous Tasks
 
