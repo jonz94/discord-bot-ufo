@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.5.5...v4.6.0) (2024-09-09)
+
+### 🚀 Features
+
+- Add `/member` command ([0011321](https://github.com/jonz94/discord-bot-ufo/commit/001132109a1e89d8753d92de3d5c3085c085a2fb))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(dev-deps)* Update `@types/bun` to 1.1.9 ([5cbec27](https://github.com/jonz94/discord-bot-ufo/commit/5cbec2755e02c4f648a26b4b3b77312752e635c2))
+- *(runtime)* Update `bun` to 1.1.27 ([e491a06](https://github.com/jonz94/discord-bot-ufo/commit/e491a06f34a0ba0c19d81367a09cba26d6f8acba))
+
 ## [4.5.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.5.4...v4.5.5) (2024-09-05)
 
 ### ⚙️ Miscellaneous Tasks
