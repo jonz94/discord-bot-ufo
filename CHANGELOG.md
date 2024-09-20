@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.2...v4.6.3) (2024-09-20)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `@libsql/client` to 0.13.0 ([f566470](https://github.com/jonz94/discord-bot-ufo/commit/f56647090f6e93b0b9a7e5f3576b82c4d45482c4))
+- *(runtime)* Update `bun` to 1.1.29 ([2a36a88](https://github.com/jonz94/discord-bot-ufo/commit/2a36a886328501745342e992b1e7859cb926ec92))
+
 ## [4.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.1...v4.6.2) (2024-09-19)
 
 ### ⚙️ Miscellaneous Tasks
