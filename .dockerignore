@@ -1,8 +1,11 @@
 *
-!.git/
 !db/
 !scripts/
 !src/
 !bun.lockb
 !package.json
 !tsconfig.json
+
+# the `generate-version-file` script needs the `.git` directory
+# in order to get information from the git commit history
+!.git/
