@@ -1,0 +1,6 @@
+services:
+  bot:
+    env_file:
+     - ./.env
+    build: .
+    image: "jonz94/discord-bot-ufo:latest"
