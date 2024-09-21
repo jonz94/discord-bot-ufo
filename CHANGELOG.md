@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.3...v4.6.4) (2024-09-21)
+
+### 📚 Documentation
+
+- Update `README.md` ([146d7a1](https://github.com/jonz94/discord-bot-ufo/commit/146d7a1c35ca9c796afd8395bad6e79f5d83b1d0))
+- Explain why the `.git` directory is needed ([80b059c](https://github.com/jonz94/discord-bot-ufo/commit/80b059c9e41eb19d0e8ee8d8bdc47eb04f458294))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `@libsql/client` to 0.14.0 ([b4b881c](https://github.com/jonz94/discord-bot-ufo/commit/b4b881c3d182d8ebda7ec34223c6e4a362b71174))
+- *(dev-deps)* Update `prettier-plugin-organize-imports` to 4.1.0 ([6cba87e](https://github.com/jonz94/discord-bot-ufo/commit/6cba87ea45b672113f6b3aafb01e581c44e7e0ad))
+- *(dev-deps)* Update `@types/bun` to 1.1.10 ([571e320](https://github.com/jonz94/discord-bot-ufo/commit/571e3203b0f9acc748f9aa973d13cb8c5387c3cc))
+- Setup docker compose for testing ([be57d56](https://github.com/jonz94/discord-bot-ufo/commit/be57d5694f984437cb3caaf7a06bfe0f95365eba))
+- Update `docker/build-push-action` to v6 ([54adc78](https://github.com/jonz94/discord-bot-ufo/commit/54adc7817224616644c2c958756d9dbe3100b27d))
+
 ## [4.6.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.2...v4.6.3) (2024-09-20)
 
 ### ⚙️ Miscellaneous Tasks
