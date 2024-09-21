@@ -91,6 +91,13 @@ docker run --name="discord-bot-ufo" -d \
   jonz94/discord-bot-ufo
 ```
 
+Or using the following `docker compose` command:
+
+```shell
+docker compose build
+docker compose up
+```
+
 ## License
 
 See [LICENSE](https://github.com/jonz94/discord-bot-ufo/blob/main/LICENSE).
