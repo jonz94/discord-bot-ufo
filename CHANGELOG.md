@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.6.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.3...v4.6.4) (2024-09-21)
+## [4.6.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.4...v4.6.5) (2024-09-29)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.6.3 ([abff176](https://github.com/jonz94/discord-bot-ufo/commit/abff17679f3f362a2914187f620d5ddd3cdc8933))
+- *(deps)* Update `discord.js` to 14.16.3 ([253966a](https://github.com/jonz94/discord-bot-ufo/commit/253966a1cd7c2646b55993dff2ecebef8bf2f44e))
+
+## [4.6.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.2...v4.6.4) (2024-09-21)
 
 ### 📚 Documentation
 
@@ -12,17 +19,12 @@ All notable changes to this project will be documented in this file.
 ### ⚙️ Miscellaneous Tasks
 
 - *(deps)* Update `@libsql/client` to 0.14.0 ([b4b881c](https://github.com/jonz94/discord-bot-ufo/commit/b4b881c3d182d8ebda7ec34223c6e4a362b71174))
+- *(deps)* Update `@libsql/client` to 0.13.0 ([f566470](https://github.com/jonz94/discord-bot-ufo/commit/f56647090f6e93b0b9a7e5f3576b82c4d45482c4))
 - *(dev-deps)* Update `prettier-plugin-organize-imports` to 4.1.0 ([6cba87e](https://github.com/jonz94/discord-bot-ufo/commit/6cba87ea45b672113f6b3aafb01e581c44e7e0ad))
 - *(dev-deps)* Update `@types/bun` to 1.1.10 ([571e320](https://github.com/jonz94/discord-bot-ufo/commit/571e3203b0f9acc748f9aa973d13cb8c5387c3cc))
+- *(runtime)* Update `bun` to 1.1.29 ([2a36a88](https://github.com/jonz94/discord-bot-ufo/commit/2a36a886328501745342e992b1e7859cb926ec92))
 - Setup docker compose for testing ([be57d56](https://github.com/jonz94/discord-bot-ufo/commit/be57d5694f984437cb3caaf7a06bfe0f95365eba))
 - Update `docker/build-push-action` to v6 ([54adc78](https://github.com/jonz94/discord-bot-ufo/commit/54adc7817224616644c2c958756d9dbe3100b27d))
-
-## [4.6.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.2...v4.6.3) (2024-09-20)
-
-### ⚙️ Miscellaneous Tasks
-
-- *(deps)* Update `@libsql/client` to 0.13.0 ([f566470](https://github.com/jonz94/discord-bot-ufo/commit/f56647090f6e93b0b9a7e5f3576b82c4d45482c4))
-- *(runtime)* Update `bun` to 1.1.29 ([2a36a88](https://github.com/jonz94/discord-bot-ufo/commit/2a36a886328501745342e992b1e7859cb926ec92))
 
 ## [4.6.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.1...v4.6.2) (2024-09-19)
 
