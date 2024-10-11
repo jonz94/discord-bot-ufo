@@ -8,7 +8,6 @@
 [remote.github]
 owner = "jonz94"
 repo = "discord-bot-ufo"
-token = ""
 
 [changelog]
 # changelog header
