@@ -40,6 +40,29 @@ test('parse YouTube clip url correctly', () => {
   expect(parseYoutubeUrl('https://youtube.com/clip/abc?si=def')).toEqual({ type: 'clip', id: 'abc', timestamp: null })
 })
 
+test('parse YouTube channel url correctly', () => {
+  expect(parseYoutubeUrl('https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ')).toEqual({
+    type: 'channel',
+    id: '/channel/UCBR8-60-B28hp2BmDPdntcQ',
+    timestamp: null,
+  })
+  expect(parseYoutubeUrl('https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ?si=abc')).toEqual({
+    type: 'channel',
+    id: '/channel/UCBR8-60-B28hp2BmDPdntcQ',
+    timestamp: null,
+  })
+  expect(parseYoutubeUrl('https://youtube.com/@YouTube')).toEqual({
+    type: 'channel',
+    id: '/@YouTube',
+    timestamp: null,
+  })
+  expect(parseYoutubeUrl('https://youtube.com/@YouTube?si=abc')).toEqual({
+    type: 'channel',
+    id: '/@YouTube',
+    timestamp: null,
+  })
+})
+
 test('handle invalid youtube url correctly', () => {
   expect(parseYoutubeUrl('https://youtube.com/')).toEqual(EMPTY_PARSED_YOUTUBE_URL_DATA)
   expect(parseYoutubeUrl('https://youtu.be/')).toEqual(EMPTY_PARSED_YOUTUBE_URL_DATA)
@@ -74,6 +97,58 @@ test('generate YouTube clip url correctly', () => {
   expect(generateYoutubeUrl({ type: 'clip', id: 'abc', timestamp: '123' }, '456')).toEqual(
     'https://www.youtube.com/clip/abc',
   )
+})
+
+test('generate YouTube channel url correctly', () => {
+  expect(
+    generateYoutubeUrl({
+      type: 'channel',
+      id: '/channel/UCBR8-60-B28hp2BmDPdntcQ',
+      timestamp: null,
+    }),
+  ).toEqual('https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ')
+  expect(
+    generateYoutubeUrl({
+      type: 'channel',
+      id: '/channel/UCBR8-60-B28hp2BmDPdntcQ',
+      timestamp: '123',
+    }),
+  ).toEqual('https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ')
+  expect(
+    generateYoutubeUrl(
+      {
+        type: 'channel',
+        id: '/channel/UCBR8-60-B28hp2BmDPdntcQ',
+        timestamp: '123',
+      },
+      '456',
+    ),
+  ).toEqual('https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ')
+
+  expect(
+    generateYoutubeUrl({
+      type: 'channel',
+      id: '/@YouTube',
+      timestamp: null,
+    }),
+  ).toEqual('https://www.youtube.com/@YouTube')
+  expect(
+    generateYoutubeUrl({
+      type: 'channel',
+      id: '/@YouTube',
+      timestamp: '123',
+    }),
+  ).toEqual('https://www.youtube.com/@YouTube')
+  expect(
+    generateYoutubeUrl(
+      {
+        type: 'channel',
+        id: '/@YouTube',
+        timestamp: '123',
+      },
+      '456',
+    ),
+  ).toEqual('https://www.youtube.com/@YouTube')
 })
 
 test('parse input timestamp correctly', () => {
