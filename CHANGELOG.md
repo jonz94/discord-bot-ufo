@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.6...v4.7.0) (2024-10-11)
+
+### 🚀 Features
+
+- Add support for YouTube channel ([d136962](https://github.com/jonz94/discord-bot-ufo/commit/d13696214f0aaed154bf5bd54e81cedc35daad76))
+
 ## [4.6.6](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.5...v4.6.6) (2024-10-09)
 
 ### ⚙️ Miscellaneous Tasks
