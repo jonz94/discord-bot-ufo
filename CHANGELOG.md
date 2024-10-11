@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.0...v4.7.1) (2024-10-11)
+
+### ⚙️ Miscellaneous Tasks
+
+- Fix `git-cliff` warning ([8d71162](https://github.com/jonz94/discord-bot-ufo/commit/8d7116233a4ebba4d62a811b1530105386a21b46))
+
 ## [4.7.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.6.6...v4.7.0) (2024-10-11)
 
 ### 🚀 Features
