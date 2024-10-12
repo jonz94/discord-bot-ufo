@@ -1,11 +1,8 @@
-import { drizzle } from 'drizzle-orm/connect'
-import { config } from '~/src/config.mts'
+import { createClient } from '@libsql/client'
+import { drizzle } from 'drizzle-orm/libsql'
 import * as schema from './schema.mts'
 
-export const db = await drizzle('turso', {
-  connection: {
-    url: config.DATABASE_URL,
-    authToken: config.DATABASE_AUTH_TOKEN,
-  },
-  schema,
-})
+// NOTE: do not use new drizzle-orm/connect yet due to bundler issues
+// See: https://github.com/drizzle-team/drizzle-orm/issues/3077#issuecomment-2401475020
+const client = createClient({ url: process.env.DATABASE_URL, authToken: process.env.DATABASE_AUTH_TOKEN })
+export const db = drizzle(client, { schema })
