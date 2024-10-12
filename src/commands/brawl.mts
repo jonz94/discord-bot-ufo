@@ -11,7 +11,9 @@ export const data = new SlashCommandBuilder().setName(commandName).setDescriptio
 
 export async function execute(interaction: CommandInteraction) {
   const guildId = interaction.guildId
-  if (!guildId) {
+  const channel = interaction.channel
+
+  if (!guildId || !channel) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
       ephemeral: true,
@@ -33,9 +35,18 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  if (interaction.channel?.type === ChannelType.GuildVoice) {
+  if (channel.type === ChannelType.GuildVoice) {
     await interaction.reply({
       content: '無法在語音頻道與人輸贏，請轉移陣地到一般的文字頻道，拍謝QQ',
+      ephemeral: true,
+    })
+
+    return
+  }
+
+  if (!channel.isSendable()) {
+    await interaction.reply({
+      content: '此頻道無法傳送文字訊息，請轉移陣地到一般的文字頻道，拍謝QQ',
       ephemeral: true,
     })
 
@@ -86,7 +97,7 @@ export async function execute(interaction: CommandInteraction) {
   // 發送戰帖訊息
   const joinBrawlMessage = await (async function sendMessage() {
     try {
-      return await interaction.channel?.send({
+      return await channel.send({
         content: [
           author,
           '向所有人下了戰帖',
@@ -150,7 +161,7 @@ export async function execute(interaction: CommandInteraction) {
     // 發送戰帖訊息
     const startBrawlMessage = await (async function sendMessage() {
       try {
-        return await interaction.channel?.send({
+        return await channel.send({
           content: [
             ['【大亂鬥】', ...users].join(' '),
             `【大亂鬥】對戰開始，${brawlTimeout / 1000} 秒後沒有擲骰將會自動判定為投降認輸 ${emojis.白眼海豚笑}`,
@@ -165,7 +176,7 @@ export async function execute(interaction: CommandInteraction) {
     })()
 
     if (!startBrawlMessage) {
-      await interaction.channel?.send({ content: '發送戰帖失敗QQ' })
+      await channel.send({ content: '發送戰帖失敗QQ' })
 
       return
     }
@@ -193,7 +204,7 @@ export async function execute(interaction: CommandInteraction) {
           noScoreUsersData.map((user) => user.userId).map((userId) => interaction.client.users.fetch(userId)),
         )
 
-        await interaction.channel?.send({
+        await channel.send({
           content: noScoreUsers
             .map((user) => `【大亂鬥】${user} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`)
             .join('\n'),
@@ -218,12 +229,12 @@ export async function execute(interaction: CommandInteraction) {
       )
 
       if (maxScore < 0) {
-        await interaction.channel?.send({ content: '【大亂鬥】無人勝出' })
+        await channel.send({ content: '【大亂鬥】無人勝出' })
 
         return
       }
 
-      await interaction.channel?.send({
+      await channel.send({
         content: [`【大亂鬥】${emojis.皇冠} 勝者為`, ...winners, `得分為 ${maxScore}`].join(' '),
       })
     }, brawlTimeout)

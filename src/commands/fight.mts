@@ -15,7 +15,9 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
   const guildId = interaction.guildId
-  if (!guildId) {
+  const channel = interaction.channel
+
+  if (!guildId || !channel) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
       ephemeral: true,
@@ -37,9 +39,18 @@ export async function execute(interaction: CommandInteraction) {
     return
   }
 
-  if (interaction.channel?.type === ChannelType.GuildVoice) {
+  if (channel.type === ChannelType.GuildVoice) {
     await interaction.reply({
       content: '無法在語音頻道與人輸贏，請轉移陣地到一般的文字頻道，拍謝QQ',
+      ephemeral: true,
+    })
+
+    return
+  }
+
+  if (!channel.isSendable()) {
+    await interaction.reply({
+      content: '此頻道無法傳送文字訊息，請轉移陣地到一般的文字頻道，拍謝QQ',
       ephemeral: true,
     })
 
@@ -133,7 +144,7 @@ export async function execute(interaction: CommandInteraction) {
           })
           .where(eq(games.id, gameMaybeUnfinished.id))
 
-        await interaction.channel?.send({
+        await channel.send({
           content: [
             `【${author.displayName} vs ${opponent.displayName}】 ${author} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
             `【${author.displayName} vs ${opponent.displayName}】 ${opponent} 也沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
@@ -156,7 +167,7 @@ export async function execute(interaction: CommandInteraction) {
           })
           .where(eq(games.id, gameMaybeUnfinished.id))
 
-        await interaction.channel?.send({
+        await channel.send({
           content: [
             `【${author.displayName} vs ${opponent.displayName}】 ${author} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
             `【${opponent} 獲勝】`,
@@ -177,7 +188,7 @@ export async function execute(interaction: CommandInteraction) {
           })
           .where(eq(games.id, gameMaybeUnfinished.id))
 
-        await interaction.channel?.send({
+        await channel.send({
           content: [
             `【${author.displayName} vs ${opponent.displayName}】 ${opponent} 沒有擲骰，自動判定為投降認輸 ${emojis.白眼海豚笑}`,
             `【${author} 獲勝】`,
@@ -196,7 +207,7 @@ export async function execute(interaction: CommandInteraction) {
   // 發送戰帖訊息
   const message = await (async function sendMessage() {
     try {
-      return await interaction.channel?.send({
+      return await channel.send({
         content: [
           author,
           '向',
@@ -251,9 +262,7 @@ export async function execute(interaction: CommandInteraction) {
   do {
     const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
 
-    await interaction.channel?.send(
-      `【${author.displayName} vs ${opponent.displayName}】 ${author} 骰出了 ${attempt.join(', ')}`,
-    )
+    await channel.send(`【${author.displayName} vs ${opponent.displayName}】 ${author} 骰出了 ${attempt.join(', ')}`)
     score = calculateScore(attempt)
 
     await db.insert(attempts).values({
@@ -271,19 +280,19 @@ export async function execute(interaction: CommandInteraction) {
   } while (score <= 0 && round <= 2)
 
   if (score === 0) {
-    await interaction.channel?.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`,
     )
   } else if (score === 3) {
-    await interaction.channel?.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`,
     )
   } else if (score >= 100) {
-    await interaction.channel?.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`,
     )
   } else {
-    await interaction.channel?.send(`【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}`)
+    await channel.send(`【${author.displayName} vs ${opponent.displayName}】 ${author} 得分是 ${score}`)
   }
 
   const updatedGames = await (async function updateGame() {
@@ -332,5 +341,5 @@ export async function execute(interaction: CommandInteraction) {
     return message
   })()
 
-  await interaction.channel?.send(finalMessage)
+  await channel.send(finalMessage)
 }
