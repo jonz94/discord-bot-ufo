@@ -1,8 +1,11 @@
-import { createClient } from '@libsql/client'
-import { drizzle } from 'drizzle-orm/libsql'
+import { drizzle } from 'drizzle-orm/connect'
 import { config } from '~/src/config.mts'
 import * as schema from './schema.mts'
 
-const client = createClient({ url: config.DATABASE_URL, authToken: config.DATABASE_AUTH_TOKEN })
-
-export const db = drizzle(client, { schema })
+export const db = await drizzle('turso', {
+  connection: {
+    url: config.DATABASE_URL,
+    authToken: config.DATABASE_AUTH_TOKEN,
+  },
+  schema,
+})
