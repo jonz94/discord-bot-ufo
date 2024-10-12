@@ -1,6 +1,6 @@
 services:
   bot:
     env_file:
-     - ./.env.dev
+      - ./.env.dev
     build: .
-    image: "jonz94/discord-bot-ufo:dev"
+    image: 'jonz94/discord-bot-ufo:dev'
