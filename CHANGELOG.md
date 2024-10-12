@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.2...v4.7.3) (2024-10-12)
+
+### 🐛 Bug Fixes
+
+- Address bundler issues ([bf7e6f4](https://github.com/jonz94/discord-bot-ufo/commit/bf7e6f4ef621a8164355a4836e8dd864ef609f4e))
+
 ## [4.7.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.1...v4.7.2) (2024-10-12)
 
 ### 🐛 Bug Fixes
