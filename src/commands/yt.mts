@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
+import { SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
 import { generateYoutubeUrl, parseYoutubeUrl } from '~/src/utils/youtube-url.mts'
 
 export const commandName = 'yt'
@@ -13,7 +13,7 @@ export const data = new SlashCommandBuilder()
       .setDescription('從幾小時幾分幾秒開始播放 (e.g. 1.23.45 表示從 1 小時 23 分 45 秒處開始播放)'),
   )
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   const originalUrl = String(interaction.options.get('網址')?.value ?? '')
 
   if (!originalUrl) {

@@ -1,4 +1,4 @@
-import { ChannelType, SlashCommandBuilder, type CommandInteraction } from 'discord.js'
+import { ChannelType, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
 import { and, eq, isNull, or } from 'drizzle-orm'
 import { db } from '~/db/db.mts'
 import { attempts, games, guilds } from '~/db/schema.mts'
@@ -13,7 +13,7 @@ export const data = new SlashCommandBuilder()
   .setDescription('找人輸贏')
   .addUserOption((option) => option.setName('對手').setDescription('找誰輸贏').setRequired(true))
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   const guildId = interaction.guildId
   const channel = interaction.channel
 

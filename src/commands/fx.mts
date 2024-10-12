@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, codeBlock, type CommandInteraction } from 'discord.js'
+import { SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
 import { parseTwitterUrl } from '~/src/utils/parse-twitter-url.mts'
 
 export const commandName = 'fx'
@@ -8,7 +8,7 @@ export const data = new SlashCommandBuilder()
   .setDescription('Twitter/X 網址格式小幫手')
   .addStringOption((option) => option.setName('網址').setDescription('Twitter/X 網址').setRequired(true))
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   const originalUrl = interaction.options.get('網址')?.value?.toString() ?? ''
 
   if (!originalUrl) {

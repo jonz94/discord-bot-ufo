@@ -1,10 +1,10 @@
-import { SlashCommandBuilder, type CommandInteraction, type User } from 'discord.js'
+import { SlashCommandBuilder, type ChatInputCommandInteraction, type User } from 'discord.js'
 
 export const commandName = 'member'
 
 export const data = new SlashCommandBuilder().setName(commandName).setDescription('查看伺服器擁有者，以及成員列表')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   const owner = await interaction.guild?.fetchOwner()
 
   const memberNames: User[] = []

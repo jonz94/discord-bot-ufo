@@ -1,4 +1,4 @@
-import { ChannelType, SlashCommandBuilder, type CommandInteraction } from 'discord.js'
+import { ChannelType, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { db } from '~/db/db.mts'
 import { brawlParticipants, brawls, guilds } from '~/db/schema.mts'
@@ -9,7 +9,7 @@ export const commandName = '大亂鬥'
 
 export const data = new SlashCommandBuilder().setName(commandName).setDescription('眾人輸贏')
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   const guildId = interaction.guildId
   const channel = interaction.channel
 

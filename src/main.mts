@@ -38,7 +38,7 @@ client.on(Events.MessageCreate, async (message) => {
 })
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isCommand()) {
+  if (!interaction.isChatInputCommand()) {
     return
   }
 
