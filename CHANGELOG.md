@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.1...v4.7.2) (2024-10-12)
+
+### 🐛 Bug Fixes
+
+- Correct type of `interaction` to be `ChatInputCommandInteraction` ([a7c02d8](https://github.com/jonz94/discord-bot-ufo/commit/a7c02d8561b9ab42c4c7e4cab5db4a66f2a8ef55))
+- Migrate `drizzle` syntax ([8827efe](https://github.com/jonz94/discord-bot-ufo/commit/8827efec758606ebe91349edc091bfbb587d1282))
+
+### 🚜 Refactor
+
+- Make sure `interaction.channel` is not null and `isSendable()` ([10a000e](https://github.com/jonz94/discord-bot-ufo/commit/10a000e6640c163f8d646ec33d806b18834e506c))
+- Move `db/` directory into `src/db/` ([7bcb993](https://github.com/jonz94/discord-bot-ufo/commit/7bcb9933ff25a0b41cb1688579e66052f4ac4cb8))
+
+### 🎨 Styling
+
+- Format coding style ([003d4a3](https://github.com/jonz94/discord-bot-ufo/commit/003d4a3c679f813005a66a740904cafefc4e6da5))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.34.1 ([390256e](https://github.com/jonz94/discord-bot-ufo/commit/390256e13f797e3bbee742f9ca346a291d3cb811))
+- *(deps)* Update `hono` to 4.6.4 ([69b3171](https://github.com/jonz94/discord-bot-ufo/commit/69b317153661d456ed2327e1ca858c64ccd9b17d))
+- *(dev-deps)* Update `drizzle-kit` to 0.25.0 ([1106985](https://github.com/jonz94/discord-bot-ufo/commit/1106985320ee8236fa4dcf0fdade23494d4beca9))
+
 ## [4.7.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.0...v4.7.1) (2024-10-11)
 
 ### ⚙️ Miscellaneous Tasks
