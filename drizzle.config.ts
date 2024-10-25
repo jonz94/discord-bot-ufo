@@ -2,7 +2,7 @@ import { defineConfig } from 'drizzle-kit'
 import { config } from '~/src/config.mjs'
 
 export default defineConfig({
-  schema: './db/schema.mts',
+  schema: './src/db/schema.mts',
   out: './drizzle',
   dialect: 'turso',
   dbCredentials: {
