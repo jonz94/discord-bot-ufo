@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "6632812c-b6bc-41ff-b4bb-125a2dcc03fc",
-  "prevId": "79cf5add-71ca-4a87-9adc-8dd9101c3400",
   "tables": {
     "attempts": {
       "name": "attempts",
@@ -84,19 +82,20 @@
         "attempts_game_id_games_id_fk": {
           "name": "attempts_game_id_games_id_fk",
           "tableFrom": "attempts",
-          "tableTo": "games",
           "columnsFrom": [
             "game_id"
           ],
+          "tableTo": "games",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "brawl_attempts": {
       "name": "brawl_attempts",
@@ -178,19 +177,20 @@
         "brawl_attempts_brawl_id_brawls_id_fk": {
           "name": "brawl_attempts_brawl_id_brawls_id_fk",
           "tableFrom": "brawl_attempts",
-          "tableTo": "brawls",
           "columnsFrom": [
             "brawl_id"
           ],
+          "tableTo": "brawls",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "brawl_participants": {
       "name": "brawl_participants",
@@ -246,19 +246,20 @@
         "brawl_participants_brawl_id_brawls_id_fk": {
           "name": "brawl_participants_brawl_id_brawls_id_fk",
           "tableFrom": "brawl_participants",
-          "tableTo": "brawls",
           "columnsFrom": [
             "brawl_id"
           ],
+          "tableTo": "brawls",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "brawls": {
       "name": "brawls",
@@ -312,19 +313,20 @@
         "brawls_guild_id_guilds_id_fk": {
           "name": "brawls_guild_id_guilds_id_fk",
           "tableFrom": "brawls",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "games": {
       "name": "games",
@@ -392,19 +394,20 @@
         "games_guild_id_guilds_id_fk": {
           "name": "games_guild_id_guilds_id_fk",
           "tableFrom": "games",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guilds": {
       "name": "guilds",
@@ -434,13 +437,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     }
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "6632812c-b6bc-41ff-b4bb-125a2dcc03fc",
+  "prevId": "79cf5add-71ca-4a87-9adc-8dd9101c3400"
 }

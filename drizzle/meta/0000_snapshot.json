@@ -1,8 +1,6 @@
 {
-  "version": "5",
+  "version": "6",
   "dialect": "sqlite",
-  "id": "79cf5add-71ca-4a87-9adc-8dd9101c3400",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "attempts": {
       "name": "attempts",
@@ -84,19 +82,20 @@
         "attempts_game_id_games_id_fk": {
           "name": "attempts_game_id_games_id_fk",
           "tableFrom": "attempts",
-          "tableTo": "games",
           "columnsFrom": [
             "game_id"
           ],
+          "tableTo": "games",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "games": {
       "name": "games",
@@ -164,19 +163,20 @@
         "games_guild_id_guilds_id_fk": {
           "name": "games_guild_id_guilds_id_fk",
           "tableFrom": "games",
-          "tableTo": "guilds",
           "columnsFrom": [
             "guild_id"
           ],
+          "tableTo": "guilds",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     },
     "guilds": {
       "name": "guilds",
@@ -206,13 +206,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "checkConstraints": {}
     }
   },
   "enums": {},
   "_meta": {
-    "schemas": {},
     "tables": {},
     "columns": {}
-  }
+  },
+  "id": "79cf5add-71ca-4a87-9adc-8dd9101c3400",
+  "prevId": "00000000-0000-0000-0000-000000000000"
 }
