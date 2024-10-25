@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.3...v4.7.4) (2024-10-25)
+
+### 🐛 Bug Fixes
+
+- Fix scripts ([3e08d5b](https://github.com/jonz94/discord-bot-ufo/commit/3e08d5b7b240f761cf449167154322f70dffa3c1))
+- Migrate `drizzle` syntax ([b32192f](https://github.com/jonz94/discord-bot-ufo/commit/b32192ff758dcdbfe09d5492c5e5f21fe96e689e))
+
+### 🚜 Refactor
+
+- Access environment variables via `config.mts` ([c0ae45f](https://github.com/jonz94/discord-bot-ufo/commit/c0ae45faecd2bd05198e485d206f3a4863c508af))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.35.3 ([5059462](https://github.com/jonz94/discord-bot-ufo/commit/5059462f798b4775271a6479978669aa4454fe0f))
+- *(deps)* Update `hono` to 4.6.6 ([e94fe9b](https://github.com/jonz94/discord-bot-ufo/commit/e94fe9b66269d685afb20af6707f7422423963b3))
+- *(dev-deps)* Update `drizzle-kit` to 0.26.2 ([9be971c](https://github.com/jonz94/discord-bot-ufo/commit/9be971c4804131bfb04136eb461da48e3c555911))
+- *(dev-deps)* Update `@types/bun` to 1.1.12 ([9d2492d](https://github.com/jonz94/discord-bot-ufo/commit/9d2492dd162a0ede8926fe99868738373fa486b5))
+- *(runtime)* Update `bun` to 1.1.33 ([7dc9d27](https://github.com/jonz94/discord-bot-ufo/commit/7dc9d2789b073cd67b155e5d3668b8b61e4d2285))
+- Migrate drizzle generate files ([07b9942](https://github.com/jonz94/discord-bot-ufo/commit/07b9942482aac01468adf9a87b05c089520fff51))
+
 ## [4.7.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.2...v4.7.3) (2024-10-12)
 
 ### 🐛 Bug Fixes
