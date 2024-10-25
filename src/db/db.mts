@@ -1,10 +1,11 @@
 import { drizzle } from 'drizzle-orm/libsql'
+import { config } from '~/src/config.mjs'
 import * as schema from './schema.mts'
 
 export const db = drizzle({
   connection: {
-    url: process.env.DATABASE_URL,
-    authToken: process.env.DATABASE_AUTH_TOKEN,
+    url: config.DATABASE_URL,
+    authToken: config.DATABASE_AUTH_TOKEN,
   },
   schema,
 })
