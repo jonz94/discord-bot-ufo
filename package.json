@@ -11,10 +11,10 @@
   "scripts": {
     "build": "bun build ./src/main.mts --target bun --outdir ./dist",
     "db": "drizzle-kit",
-    "db-generate": "drizzle-kit generate:sqlite",
-    "db-migrate": "bun migrate.mts",
+    "db-generate": "bunx --bun drizzle-kit generate",
+    "db-migrate": "bunx --bun drizzle-kit migrate",
     "db-migrate-dev": "bun --env-file=.env.dev migrate.mts",
-    "db-studio": "drizzle-kit studio",
+    "db-studio": "bunx --bun drizzle-kit studio",
     "fmt": "prettier --write .",
     "generate-version-file": "bun scripts/generate-version-file.mts",
     "postinstall": "bun run generate-version-file",
