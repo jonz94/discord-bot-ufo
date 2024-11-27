@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.8](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.7...v4.7.8) (2024-11-27)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.6.12 ([ab1fc91](https://github.com/jonz94/discord-bot-ufo/commit/ab1fc91a26793b24168ccdd14e61b35b0a70878b))
+- *(deps)* Update `drizzle-orm` to 0.36.4 ([7f570a5](https://github.com/jonz94/discord-bot-ufo/commit/7f570a53a94d30482b02546e4a5fd995578db3ed))
+- *(dev-deps)* Update `typescript` to 5.7.2 ([af85bef](https://github.com/jonz94/discord-bot-ufo/commit/af85bef9725c1a61eda21194b8c292f476c8dc48))
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.6 ([b277596](https://github.com/jonz94/discord-bot-ufo/commit/b27759620a4aeffbed9a2f881e8e50aa505edb60))
+- *(dev-deps)* Update `prettier` to 3.4.1 ([aeb0dd4](https://github.com/jonz94/discord-bot-ufo/commit/aeb0dd4faefbf8bb999eceebe61b1f92c557a1e8))
+- *(dev-deps)* Update `@types/bun` to 1.1.14 ([1829752](https://github.com/jonz94/discord-bot-ufo/commit/182975212dbfb142db533e6e32a26f3a84668b7f))
+- *(runtime)* Update `bun` to 1.1.37 ([79227ec](https://github.com/jonz94/discord-bot-ufo/commit/79227ecdfc846e57eb539722bc854f827bf20eff))
+
 ## [4.7.7](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.6...v4.7.7) (2024-11-20)
 
 ### 🎨 Styling
