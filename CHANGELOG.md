@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.7.9](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.8...v4.7.9) (2024-12-10)
+
+### 🐛 Bug Fixes
+
+- *(scripts)* Make sure that `initialize-env-files.mts` scripts will execute after `bun install` ([24118dd](https://github.com/jonz94/discord-bot-ufo/commit/24118dd3c582f913ecf8c4a6a2864cb01052ffd1))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.38.0 ([ccbb21a](https://github.com/jonz94/discord-bot-ufo/commit/ccbb21a79430f2a6b4887dfd352b7a9072e55423))
+- *(deps)* Update `hono` to 4.6.13 ([b86ddd1](https://github.com/jonz94/discord-bot-ufo/commit/b86ddd191f96d1c18a6f5c26a45521c87d4bea60))
+- *(dev-deps)* Update `drizzle-kit` to 0.30.0 ([ae57afe](https://github.com/jonz94/discord-bot-ufo/commit/ae57afe8640cd418fea85be8ba94f8a9eb3f1047))
+- *(dev-deps)* Update `prettier` to 3.4.2 ([7cb232f](https://github.com/jonz94/discord-bot-ufo/commit/7cb232f5ba0eed72549c3c1b047dae64bc3ba29e))
+
 ## [4.7.8](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.7...v4.7.8) (2024-11-27)
 
 ### ⚙️ Miscellaneous Tasks
