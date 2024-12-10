@@ -18,10 +18,10 @@
     "fmt": "prettier --write .",
     "generate-version-file": "bun scripts/generate-version-file.mts",
     "postinstall": "bun run generate-version-file",
+    "prepare": "bun scripts/initialize-env-files.mts",
     "preview": "bun dist/main.js",
     "preview-dev": "bun --env-file=.env.dev dist/main.js",
     "release": "bun scripts/bump-version-and-git-tag.mts",
-    "setup": "bun scripts/initialize-env-files.mts",
     "start": "bun --env-file=.env.dev --watch src/main.mts",
     "start-production": "NODE_ENV=PRODUCTION bun --watch src/main.mts",
     "test": "bun test"
