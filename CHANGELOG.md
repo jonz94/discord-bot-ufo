@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.11...v4.8.0) (2024-12-26)
+
+### 🚀 Features
+
+- *(deps)* Change to human-readable text-based lockfile ([a706039](https://github.com/jonz94/discord-bot-ufo/commit/a706039fbb4bed6d8e6404d7e1ba0f894ba1f3a0))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.38.3 ([ebdda28](https://github.com/jonz94/discord-bot-ufo/commit/ebdda2855adea8e4fb9480a8ee131b4cb022c255))
+- *(runtime)* Update `bun` to 1.1.42 ([5c97cf5](https://github.com/jonz94/discord-bot-ufo/commit/5c97cf59d49dd3362f42f7f3dc3a6f2ffe5f1437))
+
 ## [4.7.11](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.10...v4.7.11) (2024-12-18)
 
 ### ⚙️ Miscellaneous Tasks
