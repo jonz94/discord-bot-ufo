@@ -17,7 +17,7 @@ ENV NODE_ENV=production
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json .
-COPY --from=builder /app/bun.lockb .
+COPY --from=builder /app/bun.lock .
 COPY --from=builder /app/scripts ./scripts
 
 RUN bun i --production

@@ -2,7 +2,7 @@
 !db/
 !scripts/
 !src/
-!bun.lockb
+!bun.lock
 !package.json
 !tsconfig.json
 
