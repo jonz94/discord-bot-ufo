@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.0...v4.8.1) (2025-01-03)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.6.15 ([f028b96](https://github.com/jonz94/discord-bot-ufo/commit/f028b9615b8437a0597ef31f60b5521ed2598541))
+- *(deps)* Update `discord.js` to 14.17.2 ([1abd0eb](https://github.com/jonz94/discord-bot-ufo/commit/1abd0ebf9b0e32edc6c34cd762d10dbbc20e26ad))
+
 ## [4.8.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.7.11...v4.8.0) (2024-12-26)
 
 ### 🚀 Features
