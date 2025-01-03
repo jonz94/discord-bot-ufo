@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
+import { MessageFlags, SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
 import { parseTwitterUrl } from '~/src/utils/parse-twitter-url.mts'
 
 export const commandName = 'fx'
@@ -14,7 +14,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!originalUrl) {
     await interaction.reply({
       content: '請輸入 Twitter/X 網址',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -25,7 +25,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!userId || !statusId) {
     await interaction.reply({
       content: ['無法解析此 Twitter/X 網址', codeBlock(originalUrl)].join('\n'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -46,6 +46,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       codeBlock(fxTwitterUrl.toString()),
       fxTwitterUrl,
     ].join('\n'),
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   })
 }

@@ -1,4 +1,4 @@
-import { ChannelType, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
+import { ChannelType, MessageFlags, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
 import { and, eq, isNull, or } from 'drizzle-orm'
 import { db } from '~/db/db.mts'
 import { attempts, games, guilds } from '~/db/schema.mts'
@@ -20,7 +20,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!guildId || !channel) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -33,7 +33,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!guild) {
     await interaction.reply({
       content: `此 Discord 伺服器不在 ${client.user} 的白名單內，因此無法使用指令`,
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -42,7 +42,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (channel.type === ChannelType.GuildVoice) {
     await interaction.reply({
       content: '無法在語音頻道與人輸贏，請轉移陣地到一般的文字頻道，拍謝QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -51,7 +51,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!channel.isSendable()) {
     await interaction.reply({
       content: '此頻道無法傳送文字訊息，請轉移陣地到一般的文字頻道，拍謝QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -62,7 +62,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!opponent) {
     await interaction.reply({
       content: '請選擇要輸贏的對手',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -71,7 +71,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (opponent.bot) {
     await interaction.reply({
       content: '抱歉，無法跟機器人輸贏',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -82,7 +82,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (author.id === opponent.id) {
     await interaction.reply({
       content: '你是要跟自己輸贏嗎？笑死',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -229,7 +229,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!message) {
     await interaction.reply({
       content: '發送戰帖失敗QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -250,7 +250,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   await interaction.reply({
     content: ['已經向', opponent, '發出戰帖'].join(' '),
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   })
 
   // 對戰帖訊息按反應

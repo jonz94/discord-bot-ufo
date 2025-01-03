@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, type ChatInputCommandInteraction, type User } from 'discord.js'
+import { MessageFlags, SlashCommandBuilder, type ChatInputCommandInteraction, type User } from 'discord.js'
 
 export const commandName = 'member'
 
@@ -13,6 +13,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   await interaction.reply({
     content: [`目前伺服器的擁有者為 ${owner ?? null}`, '', `目前伺服器的成員有：`, ...memberNames].join('\n'),
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   })
 }

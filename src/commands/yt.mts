@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
+import { MessageFlags, SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
 import { generateYoutubeUrl, parseYoutubeUrl } from '~/src/utils/youtube-url.mts'
 
 export const commandName = 'yt'
@@ -19,7 +19,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!originalUrl) {
     await interaction.reply({
       content: '請輸入 YouTube 網址',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -30,7 +30,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!id) {
     await interaction.reply({
       content: ['無法解析此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -43,7 +43,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!result) {
     await interaction.reply({
       content: ['無法格式化此 YouTube 網址', codeBlock(originalUrl)].join('\n'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -51,6 +51,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   await interaction.reply({
     content: ['原始網址', codeBlock(originalUrl), '整理後網址', codeBlock(result), result].join('\n'),
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   })
 }

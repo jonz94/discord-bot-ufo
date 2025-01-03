@@ -1,4 +1,4 @@
-import { ChannelType, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
+import { ChannelType, MessageFlags, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { db } from '~/db/db.mts'
 import { brawlParticipants, brawls, guilds } from '~/db/schema.mts'
@@ -16,7 +16,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!guildId || !channel) {
     await interaction.reply({
       content: '發生異常，無法取得 Discord 伺服器的相關資訊',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -29,7 +29,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!guild) {
     await interaction.reply({
       content: `此 Discord 伺服器不在 ${client.user} 的白名單內，因此無法使用指令`,
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -38,7 +38,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (channel.type === ChannelType.GuildVoice) {
     await interaction.reply({
       content: '無法在語音頻道與人輸贏，請轉移陣地到一般的文字頻道，拍謝QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -47,7 +47,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!channel.isSendable()) {
     await interaction.reply({
       content: '此頻道無法傳送文字訊息，請轉移陣地到一般的文字頻道，拍謝QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -65,7 +65,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         `【大亂鬥】報名座標 ${link} ${emojis.貓咪拿槍}`,
         `大亂鬥還沒開始欸，趕緊加入 ${emojis.白眼海豚笑}`,
       ].join('\n'),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -82,7 +82,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       content: [`【大亂鬥】戰場座標 ${link} ${emojis.貓咪拿槍}`, `上次的大亂鬥還沒結束欸 ${emojis.白眼海豚笑}`].join(
         '\n',
       ),
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -118,7 +118,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!joinBrawlMessage) {
     await interaction.reply({
       content: '發送戰帖失敗QQ',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     })
 
     return
@@ -135,7 +135,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   await interaction.reply({
     content: '已經向眾人們發出戰帖',
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   })
 
   // 對戰帖訊息按反應
