@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.1...v4.8.2) (2025-01-03)
+
+### 🐛 Bug Fixes
+
+- Update interaction response options to remove deprecated "ephemeral" warning ([75518a0](https://github.com/jonz94/discord-bot-ufo/commit/75518a05a59926f5331490071cb7433531e6995f))
+
 ## [4.8.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.0...v4.8.1) (2025-01-03)
 
 ### ⚙️ Miscellaneous Tasks
