@@ -2,6 +2,7 @@
   "lockfileVersion": 0,
   "workspaces": {
     "": {
+      "name": "@jonz94/discord-bot-ufo",
       "dependencies": {
         "@libsql/client": "^0.14.0",
         "discord.js": "^14.17.2",
