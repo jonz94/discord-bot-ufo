@@ -1,4 +1,4 @@
-FROM oven/bun:1.1.44-alpine AS builder
+FROM oven/bun:1.1.45-alpine AS builder
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN apk add --update --no-cache git
 RUN bun i
 RUN bun run build
 
-FROM oven/bun:1.1.44-alpine
+FROM oven/bun:1.1.45-alpine
 
 WORKDIR /app
 
