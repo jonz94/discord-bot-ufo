@@ -44,12 +44,15 @@ client.on(Events.MessageCreate, async (message) => {
   // it will attempts to extract and send the URLs of any custom emojis or stickers present in the replied message
 
   const theBotId = client.user?.id
+  console.log({ theBotId })
 
   if (!theBotId) {
+    console.log('return because the bot id')
     return
   }
 
   if (!message.reference?.messageId) {
+    console.log('return because message reference message id')
     return
   }
 
@@ -57,6 +60,8 @@ client.on(Events.MessageCreate, async (message) => {
     const repliedMessage = await message.channel.messages.fetch(message.reference.messageId)
 
     if (message.mentions.users.size !== 1 || message.mentions.users.at(0)?.id !== theBotId) {
+      console.log('return because message mentions users')
+      console.log({ size: message.mentions.users.size, id: message.mentions.users.at(0)?.id })
       return
     }
 
@@ -66,10 +71,12 @@ client.on(Events.MessageCreate, async (message) => {
       const emojiId = match[1]
       const isAnimated = match[0].startsWith('<a:')
       const emojiUrl = `https://cdn.discordapp.com/emojis/${emojiId}.${isAnimated ? 'gif' : 'png'}`
+      console.log('find emoji:', emojiUrl)
       await message.channel.send({ content: `此表情符號網址為 ${emojiUrl}` })
     }
 
     repliedMessage.stickers.forEach(async (sticker) => {
+      console.log('find sticker:', sticker.url)
       await message.channel.send({ content: `此貼圖網址為 ${sticker.url}` })
     })
   } catch (error) {
