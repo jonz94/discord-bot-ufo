@@ -56,7 +56,7 @@ client.on(Events.MessageCreate, async (message) => {
   try {
     const repliedMessage = await message.channel.messages.fetch(message.reference.messageId)
 
-    if (message.mentions.users.size !== 1 || message.mentions.users.at(0)?.id !== theBotId) {
+    if (!message.mentions.users.some((user) => user.id === theBotId)) {
       return
     }
 
