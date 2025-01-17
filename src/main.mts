@@ -44,15 +44,12 @@ client.on(Events.MessageCreate, async (message) => {
   // it will attempts to extract and send the URLs of any custom emojis or stickers present in the replied message
 
   const theBotId = client.user?.id
-  console.log({ theBotId })
 
   if (!theBotId) {
-    console.log('return because the bot id')
     return
   }
 
   if (!message.reference?.messageId) {
-    console.log('return because message reference message id')
     return
   }
 
@@ -64,6 +61,8 @@ client.on(Events.MessageCreate, async (message) => {
       console.log({ size: message.mentions.users.size, id: message.mentions.users.at(0)?.id })
       return
     }
+
+    console.log({ content: repliedMessage.content })
 
     const discordCustomEmojiRegex = /<a?:\w+:(\d+)>/g
     let match
