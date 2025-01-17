@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.4...v4.8.5) (2025-01-17)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.38.4 ([ea72359](https://github.com/jonz94/discord-bot-ufo/commit/ea723597bb6f16e0f784c921611e93e29dd95363))
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.8 ([a7068b7](https://github.com/jonz94/discord-bot-ufo/commit/a7068b74ef0b960b0d924599b4ed4307a74307de))
+- *(dev-deps)* Update `drizzle-kit` to 0.30.2 ([c39dd1d](https://github.com/jonz94/discord-bot-ufo/commit/c39dd1dedff72bd50b795476766fcf50fc0bc730))
+- *(dev-deps)* Update `@types/bun` to 1.1.17 ([0600f88](https://github.com/jonz94/discord-bot-ufo/commit/0600f8801d19a30eabbe05ddfb234578e20ee572))
+- *(runtime)* Update `bun` to 1.1.44 ([28c7f11](https://github.com/jonz94/discord-bot-ufo/commit/28c7f1125450bbb1859e8f831408abc40920ff55))
+
 ## [4.8.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.3...v4.8.4) (2025-01-09)
 
 ### ⚙️ Miscellaneous Tasks
