@@ -24,6 +24,10 @@ client.once(Events.ClientReady, async (readyClient) => {
 })
 
 client.on(Events.MessageCreate, async (message) => {
+  if (message.author.bot) {
+    return
+  }
+
   if (!message.inGuild()) {
     return
   }
@@ -34,6 +38,44 @@ client.on(Events.MessageCreate, async (message) => {
 
   if (message.content === '場子不乾淨') {
     await message.channel.send({ content: `怪我囉 ${emojis.白眼海豚笑}` })
+  }
+
+  // when a user replies to a message that mentions the bot,
+  // it will attempts to extract and send the URLs of any custom emojis or stickers present in the replied message
+
+  const theBotId = client.user?.id
+
+  if (!theBotId) {
+    return
+  }
+
+  if (!message.reference?.messageId) {
+    return
+  }
+
+  try {
+    const repliedMessage = await message.channel.messages.fetch(message.reference.messageId)
+
+    if (message.mentions.users.size !== 1 || message.mentions.users.at(0)?.id !== theBotId) {
+      return
+    }
+
+    const discordCustomEmojiRegex = /<a?:\w+:(\d+)>/g
+    let match
+    while ((match = discordCustomEmojiRegex.exec(repliedMessage.content)) !== null) {
+      const emojiId = match[1]
+      const isAnimated = match[0].startsWith('<a:')
+      const emojiUrl = `https://cdn.discordapp.com/emojis/${emojiId}.${isAnimated ? 'gif' : 'png'}`
+      await message.channel.send({ content: `此表情符號網址為 ${emojiUrl}` })
+    }
+
+    repliedMessage.stickers.forEach(async (sticker) => {
+      await message.channel.send({ content: `此貼圖網址為 ${sticker.url}` })
+    })
+  } catch (error) {
+    console.error('Error fetching the replied message:', error)
+
+    await message.channel.send({ content: '讀取聊天室訊息時發生錯誤QQ' })
   }
 })
 
