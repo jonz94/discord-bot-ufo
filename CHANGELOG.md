@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.5...v4.9.0) (2025-01-17)
+
+### 🚀 Features
+
+- Get url of custom emoji/sticker ([6259f65](https://github.com/jonz94/discord-bot-ufo/commit/6259f6527e84fb78679127a27ae78e9da180941a))
+
 ## [4.8.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.4...v4.8.5) (2025-01-17)
 
 ### ⚙️ Miscellaneous Tasks
