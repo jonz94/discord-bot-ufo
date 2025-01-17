@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9.3](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.2...v4.9.3) (2025-01-17)
+
+### 🐛 Bug Fixes
+
+- Handle the case when mentioning multiple users ([4c2ec27](https://github.com/jonz94/discord-bot-ufo/commit/4c2ec272d0630ad20eccfb62787de16deebfdb0d))
+
+### ⚙️ Miscellaneous Tasks
+
+- Remove debug log ([c36b33f](https://github.com/jonz94/discord-bot-ufo/commit/c36b33f3c2550b5f7d51567b7f5d03f73ea95f44))
+
 ## [4.9.2](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.1...v4.9.2) (2025-01-17)
 
 ### ⚙️ Miscellaneous Tasks
