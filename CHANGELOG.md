@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9.1](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.0...v4.9.1) (2025-01-17)
+
+### ⚙️ Miscellaneous Tasks
+
+- Debug ([e47382e](https://github.com/jonz94/discord-bot-ufo/commit/e47382ea2e0aff330685e30961f2719651ef869c))
+
 ## [4.9.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.8.5...v4.9.0) (2025-01-17)
 
 ### 🚀 Features
