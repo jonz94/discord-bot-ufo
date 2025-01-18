@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.9.5](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.4...v4.9.5) (2025-01-18)
+
+### 🐛 Bug Fixes
+
+- Resolve fetch message error ([f88ddec](https://github.com/jonz94/discord-bot-ufo/commit/f88ddec0038f2dba0e8fcfb3cdc5017dcfa8a70b))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.6.17 ([c31316b](https://github.com/jonz94/discord-bot-ufo/commit/c31316ba4c5efc4642342d3912829906c17c572f))
+
 ## [4.9.4](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.3...v4.9.4) (2025-01-17)
 
 ### ⚙️ Miscellaneous Tasks
