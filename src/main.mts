@@ -54,11 +54,11 @@ client.on(Events.MessageCreate, async (message) => {
   }
 
   try {
-    const repliedMessage = await message.channel.messages.fetch(message.reference.messageId)
-
     if (!message.mentions.users.some((user) => user.id === theBotId)) {
       return
     }
+
+    const repliedMessage = await message.channel.messages.fetch(message.reference.messageId)
 
     const discordCustomEmojiRegex = /<a?:\w+:(\d+)>/g
     let match
