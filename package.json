@@ -33,7 +33,7 @@
     "hono": "^4.6.17"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.0",
+    "@types/bun": "^1.2.1",
     "drizzle-kit": "^0.30.2",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
