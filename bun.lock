@@ -7,7 +7,7 @@
         "@libsql/client": "^0.14.0",
         "discord.js": "^14.17.3",
         "drizzle-orm": "^0.38.4",
-        "hono": "^4.6.17",
+        "hono": "^4.6.19",
       },
       "devDependencies": {
         "@types/bun": "^1.2.1",
@@ -169,7 +169,7 @@
 
     "git-hooks-list": ["git-hooks-list@3.1.0", "", {}, "sha512-LF8VeHeR7v+wAbXqfgRlTSX/1BJR9Q1vEMR8JAz1cEg6GX07+zyj3sAdDvYjj/xnlIfVuGgj4qBei1K3hKH+PA=="],
 
-    "hono": ["hono@4.6.17", "", {}, "sha512-Kbh4M0so2RzLiIg6iP33DoTU68TdvP2O/kb1Hhhdwa37fazuf402ig8ZRfjkz2dqXwiWl2dAgh0f++TuKAdOtQ=="],
+    "hono": ["hono@4.6.19", "", {}, "sha512-Xw5DwU2cewEsQ1DkDCdy6aBJkEBARl5loovoL1gL3/gw81RdaPbXrNJYp3LoQpzpJ7ECC/1OFi/vn3UZTLHFEw=="],
 
     "is-plain-obj": ["is-plain-obj@4.1.0", "", {}, "sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg=="],
 

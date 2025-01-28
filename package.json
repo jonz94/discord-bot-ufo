@@ -30,7 +30,7 @@
     "@libsql/client": "^0.14.0",
     "discord.js": "^14.17.3",
     "drizzle-orm": "^0.38.4",
-    "hono": "^4.6.17"
+    "hono": "^4.6.19"
   },
   "devDependencies": {
     "@types/bun": "^1.2.1",
