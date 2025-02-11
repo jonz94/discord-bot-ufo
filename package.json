@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/main.mts --target bun --outdir ./dist",
+    "build": "bun build ./src/main.mts --target bun --outdir ./dist --external sharp",
     "db": "drizzle-kit",
     "db-generate": "bun --bun ./scripts/db-generate.ts",
     "db-generate-dev": "bun --bun --env-file=.env.dev ./scripts/db-generate.ts",
