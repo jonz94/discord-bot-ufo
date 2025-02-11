@@ -17,8 +17,7 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          # FIXME: currently `odiff` does not support arm architecture
-          #- linux/arm64
+          - linux/arm64
     steps:
       - name: Prepare
         run: |
