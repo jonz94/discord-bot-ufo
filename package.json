@@ -21,7 +21,7 @@
     "generate-version-file": "bun scripts/generate-version-file.mts",
     "postinstall": "bun run generate-version-file",
     "prepare": "bun scripts/initialize-env-files.mts",
-    "preview": "bun dist/main.js",
+    "preview": "bun --bun dist/main.js",
     "preview-dev": "bun --env-file=.env.dev dist/main.js",
     "release": "bun scripts/bump-version-and-git-tag.mts",
     "start": "bun --env-file=.env.dev --watch src/main.mts",
@@ -33,7 +33,7 @@
     "discord.js": "^14.18.0",
     "drizzle-orm": "^0.39.3",
     "hono": "^4.7.0",
-    "odiff-bin": "^3.2.0",
+    "looks-same": "^9.0.1",
     "youtubei.js": "^13.0.0"
   },
   "devDependencies": {
@@ -47,6 +47,6 @@
   "trustedDependencies": [
     "es5-ext",
     "esbuild",
-    "odiff-bin"
+    "sharp"
   ]
 }

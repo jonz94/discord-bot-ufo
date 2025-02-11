@@ -1,9 +1,6 @@
 import { AttachmentBuilder } from 'discord.js'
 import { desc } from 'drizzle-orm'
-import { rmSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
-import { join } from 'node:path'
-import { compare } from 'odiff-bin'
+import looksSame from 'looks-same'
 import Innertube from 'youtubei.js'
 import { db } from '~/db/db.mjs'
 import { youtubeThumbnails } from '~/db/schema.mjs'
@@ -75,11 +72,6 @@ async function compareCurrentWithPreviousImage() {
     return
   }
 
-  const previousImagePath = join(tmpdir(), 'previous.jpg')
-  rmSync(previousImagePath, { force: true })
-
-  writeFileSync(previousImagePath, previousImageRecord.data)
-
   const response = await fetch(url)
   if (!response.ok) {
     console.error(`Failed to fetch image: ${response.statusText}`)
@@ -87,29 +79,16 @@ async function compareCurrentWithPreviousImage() {
     return
   }
 
-  const currentImagePath = join(tmpdir(), `downloaded-image-${Date.now()}.jpg`)
-
-  rmSync(currentImagePath, { force: true })
-
   const currentImageBuffer = Buffer.from(await response.arrayBuffer())
-  writeFileSync(currentImagePath, currentImageBuffer)
 
-  console.log(`Image saved to ${currentImagePath}`)
+  const result = await looksSame(currentImageBuffer, previousImageRecord.data)
 
-  const tempDiffPath = join(tmpdir(), `diff-image-${Date.now()}.jpg`)
-  rmSync(tempDiffPath, { force: true })
-
-  const result = await compare(currentImagePath, previousImagePath, tempDiffPath)
-
-  rmSync(currentImagePath, { force: true })
-  rmSync(previousImagePath, { force: true })
-  rmSync(tempDiffPath, { force: true })
-
-  console.log({ result })
-
-  if (result.match) {
+  if (result.equal) {
+    console.log('same')
     return
   }
+
+  console.log(JSON.stringify(result, null, 2))
 
   await db.insert(youtubeThumbnails).values({ data: currentImageBuffer, updatedAt: new Date() })
 
@@ -121,6 +100,9 @@ async function compareCurrentWithPreviousImage() {
 }
 
 export async function startSchedule() {
+  compareCurrentWithPreviousImage().catch((error) => console.error(error))
+  return
+
   const now = new Date()
 
   // calculate the time until the next minute
