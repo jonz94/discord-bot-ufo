@@ -9,6 +9,9 @@ import { db } from '~/db/db.mjs'
 import { youtubeThumbnails } from '~/db/schema.mjs'
 import { client } from '~/src/client.mjs'
 
+let previousImageRecord =
+  (await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })) ?? null
+
 async function getYoutubeThumbnailUrl(videoId: string) {
   const youtube = await Innertube.create()
   const video = await youtube.getBasicInfo(videoId)
@@ -44,8 +47,6 @@ async function compareCurrentWithPreviousImage() {
     return
   }
 
-  const previousImageRecord = await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })
-
   if (!previousImageRecord) {
     const response = await fetch(url)
 
@@ -56,7 +57,12 @@ async function compareCurrentWithPreviousImage() {
     }
 
     const currentImageBuffer = Buffer.from(await response.arrayBuffer())
-    await db.insert(youtubeThumbnails).values({ data: currentImageBuffer, updatedAt: new Date() })
+
+    const result = await db
+      .insert(youtubeThumbnails)
+      .values({ data: currentImageBuffer, updatedAt: new Date() })
+      .returning()
+    previousImageRecord = result.at(0) ?? null
 
     const channelIds = (await db.query.youtubeThumbnailChangedNotificationChannels.findMany()).map(
       (record) => record.id,
