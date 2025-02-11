@@ -4,9 +4,18 @@ import { rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { compare } from 'odiff-bin'
+import Innertube from 'youtubei.js'
 import { db } from '~/db/db.mjs'
 import { youtubeThumbnails } from '~/db/schema.mjs'
 import { client } from '~/src/client.mjs'
+
+async function getYoutubeThumbnailUrl(videoId: string) {
+  const youtube = await Innertube.create()
+  const video = await youtube.getBasicInfo(videoId)
+  const thumbnails = video.basic_info.thumbnail ?? []
+
+  return thumbnails.at(0)?.url ?? null
+}
 
 async function sendMessages(channelIds: string[], currentImageBuffer: Buffer) {
   for (const channelId of channelIds) {
@@ -28,7 +37,12 @@ async function sendMessages(channelIds: string[], currentImageBuffer: Buffer) {
 async function compareCurrentWithPreviousImage() {
   console.log('start')
 
-  const url = 'https://i.ytimg.com/vi/NBrghK0JyIg/maxresdefault.jpg'
+  const url = await getYoutubeThumbnailUrl('NBrghK0JyIg')
+
+  if (!url) {
+    console.error('cannot get youtube thumbnail url via youtubei.js')
+    return
+  }
 
   const previousImageRecord = await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })
 
