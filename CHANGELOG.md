@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v5.0.0...v5.0.1) (2025-02-11)
+
+### 🐛 Bug Fixes
+
+- Skip build `arm64` docker image ([c8538b2](https://github.com/jonz94/discord-bot-ufo/commit/c8538b2029f48d457a7a583d0a8c15334b1535ab))
+
 ## [5.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.9...v5.0.0) (2025-02-11)
 
 ### 🚀 Features
