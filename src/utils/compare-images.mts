@@ -135,8 +135,6 @@ export async function startSchedule() {
 
   const delay = (nextMinute.getTime() - now.getTime()) % 60000
 
-  console.log({ now, nextMinute, delay })
-
   setTimeout(() => {
     compareCurrentWithPreviousImage().catch((error) => console.error(error))
 
