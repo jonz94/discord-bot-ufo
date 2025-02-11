@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v5.0.1...v6.0.0) (2025-02-11)
+
+### 🚀 Features
+
+- [**breaking**] Replace `odiff-bin` with `looks-same` ([6c84793](https://github.com/jonz94/discord-bot-ufo/commit/6c84793d38af963a9d23a6733f4ea7aeffb388f9))
+
+### 🐛 Bug Fixes
+
+- Enable build `arm64` docker image ([1374929](https://github.com/jonz94/discord-bot-ufo/commit/1374929a4f9de550e872bb6aa346af713cfc4f7f))
+- Resolve cannot find module `sharp` runtime issue ([6c91386](https://github.com/jonz94/discord-bot-ufo/commit/6c91386f07dfcfd18e8fc1f783e47d530cc7e691))
+
 ## [5.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v5.0.0...v5.0.1) (2025-02-11)
 
 ### 🐛 Bug Fixes
