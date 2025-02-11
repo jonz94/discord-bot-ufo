@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.9...v5.0.0) (2025-02-11)
+
+### 🚀 Features
+
+- Get youtube thumbnail url using `youtubei.js` ([01cac2b](https://github.com/jonz94/discord-bot-ufo/commit/01cac2bdf98bd7f80e28202f36c2851b070f79cb))
+- [**breaking**] Fetch latest youtube thumbnail image and send notification to discord channel ([fe1623f](https://github.com/jonz94/discord-bot-ufo/commit/fe1623f7b0fc4cb620d8f2209c4378f68f61e896))
+
+### 🐛 Bug Fixes
+
+- Make scripts related to drizzle work with bun ([6a0235e](https://github.com/jonz94/discord-bot-ufo/commit/6a0235ece13bdd6818de16df202aa25c7e4b2ffa))
+
+### 🚜 Refactor
+
+- Update order of environment variables ([e6fb8cb](https://github.com/jonz94/discord-bot-ufo/commit/e6fb8cb5da2d4329e43442a2e82997db417246c5))
+
+### ⚡ Performance
+
+- Only query previous image record once ([639c7c1](https://github.com/jonz94/discord-bot-ufo/commit/639c7c12b4925b47fc92b87047472793ccd94cf8))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.39.3 ([e38e696](https://github.com/jonz94/discord-bot-ufo/commit/e38e696d7b5efa6b48695298528bb686bcf0765a))
+- *(deps)* Update `discord.js` to 14.18.0 ([9394aa8](https://github.com/jonz94/discord-bot-ufo/commit/9394aa86be3b251e8de333035aa1363dcec5503b))
+- *(dev-deps)* Update `prettier` to 3.5.0 ([e56ff35](https://github.com/jonz94/discord-bot-ufo/commit/e56ff35c6a3ffe4e44a295de8674fa0956482d80))
+- Remove `console.log` ([a674a5a](https://github.com/jonz94/discord-bot-ufo/commit/a674a5ac45f8d0a18cbceb48f3ff2a648d5b463f))
+
 ## [4.9.9](https://github.com/jonz94/discord-bot-ufo/compare/v4.9.8...v4.9.9) (2025-02-08)
 
 ### ⚙️ Miscellaneous Tasks
