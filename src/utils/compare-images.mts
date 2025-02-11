@@ -100,9 +100,6 @@ async function compareCurrentWithPreviousImage() {
 }
 
 export async function startSchedule() {
-  compareCurrentWithPreviousImage().catch((error) => console.error(error))
-  return
-
   const now = new Date()
 
   // calculate the time until the next minute
