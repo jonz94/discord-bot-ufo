@@ -32,7 +32,8 @@
     "@libsql/client": "^0.14.0",
     "discord.js": "^14.17.3",
     "drizzle-orm": "^0.39.2",
-    "hono": "^4.7.0"
+    "hono": "^4.7.0",
+    "odiff-bin": "^3.2.0"
   },
   "devDependencies": {
     "@types/bun": "^1.2.2",
@@ -44,6 +45,7 @@
   },
   "trustedDependencies": [
     "es5-ext",
-    "esbuild"
+    "esbuild",
+    "odiff-bin"
   ]
 }

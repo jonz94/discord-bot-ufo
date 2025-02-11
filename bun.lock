@@ -8,6 +8,7 @@
         "discord.js": "^14.17.3",
         "drizzle-orm": "^0.39.2",
         "hono": "^4.7.0",
+        "odiff-bin": "^3.2.0",
       },
       "devDependencies": {
         "@types/bun": "^1.2.2",
@@ -20,6 +21,7 @@
     },
   },
   "trustedDependencies": [
+    "odiff-bin",
     "esbuild",
   ],
   "packages": {
@@ -188,6 +190,8 @@
     "node-domexception": ["node-domexception@1.0.0", "", {}, "sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ=="],
 
     "node-fetch": ["node-fetch@3.3.2", "", { "dependencies": { "data-uri-to-buffer": "^4.0.0", "fetch-blob": "^3.1.4", "formdata-polyfill": "^4.0.10" } }, "sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA=="],
+
+    "odiff-bin": ["odiff-bin@3.2.0", "", { "bin": { "odiff": "bin/odiff.exe" } }, "sha512-Gbp9ayjhcI3WkIgCDNzwNNTOcN4lxhSq13Unb0sfgFv9Cn1tu0bdtULO0/WX3HLTMEtRKncrknvMc9XU3Pqr2w=="],
 
     "picomatch": ["picomatch@4.0.2", "", {}, "sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg=="],
 

@@ -1,5 +1,5 @@
 import { sql } from 'drizzle-orm'
-import { integer, sqliteTable, text, unique } from 'drizzle-orm/sqlite-core'
+import { blob, integer, sqliteTable, text, unique } from 'drizzle-orm/sqlite-core'
 
 export const guilds = sqliteTable('guilds', {
   id: text('id').notNull().primaryKey(),
@@ -81,3 +81,16 @@ export const brawlAttempts = sqliteTable('brawl_attempts', {
   score: integer('score').notNull(),
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
 })
+
+export const youtubeThumbnails = sqliteTable('youtube_thumbnails', {
+  id: integer('id').primaryKey(),
+  data: blob('data', { mode: 'buffer' }).notNull(),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
+})
+
+export const youtubeThumbnailChangedNotificationChannels = sqliteTable(
+  'youtube_thumbnail_changed_notification_channels',
+  {
+    id: text('id').primaryKey(),
+  },
+)

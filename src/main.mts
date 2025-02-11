@@ -3,6 +3,7 @@ import { eq } from 'drizzle-orm'
 import { Hono } from 'hono'
 import { db } from '~/db/db.mts'
 import { guilds } from '~/db/schema.mts'
+import { startSchedule } from '~/src/utils/compare-images.mjs'
 import { client } from './client.mts'
 import { commands } from './commands/index.mts'
 import { config } from './config.mts'
@@ -21,6 +22,8 @@ client.once(Events.ClientReady, async (readyClient) => {
   })
 
   targetGuilds.forEach((guild) => deployCommands(guild))
+
+  startSchedule()
 })
 
 client.on(Events.MessageCreate, async (message) => {

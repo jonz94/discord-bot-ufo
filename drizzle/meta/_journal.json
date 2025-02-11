@@ -22,6 +22,13 @@
       "when": 1710870985642,
       "tag": "0002_fresh_mockingbird",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1739258993602,
+      "tag": "0003_early_dagger",
+      "breakpoints": true
     }
   ]
 }
