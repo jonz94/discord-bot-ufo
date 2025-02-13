@@ -3,7 +3,7 @@ import { eq } from 'drizzle-orm'
 import { Hono } from 'hono'
 import { db } from '~/db/db.mts'
 import { guilds } from '~/db/schema.mts'
-import { startSchedule } from '~/src/utils/compare-images.mjs'
+import { startScheduleForComparingYoutubeThumbnails } from '~/src/utils/compare-images.mts'
 import { startScheduleToKeepTursoAlive } from '~/src/utils/keep-turso-alive.mts'
 import { client } from './client.mts'
 import { commands } from './commands/index.mts'
@@ -26,7 +26,7 @@ client.once(Events.ClientReady, async (readyClient) => {
 
   targetGuilds.forEach((guild) => deployCommands(guild))
 
-  startSchedule()
+  startScheduleForComparingYoutubeThumbnails()
 })
 
 client.on(Events.MessageCreate, async (message) => {

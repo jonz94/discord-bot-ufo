@@ -99,7 +99,7 @@ async function compareCurrentWithPreviousImage() {
   console.log('done')
 }
 
-export async function startSchedule() {
+export async function startScheduleForComparingYoutubeThumbnails() {
   const now = new Date()
 
   // calculate the time until the next minute
