@@ -101,6 +101,7 @@ async function compareCurrentWithPreviousImage() {
 
 export async function startScheduleForComparingYoutubeThumbnails() {
   const now = new Date()
+  const ONE_MINUTE = 60 * 1000
 
   // calculate the time until the next minute
   const nextMinute = new Date(
@@ -112,11 +113,11 @@ export async function startScheduleForComparingYoutubeThumbnails() {
     0, // the trick is setting the seconds to 0
   )
 
-  const delay = (nextMinute.getTime() - now.getTime()) % 60000
+  const initialDelay = (nextMinute.getTime() - now.getTime()) % ONE_MINUTE
 
   setTimeout(() => {
     compareCurrentWithPreviousImage().catch((error) => console.error(error))
 
-    setInterval(() => compareCurrentWithPreviousImage().catch((error) => console.error(error)), 60000)
-  }, delay)
+    setInterval(() => compareCurrentWithPreviousImage().catch((error) => console.error(error)), ONE_MINUTE)
+  }, initialDelay)
 }
