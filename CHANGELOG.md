@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.2](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.1...v6.0.2) (2025-02-13)
+
+### 🐛 Bug Fixes
+
+- Keep turso database alive ([1c49027](https://github.com/jonz94/discord-bot-ufo/commit/1c490272b23e20c6bde472fb9d2902672162faa7))
+
+### 🚜 Refactor
+
+- Improve function name ([6846286](https://github.com/jonz94/discord-bot-ufo/commit/6846286f39a3ca86d0a4cf46747db44544eeb5d9))
+
 ## [6.0.1](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.0...v6.0.1) (2025-02-11)
 
 ### 🐛 Bug Fixes
