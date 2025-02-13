@@ -4,6 +4,7 @@ import { Hono } from 'hono'
 import { db } from '~/db/db.mts'
 import { guilds } from '~/db/schema.mts'
 import { startSchedule } from '~/src/utils/compare-images.mjs'
+import { startScheduleToKeepTursoAlive } from '~/src/utils/keep-turso-alive.mts'
 import { client } from './client.mts'
 import { commands } from './commands/index.mts'
 import { config } from './config.mts'
@@ -12,6 +13,8 @@ import { emojis } from './emoji-list.mts'
 import { handleBrawlRollDiceReaction, handleJoinBrawlReaction } from './handlers/handle-brawl-reaction.mts'
 import { handleFightReaction } from './handlers/handle-fight-reaction.mts'
 import { isDev } from './utils/is-dev.mts'
+
+startScheduleToKeepTursoAlive()
 
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
