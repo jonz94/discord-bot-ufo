@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.3](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.2...v6.0.3) (2025-02-17)
+
+### 🐛 Bug Fixes
+
+- Resolve infinite loop after sending message ([a602834](https://github.com/jonz94/discord-bot-ufo/commit/a6028341959a6c69c84945b62f481ec9b78107b9))
+
+### 🚜 Refactor
+
+- Improve variable name ([798f7f6](https://github.com/jonz94/discord-bot-ufo/commit/798f7f611403ce344af077692519783f483eb99e))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.7.1 ([6bd4098](https://github.com/jonz94/discord-bot-ufo/commit/6bd4098a6a5d4fd0c392ea50e7fa054d59431710))
+- *(dev-deps)* Update `prettier` to 3.5.1 ([d842df5](https://github.com/jonz94/discord-bot-ufo/commit/d842df5197c30be182c8f7030d662ccf6f0a640e))
+
 ## [6.0.2](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.1...v6.0.2) (2025-02-13)
 
 ### 🐛 Bug Fixes
