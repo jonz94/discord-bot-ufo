@@ -90,11 +90,18 @@ async function compareCurrentWithPreviousImage() {
 
   console.log(JSON.stringify(result, null, 2))
 
-  await db.insert(youtubeThumbnails).values({ data: currentImageBuffer, updatedAt: new Date() })
+  const current = await db
+    .insert(youtubeThumbnails)
+    .values({ data: currentImageBuffer, updatedAt: new Date() })
+    .returning()
 
   const channelIds = (await db.query.youtubeThumbnailChangedNotificationChannels.findMany()).map((record) => record.id)
 
-  await sendMessages(channelIds, currentImageBuffer)
+  try {
+    previousImageRecord = current.at(0)!
+
+    await sendMessages(channelIds, currentImageBuffer)
+  } catch (error) {}
 
   console.log('done')
 }
