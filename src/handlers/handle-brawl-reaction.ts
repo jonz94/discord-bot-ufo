@@ -60,6 +60,16 @@ export async function handleBrawlRollDiceReaction(
   user: User | PartialUser,
   targetMessageId: string,
 ) {
+  const channel = reaction.message.channel
+
+  if (!channel.isSendable()) {
+    console.log('handleBrawlRollDiceReaction: cannot send message to the channel')
+    console.log('channel info:')
+    console.log(JSON.stringify({ id: channel.id, name: channel.name }), null, 2)
+
+    return
+  }
+
   const brawl = await db.query.brawls.findFirst({ where: eq(brawls.messageId, targetMessageId) })
 
   if (!brawl) {
@@ -91,7 +101,7 @@ export async function handleBrawlRollDiceReaction(
   do {
     const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
 
-    await reaction.message.channel.send(`【大亂鬥】 ${user} 骰出了 ${attempt.join(', ')}`)
+    await channel.send(`【大亂鬥】 ${user} 骰出了 ${attempt.join(', ')}`)
     score = calculateScore(attempt)
 
     await db.insert(brawlAttempts).values({
@@ -109,13 +119,13 @@ export async function handleBrawlRollDiceReaction(
   } while (score <= 0 && round <= 2)
 
   if (score === 0) {
-    await reaction.message.channel.send(`【大亂鬥】 ${user} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`)
+    await channel.send(`【大亂鬥】 ${user} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`)
   } else if (score === 3) {
-    await reaction.message.channel.send(`【大亂鬥】 ${user} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`)
+    await channel.send(`【大亂鬥】 ${user} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`)
   } else if (score >= 100) {
-    await reaction.message.channel.send(`【大亂鬥】 ${user} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`)
+    await channel.send(`【大亂鬥】 ${user} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`)
   } else {
-    await reaction.message.channel.send(`【大亂鬥】 ${user} 得分是 ${score}`)
+    await channel.send(`【大亂鬥】 ${user} 得分是 ${score}`)
   }
 
   try {

@@ -11,6 +11,16 @@ export async function handleFightReaction(
   user: User | PartialUser,
   targetMessageId: string,
 ) {
+  const channel = reaction.message.channel
+
+  if (!channel.isSendable()) {
+    console.log('handleFightReaction: cannot send message to the channel')
+    console.log('channel info:')
+    console.log(JSON.stringify({ id: channel.id, name: channel.name }), null, 2)
+
+    return
+  }
+
   const game = await db.query.games.findFirst({ where: eq(games.id, targetMessageId) })
 
   if (!game) {
@@ -47,9 +57,7 @@ export async function handleFightReaction(
   do {
     const attempt = [rollDice(), rollDice(), rollDice(), rollDice()] as const
 
-    await reaction.message.channel.send(
-      `【${author.displayName} vs ${opponent.displayName}】 ${user} 骰出了 ${attempt.join(', ')}`,
-    )
+    await channel.send(`【${author.displayName} vs ${opponent.displayName}】 ${user} 骰出了 ${attempt.join(', ')}`)
     score = calculateScore(attempt)
 
     await db.insert(attempts).values({
@@ -67,19 +75,19 @@ export async function handleFightReaction(
   } while (score <= 0 && round <= 2)
 
   if (score === 0) {
-    await reaction.message.channel.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${user} 得分是 ${score}，憋十 ${emojis.白眼海豚笑}`,
     )
   } else if (score === 3) {
-    await reaction.message.channel.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${user} 得分是 ${score}，逼機 ${emojis.白眼海豚笑}`,
     )
   } else if (score >= 100) {
-    await reaction.message.channel.send(
+    await channel.send(
       `【${author.displayName} vs ${opponent.displayName}】 ${user} 得分是 ${score}，豹子 ${emojis.貓咪挖屋}`,
     )
   } else {
-    await reaction.message.channel.send(`【${author.displayName} vs ${opponent.displayName}】 ${user} 得分是 ${score}`)
+    await channel.send(`【${author.displayName} vs ${opponent.displayName}】 ${user} 得分是 ${score}`)
   }
 
   const updatedGames = await (async function updateGame() {
@@ -132,5 +140,5 @@ export async function handleFightReaction(
     return message
   })()
 
-  await reaction.message.channel.send(finalMessage)
+  await channel.send(finalMessage)
 }
