@@ -1,5 +1,5 @@
 import { MessageFlags, SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
-import { parseTwitterUrl } from '~/src/utils/parse-twitter-url.mts'
+import { parseTwitterUrl } from '~/src/utils/parse-twitter-url'
 
 export const commandName = 'fx'
 

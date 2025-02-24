@@ -1,5 +1,5 @@
 import { MessageFlags, SlashCommandBuilder, codeBlock, type ChatInputCommandInteraction } from 'discord.js'
-import { generateYoutubeUrl, parseYoutubeUrl } from '~/src/utils/youtube-url.mts'
+import { generateYoutubeUrl, parseYoutubeUrl } from '~/src/utils/youtube-url'
 
 export const commandName = 'yt'
 

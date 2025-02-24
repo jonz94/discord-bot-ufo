@@ -18,4 +18,4 @@ export const version = '${version}' as const
 export const timestamp = ${timestamp} as const
 `
 
-await Bun.write('src/version.mts', input)
+await Bun.write('src/version.ts', input)

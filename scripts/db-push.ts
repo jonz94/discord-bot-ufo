@@ -1,5 +1,5 @@
 import { $ } from 'bun'
-import { config } from '~/src/config.mjs'
+import { config } from '~/src/config'
 
 if (config.APP_ENV === 'production') {
   console.error('please do not run database push in production environment...')

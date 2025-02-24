@@ -1,7 +1,7 @@
 import { REST, Routes } from 'discord.js'
-import { type SelectGuild } from '~/db/schema.mts'
-import { commands } from './commands/index.mts'
-import { config } from './config.mts'
+import { type SelectGuild } from '~/db/schema'
+import { commands } from './commands'
+import { config } from './config'
 
 const commandsData = Object.values(commands).map((command) => command.data)
 

@@ -1,5 +1,5 @@
-import { db } from '~/db/db.mts'
-import { guilds } from '~/db/schema.mts'
+import { db } from '~/db/db'
+import { guilds } from '~/db/schema'
 
 async function simpleDatabaseQuery() {
   console.log('keep turso database alive')

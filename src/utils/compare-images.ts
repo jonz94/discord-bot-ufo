@@ -2,9 +2,9 @@ import { AttachmentBuilder } from 'discord.js'
 import { desc } from 'drizzle-orm'
 import looksSame from 'looks-same'
 import Innertube from 'youtubei.js'
-import { db } from '~/db/db.mjs'
-import { youtubeThumbnails } from '~/db/schema.mjs'
-import { client } from '~/src/client.mjs'
+import { db } from '~/db/db'
+import { youtubeThumbnails } from '~/db/schema'
+import { client } from '~/src/client'
 
 let previousImageRecord =
   (await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })) ?? null

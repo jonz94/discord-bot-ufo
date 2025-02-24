@@ -4,4 +4,4 @@ node_modules/
 !.env.example
 
 # auto generate version file
-src/version.mts
+src/version.ts

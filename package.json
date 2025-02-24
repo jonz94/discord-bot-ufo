@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/main.mts --target bun --outdir ./dist --external sharp",
+    "build": "bun build ./src/main.ts --target bun --outdir ./dist --external sharp",
     "db": "drizzle-kit",
     "db-generate": "bun --bun ./scripts/db-generate.ts",
     "db-generate-dev": "bun --bun --env-file=.env.dev ./scripts/db-generate.ts",
@@ -18,14 +18,14 @@
     "db-push-dev": "bun --bun --env-file=.env.dev ./scripts/db-push.ts",
     "db-studio": "bunx --bun drizzle-kit studio",
     "fmt": "prettier --write .",
-    "generate-version-file": "bun scripts/generate-version-file.mts",
+    "generate-version-file": "bun scripts/generate-version-file.ts",
     "postinstall": "bun run generate-version-file",
-    "prepare": "bun scripts/initialize-env-files.mts",
+    "prepare": "bun scripts/initialize-env-files.ts",
     "preview": "bun --bun dist/main.js",
     "preview-dev": "bun --env-file=.env.dev dist/main.js",
-    "release": "bun scripts/bump-version-and-git-tag.mts",
-    "start": "bun --env-file=.env.dev --watch src/main.mts",
-    "start-production": "NODE_ENV=PRODUCTION bun --watch src/main.mts",
+    "release": "bun scripts/bump-version-and-git-tag.ts",
+    "start": "bun --env-file=.env.dev --watch src/main.ts",
+    "start-production": "NODE_ENV=PRODUCTION bun --watch src/main.ts",
     "test": "bun test"
   },
   "dependencies": {

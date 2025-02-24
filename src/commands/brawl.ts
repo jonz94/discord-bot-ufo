@@ -1,9 +1,9 @@
 import { ChannelType, MessageFlags, SlashCommandBuilder, type ChatInputCommandInteraction } from 'discord.js'
 import { and, eq, isNull, sql } from 'drizzle-orm'
-import { db } from '~/db/db.mts'
-import { brawlParticipants, brawls, guilds } from '~/db/schema.mts'
-import { client } from '~/src/client.mts'
-import { emojis } from '~/src/emoji-list.mts'
+import { db } from '~/db/db'
+import { brawlParticipants, brawls, guilds } from '~/db/schema'
+import { client } from '~/src/client'
+import { emojis } from '~/src/emoji-list'
 
 export const commandName = '大亂鬥'
 

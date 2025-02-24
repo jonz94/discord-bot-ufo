@@ -1,5 +1,5 @@
 import { $ } from 'bun'
-import { config } from '~/src/config.mjs'
+import { config } from '~/src/config'
 
 console.log('current database:', config.DATABASE_URL)
 

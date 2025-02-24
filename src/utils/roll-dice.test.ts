@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test'
-import { calculateScore } from './roll-dice.mts'
+import { calculateScore } from './roll-dice'
 
 test('calculate score is correct', () => {
   // [a, b, c, d]

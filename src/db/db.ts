@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/libsql'
-import { config } from '~/src/config.mjs'
-import * as schema from './schema.mts'
+import { config } from '~/src/config'
+import * as schema from './schema'
 
 export const db = drizzle({
   connection: {

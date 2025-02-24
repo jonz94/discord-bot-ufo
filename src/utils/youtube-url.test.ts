@@ -4,7 +4,7 @@ import {
   generateYoutubeUrl,
   parseInputTimestampIntoSeconds,
   parseYoutubeUrl,
-} from './youtube-url.mts'
+} from './youtube-url'
 
 test('parse YouTube url correctly', () => {
   expect(parseYoutubeUrl('https://www.youtube.com/watch?v=abc')).toEqual({ type: 'video', id: 'abc', timestamp: null })

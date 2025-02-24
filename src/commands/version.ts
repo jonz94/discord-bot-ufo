@@ -1,5 +1,5 @@
 import { MessageFlags, SlashCommandBuilder, inlineCode, type ChatInputCommandInteraction } from 'discord.js'
-import { timestamp, version } from '~/src/version.mts'
+import { timestamp, version } from '~/src/version'
 
 export const commandName = 'version'
 
