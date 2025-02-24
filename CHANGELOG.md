@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.5](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.4...v6.0.5) (2025-02-24)
+
+### 🐛 Bug Fixes
+
+- Avoid type error ([b798888](https://github.com/jonz94/discord-bot-ufo/commit/b7988883ee6b66d3cd6aa845c200b42ffe7928df))
+
+### 🚜 Refactor
+
+- Rename `*.mts` to `*.ts` ([3e04dc2](https://github.com/jonz94/discord-bot-ufo/commit/3e04dc2f053cc00dac61ad773753b25004814b10))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `youtubei.js` to 13.1.0 ([9b28cfb](https://github.com/jonz94/discord-bot-ufo/commit/9b28cfb8b79193fb8658dde4430967e460c5a9b1))
+- *(dev-deps)* Update `prettier` to 3.5.2 ([330124e](https://github.com/jonz94/discord-bot-ufo/commit/330124e7379df61699ab27081e3f6e4d82a85884))
+- *(dev-deps)* Update `@types/bun` to 1.2.3 ([48ae403](https://github.com/jonz94/discord-bot-ufo/commit/48ae4034ec46e76790f9370aff5e7dd72d1dd3b3))
+- *(runtime)* Update `bun` to 1.2.3 ([c760bf3](https://github.com/jonz94/discord-bot-ufo/commit/c760bf3107f60f68d35874054195e6e1a6389082))
+
 ## [6.0.4](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.3...v6.0.4) (2025-02-19)
 
 ### ⚙️ Miscellaneous Tasks
