@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/bun": "^1.2.3",
-    "drizzle-kit": "^0.30.4",
+    "drizzle-kit": "^0.30.5",
     "prettier": "^3.5.2",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-packagejson": "^2.5.8",
