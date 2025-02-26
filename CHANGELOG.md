@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.6](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.5...v6.0.6) (2025-02-26)
+
+### 🐛 Bug Fixes
+
+- Disable buggy feature ([e186137](https://github.com/jonz94/discord-bot-ufo/commit/e186137d790f6b894adbf52e9b8c83dc88645650))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.40.0 ([6838287](https://github.com/jonz94/discord-bot-ufo/commit/6838287e8bc9de243b4e8853184d99b7cf2dde04))
+- *(dev-deps)* Update `drizzle-kit` to 0.30.5 ([66e102c](https://github.com/jonz94/discord-bot-ufo/commit/66e102cd659631b28a14ec15b3281649a5c7a2ef))
+
 ## [6.0.5](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.4...v6.0.5) (2025-02-24)
 
 ### 🐛 Bug Fixes
