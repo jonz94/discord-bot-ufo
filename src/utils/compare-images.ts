@@ -6,6 +6,7 @@ import { db } from '~/db/db'
 import { youtubeThumbnails } from '~/db/schema'
 import { client } from '~/src/client'
 
+let previousYoutubeThumbnailUrl: string | null = null
 let previousImageRecord =
   (await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })) ?? null
 
@@ -35,7 +36,7 @@ async function sendMessages(channelIds: string[], currentImageBuffer: Buffer) {
 }
 
 async function compareCurrentWithPreviousImage() {
-  console.log('start')
+  console.log('start: compareCurrentWithPreviousImage')
 
   const url = await getYoutubeThumbnailUrl('NBrghK0JyIg')
 
@@ -43,6 +44,25 @@ async function compareCurrentWithPreviousImage() {
     console.error('cannot get youtube thumbnail url via youtubei.js')
     return
   }
+
+  if (previousYoutubeThumbnailUrl !== null && previousYoutubeThumbnailUrl !== url) {
+    console.log(
+      'youtube thumbnail url changed:',
+      JSON.stringify(
+        {
+          previous: previousYoutubeThumbnailUrl,
+          current: url,
+        },
+        null,
+        2,
+      ),
+    )
+  }
+
+  previousYoutubeThumbnailUrl = url
+
+  // FIXME: disable this feature temporarily because it is buggy
+  return
 
   if (!previousImageRecord) {
     const response = await fetch(url)
