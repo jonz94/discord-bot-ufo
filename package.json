@@ -37,7 +37,7 @@
     "youtubei.js": "^13.1.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.3",
+    "@types/bun": "^1.2.4",
     "drizzle-kit": "^0.30.5",
     "prettier": "^3.5.2",
     "prettier-plugin-organize-imports": "^4.1.0",
