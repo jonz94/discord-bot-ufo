@@ -57,6 +57,11 @@ async function compareCurrentWithPreviousImage() {
         2,
       ),
     )
+
+    // youtube thumbnail url changed: {
+    //  "previous": "https://i.ytimg.com/vi/NBrghK0JyIg/maxresdefault.jpg?v=67c5abc2",
+    //  "current": "https://i.ytimg.com/vi/NBrghK0JyIg/maxresdefault.jpg?v=67cda56a"
+    // }
   }
 
   previousYoutubeThumbnailUrl = url
