@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.0.8](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.7...v6.0.8) (2025-03-11)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(dev-deps)* Override `esbuild` version to ^0.25.1 ([b930214](https://github.com/jonz94/discord-bot-ufo/commit/b93021497cd8866c16436862dfa06f467f479137))
+- *(dev-deps)* Update `@types/bun` to 1.2.5 ([310977a](https://github.com/jonz94/discord-bot-ufo/commit/310977ace2cdcd01e3ee6a2240da04f7ca92d168))
+- *(runtime)* Update `bun` to 1.2.5 ([27a5528](https://github.com/jonz94/discord-bot-ufo/commit/27a55287d32f309656acc651bece603b8cf044cb))
+
 ## [6.0.7](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.6...v6.0.7) (2025-03-07)
 
 ### ⚙️ Miscellaneous Tasks
