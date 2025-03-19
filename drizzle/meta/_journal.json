@@ -29,6 +29,20 @@
       "when": 1739258993602,
       "tag": "0003_early_dagger",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1742394542974,
+      "tag": "0004_wide_princess_powerful",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1742394651133,
+      "tag": "0005_stale_pestilence",
+      "breakpoints": true
     }
   ]
 }

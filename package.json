@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/main.ts --target bun --outdir ./dist --external sharp",
+    "build": "bun build ./src/main.ts --target bun --outdir ./dist",
     "db": "drizzle-kit",
     "db-generate": "bun --bun ./scripts/db-generate.ts",
     "db-generate-dev": "bun --bun --env-file=.env.dev ./scripts/db-generate.ts",
@@ -33,7 +33,6 @@
     "discord.js": "^14.18.0",
     "drizzle-orm": "^0.40.1",
     "hono": "^4.7.4",
-    "looks-same": "^9.0.1",
     "youtubei.js": "^13.1.0"
   },
   "devDependencies": {
@@ -48,8 +47,6 @@
     "esbuild": "^0.25.1"
   },
   "trustedDependencies": [
-    "es5-ext",
-    "esbuild",
-    "sharp"
+    "esbuild"
   ]
 }

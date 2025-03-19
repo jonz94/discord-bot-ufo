@@ -1,13 +1,11 @@
 import { AttachmentBuilder } from 'discord.js'
 import { desc } from 'drizzle-orm'
-import looksSame from 'looks-same'
 import Innertube from 'youtubei.js'
 import { db } from '~/db/db'
 import { youtubeThumbnails } from '~/db/schema'
 import { client } from '~/src/client'
 
-let previousYoutubeThumbnailUrl: string | null = null
-let previousImageRecord =
+let previousThumbnailRecord =
   (await db.query.youtubeThumbnails.findFirst({ orderBy: desc(youtubeThumbnails.updatedAt) })) ?? null
 
 async function getYoutubeThumbnailUrl(videoId: string) {
@@ -38,34 +36,15 @@ async function sendMessages(channelIds: string[], currentImageBuffer: Buffer) {
 async function compareCurrentWithPreviousImage() {
   console.log('start: compareCurrentWithPreviousImage')
 
-  const url = await getYoutubeThumbnailUrl('NBrghK0JyIg')
+  const currentThumbnailUrl = await getYoutubeThumbnailUrl('NBrghK0JyIg')
 
-  if (!url) {
+  if (!currentThumbnailUrl) {
     console.error('cannot get youtube thumbnail url via youtubei.js')
     return
   }
 
-  if (previousYoutubeThumbnailUrl !== null && previousYoutubeThumbnailUrl !== url) {
-    console.log(
-      'youtube thumbnail url changed:',
-      JSON.stringify(
-        {
-          previous: previousYoutubeThumbnailUrl,
-          current: url,
-        },
-        null,
-        2,
-      ),
-    )
-  }
-
-  previousYoutubeThumbnailUrl = url
-
-  // FIXME: disable this feature temporarily because it is buggy
-  return
-
-  if (!previousImageRecord) {
-    const response = await fetch(url)
+  if (!previousThumbnailRecord) {
+    const response = await fetch(currentThumbnailUrl)
 
     if (!response.ok) {
       console.error(`Failed to fetch image: ${response.statusText}`)
@@ -77,9 +56,9 @@ async function compareCurrentWithPreviousImage() {
 
     const result = await db
       .insert(youtubeThumbnails)
-      .values({ data: currentImageBuffer, updatedAt: new Date() })
+      .values({ url: currentThumbnailUrl, data: currentImageBuffer, updatedAt: new Date() })
       .returning()
-    previousImageRecord = result.at(0) ?? null
+    previousThumbnailRecord = result.at(0) ?? null
 
     const channelIds = (await db.query.youtubeThumbnailChangedNotificationChannels.findMany()).map(
       (record) => record.id,
@@ -92,7 +71,24 @@ async function compareCurrentWithPreviousImage() {
     return
   }
 
-  const response = await fetch(url)
+  if (previousThumbnailRecord.url === currentThumbnailUrl) {
+    console.log('same')
+    return
+  }
+
+  console.log(
+    'youtube thumbnail url changed:',
+    JSON.stringify(
+      {
+        previous: previousThumbnailRecord.url,
+        current: currentThumbnailUrl,
+      },
+      null,
+      2,
+    ),
+  )
+
+  const response = await fetch(currentThumbnailUrl)
   if (!response.ok) {
     console.error(`Failed to fetch image: ${response.statusText}`)
 
@@ -101,27 +97,26 @@ async function compareCurrentWithPreviousImage() {
 
   const currentImageBuffer = Buffer.from(await response.arrayBuffer())
 
-  const result = await looksSame(currentImageBuffer, previousImageRecord.data)
-
-  if (result.equal) {
-    console.log('same')
-    return
-  }
-
-  console.log(JSON.stringify(result, null, 2))
-
-  const current = await db
+  const newInsertedRecords = await db
     .insert(youtubeThumbnails)
-    .values({ data: currentImageBuffer, updatedAt: new Date() })
+    .values({ url: currentThumbnailUrl, data: currentImageBuffer, updatedAt: new Date() })
     .returning()
 
   const channelIds = (await db.query.youtubeThumbnailChangedNotificationChannels.findMany()).map((record) => record.id)
 
   try {
-    previousImageRecord = current.at(0)!
+    previousThumbnailRecord = newInsertedRecords.at(0)!
+  } catch (error) {
+    console.log('error at line: `previousThumbnailRecord = newInsertedRecords.at(0)!`')
+    console.error(error)
+  }
 
+  try {
     await sendMessages(channelIds, currentImageBuffer)
-  } catch (error) {}
+  } catch (error) {
+    console.log('error when sending message to discord')
+    console.error(error)
+  }
 
   console.log('done')
 }

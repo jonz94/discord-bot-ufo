@@ -84,6 +84,7 @@ export const brawlAttempts = sqliteTable('brawl_attempts', {
 
 export const youtubeThumbnails = sqliteTable('youtube_thumbnails', {
   id: integer('id').primaryKey(),
+  url: text('url').notNull(),
   data: blob('data', { mode: 'buffer' }).notNull(),
   updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
 })
