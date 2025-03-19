@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.0](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.8...v7.0.0) (2025-03-19)
+
+### 🚀 Features
+
+- [**breaking**] Compare youtube thumbnail image via url ([463567b](https://github.com/jonz94/discord-bot-ufo/commit/463567bf0bee7b3fd3b467c388e584790126bd23))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `@libsql/client` to 0.15.0 ([82b0cbb](https://github.com/jonz94/discord-bot-ufo/commit/82b0cbbeef393ad5e0dccef0f74b96fac1d1640a))
+- *(deps)* Update `drizzle-orm` to 0.40.1 ([25c4772](https://github.com/jonz94/discord-bot-ufo/commit/25c47721d937cbe1520af4cae2f9cdaf1760b7be))
+
 ## [6.0.8](https://github.com/jonz94/discord-bot-ufo/compare/v6.0.7...v6.0.8) (2025-03-11)
 
 ### ⚙️ Miscellaneous Tasks
