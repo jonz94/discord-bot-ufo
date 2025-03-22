@@ -32,7 +32,7 @@
     "@libsql/client": "^0.15.0",
     "discord.js": "^14.18.0",
     "drizzle-orm": "^0.40.1",
-    "hono": "^4.7.4",
+    "hono": "^4.7.5",
     "youtubei.js": "^13.1.0"
   },
   "devDependencies": {
