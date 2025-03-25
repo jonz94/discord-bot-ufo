@@ -8,7 +8,7 @@
         "discord.js": "^14.18.0",
         "drizzle-orm": "^0.41.0",
         "hono": "^4.7.5",
-        "youtubei.js": "^13.2.0",
+        "youtubei.js": "^13.3.0",
       },
       "devDependencies": {
         "@types/bun": "^1.2.6",
@@ -257,7 +257,7 @@
 
     "ws": ["ws@8.18.1", "", { "peerDependencies": { "bufferutil": "^4.0.1", "utf-8-validate": ">=5.0.2" }, "optionalPeers": ["bufferutil", "utf-8-validate"] }, "sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w=="],
 
-    "youtubei.js": ["youtubei.js@13.2.0", "", { "dependencies": { "@bufbuild/protobuf": "^2.0.0", "jintr": "^3.2.1", "tslib": "^2.5.0", "undici": "^5.19.1" } }, "sha512-esbSvWS12Dz/cVlHhnL/PSE84a/mVpQdzwPDIkRQu/NHJVxv0isBUcm3hJnYB1jg1LYvomV0YeOrYv5qWwJREA=="],
+    "youtubei.js": ["youtubei.js@13.3.0", "", { "dependencies": { "@bufbuild/protobuf": "^2.0.0", "jintr": "^3.3.0", "tslib": "^2.5.0", "undici": "^5.19.1" } }, "sha512-tbl7rxltpgKoSsmfGUe9JqWUAzv6HFLqrOn0N85EbTn5DLt24EXrjClnXdxyr3PBARMJ3LC4vbll100a0ABsYw=="],
 
     "@discordjs/rest/@discordjs/collection": ["@discordjs/collection@2.1.1", "", {}, "sha512-LiSusze9Tc7qF03sLCujF5iZp7K+vRNEDBZ86FT9aQAv3vxMLihUvKvpsCWiQ2DJq1tVckopKm1rxomgNUc9hg=="],
 
