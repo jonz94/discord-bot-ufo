@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.3](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.2...v7.0.3) (2025-03-25)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `youtubei.js` to 13.3.0 ([8ef67e1](https://github.com/jonz94/discord-bot-ufo/commit/8ef67e1fda55caa79bc12f661042758b9445b599))
+
 ## [7.0.2](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.1...v7.0.2) (2025-03-25)
 
 ### ⚙️ Miscellaneous Tasks
