@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.6](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.5...v7.0.6) (2025-04-02)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `@libsql/client` to 0.15.2 ([a5dbeb7](https://github.com/jonz94/discord-bot-ufo/commit/a5dbeb767d65dab076141ac636152f6895b4cf1e))
+
 ## [7.0.5](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.4...v7.0.5) (2025-03-31)
 
 ### ⚙️ Miscellaneous Tasks
