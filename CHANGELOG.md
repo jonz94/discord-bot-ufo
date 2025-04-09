@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.7](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.6...v7.0.7) (2025-04-09)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.7.6 ([7d9077d](https://github.com/jonz94/discord-bot-ufo/commit/7d9077da99976d42a12befcb6a8b822bacef7583))
+- *(dev-deps)* Update `typescript` to 5.8.3 ([d82d842](https://github.com/jonz94/discord-bot-ufo/commit/d82d842ff51c37ac4b068b4ec490985caefafe37))
+- *(runtime)* Update `bun` to 1.2.9 ([acbd480](https://github.com/jonz94/discord-bot-ufo/commit/acbd480f8e9c7a5a15f9f6ddc2e9b261240e0586))
+
 ## [7.0.6](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.5...v7.0.6) (2025-04-02)
 
 ### ⚙️ Miscellaneous Tasks
