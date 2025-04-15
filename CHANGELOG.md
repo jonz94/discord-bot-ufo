@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.8](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.7...v7.0.8) (2025-04-15)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.42.0 ([8158ff2](https://github.com/jonz94/discord-bot-ufo/commit/8158ff249857b4d0faf80307936c989bf2be62f2))
+- *(deps)* Update `@libsql/client` to 0.15.4 ([5be8a35](https://github.com/jonz94/discord-bot-ufo/commit/5be8a35f31829925041bbf34c226bd87dc65968c))
+- *(dev-deps)* Update `drizzle-kit` to 0.31.0 ([08f22e4](https://github.com/jonz94/discord-bot-ufo/commit/08f22e4a8301b4cd2ef87d4ac45022aef067a70b))
+- *(dev-deps)* Update `@types/bun` to 1.2.9 ([47b0519](https://github.com/jonz94/discord-bot-ufo/commit/47b05196c3eec982cb54e4112285b9e5532364af))
+
 ## [7.0.7](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.6...v7.0.7) (2025-04-09)
 
 ### ⚙️ Miscellaneous Tasks
