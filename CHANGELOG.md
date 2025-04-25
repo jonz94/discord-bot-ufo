@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.10](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.9...v7.0.10) (2025-04-25)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.43.1 ([008ad19](https://github.com/jonz94/discord-bot-ufo/commit/008ad194c204223df477d7dc1b4aee747daeb283))
+- *(deps)* Update `drizzle-orm` to 0.43.0 ([0d9bfc4](https://github.com/jonz94/discord-bot-ufo/commit/0d9bfc4b89d7a2ceeccd8f20b8043ba1a6aaf421))
+- *(deps)* Update `youtubei.js` to 13.4.0 ([79082aa](https://github.com/jonz94/discord-bot-ufo/commit/79082aa42d365191f3484764c26bcec7ea2a444d))
+- Update `.gitattributes` settings to enforce `LF` line endings ([d534c51](https://github.com/jonz94/discord-bot-ufo/commit/d534c514dbab255745c0abd5798840b882c33292))
+
 ## [7.0.9](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.8...v7.0.9) (2025-04-17)
 
 ### ⚙️ Miscellaneous Tasks
