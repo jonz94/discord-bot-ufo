@@ -4,7 +4,6 @@ import { Hono } from 'hono'
 import { db } from '~/db/db'
 import { guilds } from '~/db/schema'
 import { startScheduleForComparingYoutubeThumbnails } from '~/src/utils/compare-images'
-import { startScheduleToKeepTursoAlive } from '~/src/utils/keep-turso-alive'
 import { client } from './client'
 import { commands } from './commands/index'
 import { config } from './config'
@@ -13,8 +12,6 @@ import { emojis } from './emoji-list'
 import { handleBrawlRollDiceReaction, handleJoinBrawlReaction } from './handlers/handle-brawl-reaction'
 import { handleFightReaction } from './handlers/handle-fight-reaction'
 import { isDev } from './utils/is-dev'
-
-startScheduleToKeepTursoAlive()
 
 client.once(Events.ClientReady, async (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`)
