@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.12](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.11...v7.0.12) (2025-05-03)
+
+### 🚜 Refactor
+
+- Remove turso database keep-alive logic ([fb881b5](https://github.com/jonz94/discord-bot-ufo/commit/fb881b5512de78e530c2dad5c3784098d41eaf9c))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `discord.js` to 14.19.3 ([907c4e5](https://github.com/jonz94/discord-bot-ufo/commit/907c4e54ce43057e1dc79ecc0f0dd1d3dab3fb6c))
+- *(dev-deps)* Update `drizzle-kit` to 0.31.1 ([92bcb20](https://github.com/jonz94/discord-bot-ufo/commit/92bcb2021aa2195e41ea21e255107d62f1fd379b))
+
 ## [7.0.11](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.10...v7.0.11) (2025-04-29)
 
 ### ⚙️ Miscellaneous Tasks
