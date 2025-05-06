@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.13](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.12...v7.0.13) (2025-05-06)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.11 ([8d3e339](https://github.com/jonz94/discord-bot-ufo/commit/8d3e339fe8ab51c1815974cbe13bbf14aa60acad))
+- *(dev-deps)* Update `@types/bun` to 1.2.12 ([d154524](https://github.com/jonz94/discord-bot-ufo/commit/d1545242682491acb99de066b0f468760537d4a0))
+- *(runtime)* Update `bun` to 1.2.12 ([706309e](https://github.com/jonz94/discord-bot-ufo/commit/706309e9cc0e3c1497613abac7ea830294c42d8e))
+
 ## [7.0.12](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.11...v7.0.12) (2025-05-03)
 
 ### 🚜 Refactor
