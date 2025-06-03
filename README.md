@@ -2,11 +2,15 @@
 
 A Discord BOT named `機器幽浮` maintained by [jonz94](https://github.com/jonz94)
 
-## Setup
+## Docker Hub
+
+You can pull the Docker image from Docker Hub: https://hub.docker.com/r/jonz94/discord-bot-ufo
+
+## Development Setup
 
 ### Prerequisites
 
-- Install [Bun](https://bun.sh)
+- Install [Bun](https://bun.sh) (required to install packages, build and run locally)
 
 ### Getting Started
 
@@ -100,7 +104,7 @@ docker compose up
 
 ## License
 
-See [LICENSE](https://github.com/jonz94/discord-bot-ufo/blob/main/LICENSE).
+Licensed under the [BSD Zero Clause License](./LICENSE).
 
 ## Credits
 
