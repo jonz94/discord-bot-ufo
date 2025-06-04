@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.18](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.17...v7.0.18) (2025-06-04)
+
+### 📚 Documentation
+
+- Improve `README.md` ([f441ac7](https://github.com/jonz94/discord-bot-ufo/commit/f441ac7f15be2d8a1b4a750b8d571efa943204f4))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `drizzle-orm` to 0.44.2 ([66710e8](https://github.com/jonz94/discord-bot-ufo/commit/66710e87e27e100e7a15a1d2933c9758d229310c))
+
 ## [7.0.17](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.16...v7.0.17) (2025-06-03)
 
 ### ⚙️ Miscellaneous Tasks
