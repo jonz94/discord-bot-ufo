@@ -29,7 +29,7 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@libsql/client": "^0.15.8",
+    "@libsql/client": "^0.15.9",
     "discord.js": "^14.19.3",
     "drizzle-orm": "^0.44.2",
     "hono": "^4.7.11",
