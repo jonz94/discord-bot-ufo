@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.19](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.18...v7.0.19) (2025-06-11)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `youtubei.js` to 14.0.0 ([51d72bc](https://github.com/jonz94/discord-bot-ufo/commit/51d72bc65a07a9dac07e4b918ba43fb3f2a4b86a))
+- *(deps)* Update `@libsql/client` to 0.15.9 ([83d9a6e](https://github.com/jonz94/discord-bot-ufo/commit/83d9a6e1676c4c0643a81889b2b02e56e6f51faa))
+
 ## [7.0.18](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.17...v7.0.18) (2025-06-04)
 
 ### 📚 Documentation
