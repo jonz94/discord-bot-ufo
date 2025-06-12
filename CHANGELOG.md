@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.20](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.19...v7.0.20) (2025-06-12)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(dev-deps)* Update `@types/bun` to 1.2.16 ([62a0cec](https://github.com/jonz94/discord-bot-ufo/commit/62a0cec55ddce102322efc01ba82cb17b036f4e2))
+- *(runtime)* Update `bun` to 1.2.16 ([6b18c12](https://github.com/jonz94/discord-bot-ufo/commit/6b18c125fd97edf736cd6f5368852b847311ec5d))
+
 ## [7.0.19](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.18...v7.0.19) (2025-06-11)
 
 ### ⚙️ Miscellaneous Tasks
