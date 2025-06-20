@@ -1,5 +1,11 @@
 # discord-bot-ufo
 
+<a href="https://github.com/jonz94/discord-bot-ufo/actions/workflows/build.yml"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jonz94/discord-bot-ufo/build.yml?logo=github&style=flat-square"></a>
+<a href="https://hub.docker.com/r/jonz94/discord-bot-ufo"><img alt="latest release" src="https://img.shields.io/docker/v/jonz94/discord-bot-ufo?logo=docker&style=flat-square"></a>
+<a href="./LICENSE"><img alt="0BSD License" src="https://img.shields.io/github/license/jonz94/discord-bot-ufo?style=flat-square"></a>
+<a href="https://conventionalcommits.org"><img alt="Conventional Commits" src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?style=flat-square"></a>
+
+
 A Discord BOT named `機器幽浮` maintained by [jonz94](https://github.com/jonz94)
 
 ## Docker Hub
