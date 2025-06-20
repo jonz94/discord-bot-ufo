@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.15.9",
-    "discord.js": "^14.19.3",
+    "discord.js": "^14.20.0",
     "drizzle-orm": "^0.44.2",
     "hono": "^4.7.11",
     "youtubei.js": "^14.0.0"
