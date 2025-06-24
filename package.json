@@ -42,11 +42,5 @@
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-packagejson": "^2.5.15",
     "typescript": "~5.8.3"
-  },
-  "overrides": {
-    "esbuild": "^0.25.1"
-  },
-  "trustedDependencies": [
-    "esbuild"
-  ]
+  }
 }
