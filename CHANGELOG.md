@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.24](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.23...v7.0.24) (2025-07-09)
+
+### ⚙️ Miscellaneous Tasks
+
+- *(deps)* Update `hono` to 4.8.4 ([ff2b6bc](https://github.com/jonz94/discord-bot-ufo/commit/ff2b6bcf18cf712d1d03e09fb432a6aec6508571))
+- *(dev-deps)* Update `prettier-plugin-packagejson` to 2.5.18 ([30a45e8](https://github.com/jonz94/discord-bot-ufo/commit/30a45e81164511822e43de39849306bca715834f))
+- *(dev-deps)* Update `@types/bun` to 1.2.18 ([ee04c56](https://github.com/jonz94/discord-bot-ufo/commit/ee04c56f305ca98ce9e7594834d7b040f85628d5))
+- *(runtime)* Update `bun` to 1.2.18 ([b4fe21d](https://github.com/jonz94/discord-bot-ufo/commit/b4fe21d47eea7365f194d2693f195e3249584953))
+
 ## [7.0.23](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.22...v7.0.23) (2025-06-30)
 
 ### ⚙️ Miscellaneous Tasks
