@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.0.27](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.26...v7.0.27) (2025-07-22)
+
+### 🐛 Bug Fixes
+
+- Replace `await` with `void` ([1928b0e](https://github.com/jonz94/discord-bot-ufo/commit/1928b0e94752d18fcd97d8185bd02e2a366ff73a))
+
 ## [7.0.26](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.25...v7.0.26) (2025-07-22)
 
 ### 🐛 Bug Fixes
