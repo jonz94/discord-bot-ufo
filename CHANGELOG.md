@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [7.1.0](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.27...v7.1.0) (2025-07-22)
+
+### 🚀 Features
+
+- Add debug log for client.login() ([231e6f5](https://github.com/jonz94/discord-bot-ufo/commit/231e6f572c7e86d732472495239fd993e93d181a))
+
 ## [7.0.27](https://github.com/jonz94/discord-bot-ufo/compare/v7.0.26...v7.0.27) (2025-07-22)
 
 ### 🐛 Bug Fixes
