@@ -119,7 +119,7 @@ client.on(Events.MessageReactionAdd, async (reaction, user) => {
   handleBrawlRollDiceReaction(reaction, user, targetMessageId)
 })
 
-client.login(config.DISCORD_TOKEN)
+await client.login(config.DISCORD_TOKEN)
 
 const app = new Hono()
 
