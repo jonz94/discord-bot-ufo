@@ -33,7 +33,7 @@
     "discord.js": "^14.21.0",
     "drizzle-orm": "^0.44.3",
     "hono": "^4.8.5",
-    "youtubei.js": "^15.0.0"
+    "youtubei.js": "^15.0.1"
   },
   "devDependencies": {
     "@types/bun": "^1.2.19",
